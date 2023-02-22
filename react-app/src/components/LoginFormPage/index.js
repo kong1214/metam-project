@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import './LoginForm.css';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,8 +19,21 @@ function LoginFormPage() {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else {
+      history.push("/")
     }
   };
+
+  const logInDemoUser = async (e) => {
+    e.preventDefault()
+    //made whats commented out is what was there before
+    const data = await dispatch(login("demo@aa.io", "password"));
+    if (data) {
+      setErrors(data);
+    } else {
+      history.push("/")
+    }
+  }
 
   return (
     <>
@@ -49,6 +63,7 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button className="login-form-button" type="submit" onClick={logInDemoUser}>Demo-User</button>
       </form>
     </>
   );
