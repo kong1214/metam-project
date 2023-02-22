@@ -1,0 +1,42 @@
+.splash-content{
+    display: flex;
+    width: 70%;
+    margin-top: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 86vh;
+    justify-content: space-between;
+}
+.splash-left-column{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: start;
+    align-items: start;
+}
+.splash-right-column{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+}
+.splash-header{
+    width: 85%;
+    font-size: 2.8125rem;
+}
+.splash-line-break{
+    margin-top: 10%;
+    width: 30%;
+    border-top: 1px dashed black;
+    margin-bottom: 10%;
+}
+.splash-about-metam{
+    font-size: 20px;
+    width: 85%;
+    margin-bottom: 10%;
+}
+.signup-button.splash-button{
+    height: 35px;
+    width: 125px;
+}

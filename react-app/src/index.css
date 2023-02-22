@@ -1,1 +1,11 @@
 /* TODO Add site wide styles */
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+    cursor: pointer;
+}
+a:visited {
+    text-decoration: none;
+    color: inherit !important;
+}
+a:link {
+    text-decoration: none;
+}

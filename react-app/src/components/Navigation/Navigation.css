@@ -5,3 +5,34 @@
 .hidden {
   display: none;
 }
+
+/* LOGGED OUT NAV */
+.logged-out-navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  height: 6vh;
+}
+.logged-out-nav-buttons-container{
+  display: flex;
+  width: 12%;
+  justify-content: space-between;
+}
+.login-button.nav-button{
+  border: none;
+  background-color: white;
+  color: #727272;
+}
+.signup-button{
+  background-color: #0D0E10;
+  color: #FFFFFF;
+}
+.nav-button{
+  height: 35px;
+}
+
+
+/* LOGGED IN NAV */
