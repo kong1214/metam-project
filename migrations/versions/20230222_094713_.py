@@ -32,7 +32,7 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE transactions SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
     op.create_table('projects',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -48,8 +48,8 @@ def upgrade():
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE transactions SET SCHEMA {SCHEMA};")
-        
+        op.execute(f"ALTER TABLE projects SET SCHEMA {SCHEMA};")
+
     op.create_table('tasks',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('project_id', sa.Integer(), nullable=False),
@@ -64,6 +64,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['project_id'], ['projects.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+
+    if environment == "production":
+        op.execute(f"ALTER TABLE tasks SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
