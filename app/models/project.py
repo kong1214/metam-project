@@ -30,5 +30,5 @@ class Project(db.Model):
             'due_date': self.due_date,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'tasks': [task.to_dict() for task in self.tasks]
+            # 'tasks': [task.to_dict() for task in self.tasks]
         }
