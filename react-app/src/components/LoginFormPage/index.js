@@ -31,7 +31,7 @@ function LoginFormPage() {
     if (data) {
       setErrors(data);
     } else {
-      history.push("/")
+      history.push("/home")
     }
   }
 

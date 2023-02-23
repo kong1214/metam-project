@@ -1,0 +1,26 @@
+.home-page-content-and-left-navbar{
+    display: flex;
+}
+.home-page-content-container{
+    margin: 2.5%;
+    width: 80%;
+    height: 84vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-page-header{
+    width: 100%;
+    font-size: 20px;
+}
+.home-page-date-greeting-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+.home-page-gretting{
+    font-size: 32px;
+}

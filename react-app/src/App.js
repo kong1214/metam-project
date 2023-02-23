@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import SplashPage from "./components/SplashPage";
 import LeftNavBar from "./components/Navigation/LeftNavBar";
+import HomePage from "./components/HomePage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -19,20 +20,6 @@ function App() {
   }, [dispatch]);
 
 
-  if (sessionUser) {
-    return (
-      <>
-        <Navigation isLoaded={isLoaded} />
-        <LeftNavBar />
-        {isLoaded && (
-          <Switch>
-            <Route exact path="/home">
-            </Route>
-          </Switch>
-        )}
-      </>
-    )
-  }
 
   return (
     <>
@@ -48,6 +35,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/home">
+              <HomePage />
+            </Route>
         </Switch>
       )}
     </>
