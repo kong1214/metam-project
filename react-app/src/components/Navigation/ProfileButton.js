@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
+import { Redirect, useHistory } from "react-router-dom";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
@@ -7,6 +8,7 @@ import SignupFormModal from "../SignupFormModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -29,9 +31,10 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const handleLogout = (e) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
-    dispatch(logout());
+    await dispatch(logout());
+    history.push("/")
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
@@ -42,14 +45,14 @@ function ProfileButton({ user }) {
       <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
-      <ul className={ulClassName} ref={ulRef}>
+      <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
+            <div>{user.username}</div>
+            <div>{user.email}</div>
+            <div>
               <button onClick={handleLogout}>Log Out</button>
-            </li>
+            </div>
           </>
         ) : (
           <>
@@ -66,7 +69,7 @@ function ProfileButton({ user }) {
             />
           </>
         )}
-      </ul>
+      </div>
     </>
   );
 }

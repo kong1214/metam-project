@@ -1,7 +1,99 @@
 .profile-dropdown {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 10%;
+  height: 10%;
+  background-color: white;
+  border: .5px solid lightgray;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  right: 2%;
+  /* top: 0%; */
 }
 
 .hidden {
   display: none;
+}
+
+/* LOGGED OUT NAV */
+.logged-out-navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  height: 6vh;
+}
+.logged-out-nav-buttons-container{
+  display: flex;
+  width: 12%;
+  justify-content: space-between;
+}
+.login-button.nav-button{
+  border: none;
+  background-color: white;
+  color: #727272;
+}
+.signup-button{
+  background-color: #0D0E10;
+  color: #FFFFFF;
+}
+.nav-button{
+  height: 35px;
+}
+
+/* LOGGED IN NAV */
+.logged-in-navbar-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 6vh;
+  background-color: #363639;
+  border-bottom: 1px solid #424244;
+}
+.logged-in-nav-buttons-and-home-container{
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* LEFT NAV BAR */
+.left-navbar-container{
+  height: 94vh;
+  width: 15%;
+  display: flex;
+  background-color: #2e2e30;
+  flex-direction: column;
+  color: #f5f4f3;
+}
+.left-navbar-top-container{
+  display: flex;
+  flex-direction: column;
+  margin: 6%;
+  height: 10%;
+  justify-content: space-between;
+}
+.create-project-button{
+    border: 1px solid lightgray;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+}
+.my-workspace-container{
+  display: flex;
+  flex-direction: column;
+  margin: 6%;
+  padding-top: 6%;
+  border-top: 1px solid #424244;
+}
+.my-workspace-header{
+  margin-bottom: 5%;
 }
