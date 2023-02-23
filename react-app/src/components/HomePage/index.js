@@ -19,6 +19,7 @@ function HomePage() {
 
     const today = `${day}, ${month} ${date}`
 
+    if (!sessionUser) return null;
     return (
         <div className='home-page-content-and-left-navbar'>
             <LeftNavBar />
