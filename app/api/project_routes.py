@@ -13,17 +13,18 @@ def get_all_projects():
     """
 
     projects = current_user.projects
-    # print(f"\n\n\n{projects}\n\n\n")
-    # for project in projects:
-    #     print(project.to_dict())
     return {'projects': [project.to_dict() for project in projects]}
 
-
-@project_routes.route('/<int:id>')
+@project_routes.route('/<int:project_id>')
 @login_required
-def user(id):
+def single_project(project_id):
     """
-    Query for a user by id and returns that user in a dictionary
+    Get a single project's detals
     """
-    user = User.query.get(id)
-    return user.to_dict()
+    project = Project.query.get(project_id)
+    tasks = project.tasks
+    user = project.user
+    parsed_project = project.to_dict()
+    parsed_project["num_tasks"] = len(tasks)
+    parsed_project["owner"] = user.to_dict()
+    return {"project": parsed_project}

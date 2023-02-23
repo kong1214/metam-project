@@ -29,7 +29,7 @@ function HomePage() {
                     <div className='home-page-date'>
                         {today}
                     </div>
-                    <div className='home-page-gretting'>
+                    <div className='home-page-greeting'>
                         {`Hello ${sessionUser.first_name}`}
                     </div>
                 </div>
