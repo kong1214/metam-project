@@ -9,3 +9,6 @@ a:visited {
 a:link {
     text-decoration: none;
 }
+body{
+    margin: 0px;
+}

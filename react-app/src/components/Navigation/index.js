@@ -15,10 +15,10 @@ function Navigation({ isLoaded }) {
 	if (sessionUser) {
 		sessionLinks = (
 			<div className="logged-in-navbar-container">
-				<div>
-					<NavLink exact to="/">Home</NavLink>
-				</div>
-				<div className="logged-in-nav-buttons-container">
+				<div className="logged-in-nav-buttons-and-home-container">
+					<div style={{ color: "white" }}>
+						<NavLink exact to="/">Metam</NavLink>
+					</div>
 					<div className="profile-button">
 						<ProfileButton user={sessionUser} />
 					</div>
@@ -28,7 +28,7 @@ function Navigation({ isLoaded }) {
 	} else {
 		sessionLinks = (
 			<div className="logged-out-navbar-container">
-				<div style={{color:"rgb(114, 114, 114)"}}>
+				<div style={{ color: "rgb(114, 114, 114)" }}>
 					<NavLink exact to="/">metam</NavLink>
 				</div>
 				<div className="logged-out-nav-buttons-container">
