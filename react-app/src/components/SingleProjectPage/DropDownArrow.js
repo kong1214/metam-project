@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditProjectFormModal from "../EditProjectModal";
-import SignupFormModal from "../SignupFormModal";
+import DeleteProjectModal from "../DeleteProjectModal";
 
 function DropDownArrow({ project }) {
     const dispatch = useDispatch();
@@ -51,7 +51,7 @@ function DropDownArrow({ project }) {
                 <OpenModalButton
                     buttonText="Delete Project"
                     onButtonClick={closeMenu}
-                    modalComponent={<SignupFormModal />}
+                    modalComponent={<DeleteProjectModal project={project}/>}
                 />
             </div>
         </>

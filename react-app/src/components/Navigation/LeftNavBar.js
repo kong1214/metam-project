@@ -9,13 +9,12 @@ function LeftNavBar() {
 
     const sessionUser = useSelector(state => state.session.user);
     const projects = useSelector(state => state.project.allProjects)
-
+    const projectsArr = Object.values(projects)
 
     useEffect(() => {
         dispatch(getAllProjects())
-    }, [dispatch])
+    }, [dispatch, projectsArr.length])
 
-    const projectsArr = Object.values(projects)
     return (
         <div className="left-navbar-container">
             <div className="left-navbar-top-container">

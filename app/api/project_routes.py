@@ -78,3 +78,18 @@ def edit_project(project_id):
 
         return project.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@project_routes.route('/<int:project_id>', methods=["DELETE"])
+@login_required
+def delete_project(project_id):
+    """
+    Delete a project
+    """
+    project = Project.query.get(project_id)
+
+    if project is None:
+        return {"error": f"No project found with id {project_id}"}
+
+    db.session.delete(project)
+    db.session.commit()
+    return {'success': "True", "status_code": 200}

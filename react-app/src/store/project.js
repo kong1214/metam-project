@@ -2,6 +2,7 @@ const GET_ALL_PROJECTS = "projects/GET_ALL_PROJECTS";
 const GET_SINGLE_PROJECT = "projects/GET_SINGLE_PROJECTS";
 const CREATE_A_PROJECT = "projects/CREATE_A_PROJECT"
 const EDIT_A_PROJECT = "projects/EDIT_A_PROJECT"
+const DELETE_A_PROJECT = "projects/DELETE_A_PROJECT"
 
 const getAll = (projects) => ({
     type: GET_ALL_PROJECTS,
@@ -19,6 +20,10 @@ const edit = (project) => ({
     type: EDIT_A_PROJECT,
     project
 })
+const remove = (projectId) => ({
+    type: DELETE_A_PROJECT,
+    projectId
+})
 
 export const getAllProjects = () => async (dispatch) => {
     const response = await fetch("/api/projects");
@@ -34,8 +39,8 @@ export const getAllProjects = () => async (dispatch) => {
     }
 };
 
-export const getSingleProject = (project_id) => async (dispatch) => {
-    const response = await fetch(`/api/projects/${project_id}`);
+export const getSingleProject = (projectId) => async (dispatch) => {
+    const response = await fetch(`/api/projects/${projectId}`);
 
     if (response.ok) {
         const project = await response.json();
@@ -57,20 +62,28 @@ export const createProject = (project) => async (dispatch) => {
     }
 }
 
-export const editProject = (project, project_id) => async (dispatch) => {
-    const response = await fetch(`/api/projects/${project_id}`, {
+export const editProject = (project, projectId) => async (dispatch) => {
+    const response = await fetch(`/api/projects/${projectId}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(project)
     })
     if (response.ok) {
         const updatedProject = await response.json()
-        console.log(updatedProject)
         dispatch(edit(updatedProject))
         return updatedProject
     }
 }
-
+export const deleteProject = (projectId) => async (dispatch) => {
+    console.log(projectId)
+    const response = await fetch(`/api/projects/${projectId}`, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    })
+    if (response.ok) {
+        dispatch(remove(projectId))
+    }
+}
 
 
 const initialState = { allProjects: {}, singleProject: {} };
@@ -93,6 +106,10 @@ const project = (state = initialState, action) => {
         case EDIT_A_PROJECT:
             newState = {allProjects: {...state.allProjects}, singleProject: action.project}
             newState.allProjects[action.project.id] = action.project
+            return newState
+        case DELETE_A_PROJECT:
+            newState = {allProjects: {...state.allProjects}, singleProject: {}}
+            delete newState.allProjects[action.projectId]
             return newState
         default:
             return state;
