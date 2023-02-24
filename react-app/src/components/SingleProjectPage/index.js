@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
 import { getAllProjects } from "../../store/project";
 import { getSingleProject } from "../../store/project";
+import DropDownArrow from "./DropDownArrow";
 import LeftNavBar from "../Navigation/LeftNavBar";
 import "./SingleProjectPage.css"
 
@@ -14,7 +15,7 @@ function SingleProjectPage() {
 
     useEffect(() => {
         dispatch(getSingleProject(projectId))
-    }, [dispatch, projectId])
+    }, [dispatch, projectId, project.project_name, project.project_icon, project.project_status])
 
     if (!sessionUser) return null;
     if (!project) return null;
@@ -44,7 +45,7 @@ function SingleProjectPage() {
                                 {project.project_name}
                             </div>
                             <div className="single-project-dropdown">
-                                <i class="fa-solid fa-caret-down"></i>
+                                <DropDownArrow project={project}/>
                             </div>
                         </div>
                     </div>
