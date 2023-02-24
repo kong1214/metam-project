@@ -1,10 +1,11 @@
 .home-page-content-and-left-navbar{
     display: flex;
+    height: 100%;
 }
 .home-page-content-container{
-    margin: 2.5%;
-    width: 80%;
-    height: 84vh;
+    margin: 1.5%;
+    width: 100%;
+    height: 88vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

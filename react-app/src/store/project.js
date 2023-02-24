@@ -34,7 +34,7 @@ export const getSingleProject = (project_id) => async (dispatch) => {
 
     if (response.ok) {
         const project = await response.json();
-        dispatch(getSingle(project));
+        dispatch(getSingle(project.project));
         return project
     }
 }
