@@ -40,7 +40,7 @@ def create_project():
     form = CreateProjectForm()
     form ['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        
+
         new_project = Project(
             project_owner_id=current_user.id,
             project_name=form.data["project_name"],
@@ -53,4 +53,28 @@ def create_project():
         db.session.add(new_project)
         db.session.commit()
         return new_project.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@project_routes.route('/<int:project_id>', methods=["PUT"])
+@login_required
+def edit_project(project_id):
+    """
+    Edit a project
+    """
+    project = Project.query.get(project_id)
+
+    form = CreateProjectForm()
+    print(f"\n\n\n{dict(form.data)}\n\n\n")
+    form ['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+
+        project.project_name=form.data["project_name"]
+        project.project_icon=form.data["project_icon"]
+        project.project_status=form.data["project_status"]
+        project.due_date=form.data["due_date"]
+        project.updated_at=form.data["updated_at"]
+
+        db.session.commit()
+
+        return project.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

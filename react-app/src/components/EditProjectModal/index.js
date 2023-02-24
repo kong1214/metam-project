@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { editProject } from "../../store/project";
 
 function EditProjectFormModal({ project }) {
 
@@ -18,14 +19,33 @@ function EditProjectFormModal({ project }) {
     const [dueDate, setDueDate] = useState(dateFormatter(project.due_date));
     const { closeModal } = useModal();
 
+
+    const today = new Date();
+    const year = today.getUTCFullYear();
+    let month = today.getUTCMonth() + 1;
+    if (month < 10) {
+      month = `0${month}`
+    }
+    const day = today.getUTCDate();
+    const date = `${month}/${day}/${year}`;
+
+    const dateParser = (date) => {
+        const dateArr = date.split("-")
+        return `${dateArr[1]}/${dateArr[2]}/${dateArr[0]}`
+      }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // if (data) {
-        //   setErrors(data);
-        // } else {
-        //     closeModal()
-        // }
+        const updatedProject = {
+            project_name: projectName,
+            project_icon: projectIcon,
+            project_status: projectStatus,
+            due_date: dateParser(dueDate),
+            updated_at: date
+        }
+        return (dispatch(editProject(updatedProject, project.id)))
+        .then(() => closeModal())
     };
 
     return (
@@ -80,7 +100,7 @@ function EditProjectFormModal({ project }) {
                     onChange={(e) => setDueDate(e.target.value)}
                     required
                 />
-                <button type="submit">Create</button>
+                <button type="submit">Edit</button>
             </form>
         </>
     );

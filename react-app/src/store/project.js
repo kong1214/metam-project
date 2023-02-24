@@ -1,6 +1,7 @@
 const GET_ALL_PROJECTS = "projects/GET_ALL_PROJECTS";
 const GET_SINGLE_PROJECT = "projects/GET_SINGLE_PROJECTS";
 const CREATE_A_PROJECT = "projects/CREATE_A_PROJECT"
+const EDIT_A_PROJECT = "projects/EDIT_A_PROJECT"
 
 const getAll = (projects) => ({
     type: GET_ALL_PROJECTS,
@@ -12,6 +13,10 @@ const getSingle = (project) => ({
 })
 const add = (project) => ({
     type: CREATE_A_PROJECT,
+    project
+})
+const edit = (project) => ({
+    type: EDIT_A_PROJECT,
     project
 })
 
@@ -52,6 +57,19 @@ export const createProject = (project) => async (dispatch) => {
     }
 }
 
+export const editProject = (project, project_id) => async (dispatch) => {
+    const response = await fetch(`/api/projects/${project_id}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(project)
+    })
+    if (response.ok) {
+        const updatedProject = await response.json()
+        console.log(updatedProject)
+        dispatch(edit(updatedProject))
+        return updatedProject
+    }
+}
 
 
 
@@ -69,7 +87,10 @@ const project = (state = initialState, action) => {
             newState.singleProject = action.project
             return newState
         case CREATE_A_PROJECT:
-
+            newState = {allProjects: {...state.allProjects}, singleProject: action.project}
+            newState.allProjects[action.project.id] = action.project
+            return newState
+        case EDIT_A_PROJECT:
             newState = {allProjects: {...state.allProjects}, singleProject: action.project}
             newState.allProjects[action.project.id] = action.project
             return newState
