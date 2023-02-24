@@ -19,7 +19,9 @@ function LeftNavBar() {
     return (
         <div className="left-navbar-container">
             <div className="left-navbar-top-container">
-                <button className="create-project-button">Create Project</button>
+                <button className="create-project-button">
+                    <NavLink to="/project">Create Project</NavLink>
+                </button>
                 <NavLink to="/home">Home</NavLink>
             </div>
             <div className="my-workspace-container">

@@ -1,5 +1,6 @@
 const GET_ALL_PROJECTS = "projects/GET_ALL_PROJECTS";
 const GET_SINGLE_PROJECT = "projects/GET_SINGLE_PROJECTS";
+const CREATE_A_PROJECT = "projects/CREATE_A_PROJECT"
 
 const getAll = (projects) => ({
     type: GET_ALL_PROJECTS,
@@ -9,7 +10,10 @@ const getSingle = (project) => ({
     type: GET_SINGLE_PROJECT,
     project
 })
-
+const add = (project) => ({
+    type: CREATE_A_PROJECT,
+    project
+})
 
 export const getAllProjects = () => async (dispatch) => {
     const response = await fetch("/api/projects");
@@ -24,6 +28,7 @@ export const getAllProjects = () => async (dispatch) => {
         return normalizedData
     }
 };
+
 export const getSingleProject = (project_id) => async (dispatch) => {
     const response = await fetch(`/api/projects/${project_id}`);
 
@@ -33,6 +38,22 @@ export const getSingleProject = (project_id) => async (dispatch) => {
         return project
     }
 }
+
+export const createProject = (project) => async (dispatch) => {
+    const response = await fetch(`/api/projects`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(project)
+    })
+    if(response.ok) {
+        const project = await response.json()
+        dispatch(add(project))
+        return project
+    }
+}
+
+
+
 
 const initialState = { allProjects: {}, singleProject: {} };
 
@@ -46,6 +67,11 @@ const project = (state = initialState, action) => {
         case GET_SINGLE_PROJECT:
             newState = { allProjects: {...state.allProjects}, singleProject: {} }
             newState.singleProject = action.project
+            return newState
+        case CREATE_A_PROJECT:
+
+            newState = {allProjects: {...state.allProjects}, singleProject: action.project}
+            newState.allProjects[action.project.id] = action.project
             return newState
         default:
             return state;

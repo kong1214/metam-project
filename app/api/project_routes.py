@@ -35,11 +35,12 @@ def single_project(project_id):
 @login_required
 def create_project():
     """
-    Add a single project's detals
+    Add a project
     """
     form = CreateProjectForm()
     form ['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        
         new_project = Project(
             project_owner_id=current_user.id,
             project_name=form.data["project_name"],

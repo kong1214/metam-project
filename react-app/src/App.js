@@ -7,6 +7,7 @@ import SplashPage from "./components/SplashPage";
 import LeftNavBar from "./components/Navigation/LeftNavBar";
 import HomePage from "./components/HomePage"
 import SingleProjectPage from "./components/SingleProjectPage";
+import CreateProjectPage from "./components/CreateProjectPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route exact path="/project/:projectId">
             <SingleProjectPage />
+          </Route>
+          <Route exact path="/project">
+            <CreateProjectPage />
           </Route>
         </Switch>
       )}
