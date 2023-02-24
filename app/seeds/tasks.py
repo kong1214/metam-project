@@ -5,57 +5,57 @@ def seed_tasks():
     task1 = Task(
         project_id=1,
         task_name="First Task",
-        due_date="2023-02-22",
+        due_date="02/25/2023",
         priority="Low",
         task_status="Off Track",
         project_section="To do",
         description="This is the first task for User 1's first project!",
-        created_at="2023-02-20",
-        updated_at="2023-02-20"
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
     )
     task2 = Task(
         project_id=1,
         task_name="Second Task",
-        due_date="2023-02-22",
+        due_date="02/25/2023",
         priority="Medium",
         task_status="At Risk",
         project_section="Doing",
         description="This is the second task for User 1's first project!",
-        created_at="2023-02-20",
-        updated_at="2023-02-20"
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
     )
     task3 = Task(
         project_id=1,
         task_name="Third Task",
-        due_date="2023-02-22",
+        due_date="02/25/2023",
         priority="High",
         task_status="On Track",
         project_section="Done",
         description="This is the third task for User 1's first project!",
-        created_at="2023-02-20",
-        updated_at="2023-02-20"
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
     )
     task4 = Task(
         project_id=2,
         task_name="First Task",
-        due_date="2023-02-22",
+        due_date="02/25/2023",
         priority="High",
         task_status="On Track",
         project_section="Doing",
         description="This is the first task for User 2's first project!",
-        created_at="2023-02-20",
-        updated_at="2023-02-20"
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
     )
     task5 = Task(
         project_id=3,
         task_name="First Task",
-        due_date="2023-02-22",
+        due_date="02/25/2023",
         priority="Low",
         task_status="Off Track",
         project_section="Doing",
         description="This is the first task for User 3's first project!",
-        created_at="2023-02-20",
-        updated_at="2023-02-20"
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
     )
 
 
