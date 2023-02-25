@@ -5,7 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditProjectFormModal from "../EditProjectModal";
 import DeleteProjectModal from "../DeleteProjectModal";
 
-function DropDownArrow({ project }) {
+function TaskDropDownArrow({ task }) {
     const dispatch = useDispatch();
     const history = useHistory()
     const [showMenu, setShowMenu] = useState(false);
@@ -31,7 +31,7 @@ function DropDownArrow({ project }) {
     }, [showMenu]);
 
 
-    const ulClassName = "project-dropdown" + (showMenu ? "" : " hidden");
+    const ulClassName = "task-dropdown" + (showMenu ? "" : " hidden");
     const closeMenu = () => setShowMenu(false);
 
     return (
@@ -43,19 +43,19 @@ function DropDownArrow({ project }) {
                 <div>
                 </div>
                 <OpenModalButton
-                    buttonText="Edit Project"
+                    buttonText="Edit Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<EditProjectFormModal project={project}/>}
+                    modalComponent={<EditProjectFormModal task={task}/>}
                 />
 
                 <OpenModalButton
-                    buttonText="Delete Project"
+                    buttonText="Delete Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<DeleteProjectModal project={project}/>}
+                    modalComponent={<DeleteProjectModal task={task}/>}
                 />
             </div>
         </>
     );
 }
 
-export default DropDownArrow;
+export default TaskDropDownArrow;

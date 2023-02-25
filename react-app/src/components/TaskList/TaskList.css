@@ -24,8 +24,30 @@
     border-bottom: 1px lightgray solid;
     margin-bottom: 1%;
 }
-.task-name{
+.task-name-container{
     min-width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.task-drop-down-arrow{
+    margin-right: 1%;
+}
+.task-dropdown{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+    height: 10%;
+    background-color: white;
+    border: .5px solid lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+.hidden {
+    display: none;
 }
 .task-due-date{
     display: flex;

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
 import { getSingleProject } from "../../store/project";
 import { getAllTasks } from "../../store/task";
-import DropDownArrow from "./DropDownArrow";
+import DropDownArrow from "./ProjectDropDownArrow";
 import LeftNavBar from "../Navigation/LeftNavBar";
 import ProjectHeader from "./ProjectHeader";
 import TaskList from "../TaskList";

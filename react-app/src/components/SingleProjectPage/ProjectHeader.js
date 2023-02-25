@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
 import { getAllProjects } from "../../store/project";
 import { getSingleProject } from "../../store/project";
-import DropDownArrow from "./DropDownArrow";
+import ProjectDropDownArrow from "./ProjectDropDownArrow";
 import LeftNavBar from "../Navigation/LeftNavBar";
 import "./SingleProjectPage.css"
 
@@ -61,7 +61,7 @@ function ProjectHeader({ project }) {
                         {project.project_name}
                     </div>
                     <div className="single-project-dropdown" style={{ marginRight: "1.5%" }}>
-                        <DropDownArrow project={project} />
+                        <ProjectDropDownArrow project={project} />
                     </div>
                     {projectStatus}
                 </div>

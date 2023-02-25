@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
+import TaskDropDownArrow from "./TaskDropDownArrow";
 import "./TaskList.css"
 
 function SingleTask({ task }) {
@@ -11,7 +12,12 @@ function SingleTask({ task }) {
     }
     return (
         <div className="single-task-container">
-            <div className="task-name">{task.task_name}</div>
+            <div className="task-name-container">
+                <div className="task-name">{task.task_name}</div>
+                <div className="task-drop-down-arrow">
+                    <TaskDropDownArrow task={task} />
+                </div>
+            </div>
             <div className="task-due-date">{task.due_date}</div>
             <div className={"task-priority-container" + ` ${task.priority}`}>
                 <div className={`task-priority-outer-pill-${task.priority}`}>

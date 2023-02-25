@@ -22,7 +22,7 @@ function TaskList({ projectIsLoaded, projectId }) {
     let doneTasks = []
 
     for (let task of tasks) {
-        if (task.project_section === "To Do") {
+        if (task.project_section === "To do") {
             toDoTasks.push(task)
         } else if (task.project_section === "Doing") {
             doingTasks.push(task)
@@ -37,7 +37,7 @@ function TaskList({ projectIsLoaded, projectId }) {
             {projectIsLoaded && (
                 <div className="single-project-body">
                     <div className="tasks-column-header">
-                        <div className="task-name">Task Name</div>
+                        <div className="task-name-container">Task Name</div>
                         <div className="task-due-date">Due Date</div>
                         <div className="task-priority-container">Priority</div>
                         <div className="task-status-container">Status</div>
