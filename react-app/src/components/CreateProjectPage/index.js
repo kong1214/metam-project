@@ -31,7 +31,6 @@ function CreateProjectPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(dueDate)
 
     const newProject = {
       project_name: projectName,

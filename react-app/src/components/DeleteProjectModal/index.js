@@ -11,7 +11,7 @@ function DeleteProjectModal({project}) {
   const { closeModal } = useModal();
 
   const handleDelete = async () => {
-    console.log(project.id)
+    
     return dispatch(deleteProject(project.id))
     .then(() => closeModal())
     .then(() => history.push("/home"))
