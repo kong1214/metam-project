@@ -39,8 +39,8 @@ function TaskList({ projectIsLoaded, projectId }) {
                     <div className="tasks-column-header">
                         <div className="task-name">Task Name</div>
                         <div className="task-due-date">Due Date</div>
-                        <div className="task-priority">Priority</div>
-                        <div className="task-status">Status</div>
+                        <div className="task-priority-container">Priority</div>
+                        <div className="task-status-container">Status</div>
                     </div>
                     <div className="to-do-container section-container">
                         <div className="to-do-header-container section-header">To do</div>

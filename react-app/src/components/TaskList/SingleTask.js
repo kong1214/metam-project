@@ -4,7 +4,7 @@ import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
 import "./TaskList.css"
 
 function SingleTask({ task }) {
-    if(!task) {
+    if (!task) {
         return (
             <div>There are no tasks in this section!</div>
         )
@@ -13,8 +13,16 @@ function SingleTask({ task }) {
         <div className="single-task-container">
             <div className="task-name">{task.task_name}</div>
             <div className="task-due-date">{task.due_date}</div>
-            <div className="task-priority">{task.priority}</div>
-            <div className="task-status">{task.task_status}</div>
+            <div className={"task-priority-container" + ` ${task.priority}`}>
+                <div className={`task-priority-outer-pill-${task.priority}`}>
+                    {task.priority}
+                </div>
+            </div>
+            <div className={"task-status-container"}>
+                <div className={`task-status-outer-pill-${task.task_status}`}>
+                    {task.task_status}
+                </div>
+            </div>
         </div>
     )
 }

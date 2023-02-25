@@ -34,15 +34,63 @@
     border-left: 1px lightgray solid;
     border-right: 1px lightgray solid;
 }
-.task-priority{
+.task-priority-container{
     display: flex;
     justify-content: center;
     min-width: 9%;
     border-right: 1px lightgray solid;
 }
-.task-status{
+.task-priority-outer-pill-Medium{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #f1bd6c;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-priority-outer-pill-High{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #b36bd4;;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-priority-outer-pill-Low{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #9ee7e3;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-status-container{
     display: flex;
     justify-content: center;
     min-width: 9%;
     border-right: 1px lightgray solid;
+}
+.task-status-outer-pill-On.Track{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #4ecbc4;;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-status-outer-pill-Off.Track{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #f06a6a;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-status-outer-pill-At.Risk{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #f8df72;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
 }
