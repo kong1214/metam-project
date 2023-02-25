@@ -4,6 +4,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditProjectFormModal from "../EditProjectModal";
 import DeleteProjectModal from "../DeleteProjectModal";
+import CreateTaskFormModal from "../CreateTaskModal";
 
 function ProjectDropDownArrow({ project }) {
     const dispatch = useDispatch();
@@ -40,18 +41,20 @@ function ProjectDropDownArrow({ project }) {
                 <i className="fa-solid fa-caret-down"/>
             </button>
             <div className={ulClassName} ref={ulRef}>
-                <div>
-                </div>
                 <OpenModalButton
                     buttonText="Edit Project"
                     onButtonClick={closeMenu}
                     modalComponent={<EditProjectFormModal project={project}/>}
                 />
-
                 <OpenModalButton
                     buttonText="Delete Project"
                     onButtonClick={closeMenu}
                     modalComponent={<DeleteProjectModal project={project}/>}
+                />
+                <OpenModalButton
+                    buttonText="Add a Task"
+                    onButtonClick={closeMenu}
+                    modalComponent={<CreateTaskFormModal />}
                 />
             </div>
         </>
