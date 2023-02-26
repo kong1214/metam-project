@@ -1,0 +1,118 @@
+.tasks-column-header{
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+    margin-bottom: 1%;
+}
+.section-header{
+    display: flex;
+    align-items: center;
+    min-width: 100%;
+    min-height: 40px;
+    margin-bottom: 1%;
+    font-size: 18px;
+    font-weight: bold;
+}
+.single-task-container{
+    display: flex;
+    align-items: center;
+    min-width: 100%;
+    min-height: 40px;
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+    margin-bottom: 1%;
+}
+.task-name-container{
+    min-width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+.task-drop-down-arrow{
+    margin-right: 1%;
+}
+.task-dropdown{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+    height: 10%;
+    background-color: white;
+    border: .5px solid lightgray;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+.hidden {
+    display: none;
+}
+.task-due-date{
+    display: flex;
+    justify-content: center;
+    min-width: 9%;
+    border-left: 1px lightgray solid;
+    border-right: 1px lightgray solid;
+}
+.task-priority-container{
+    display: flex;
+    justify-content: center;
+    min-width: 9%;
+    border-right: 1px lightgray solid;
+}
+.task-priority-outer-pill-Medium{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #f1bd6c;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-priority-outer-pill-High{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #b36bd4;;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-priority-outer-pill-Low{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #9ee7e3;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-status-container{
+    display: flex;
+    justify-content: center;
+    min-width: 9%;
+    border-right: 1px lightgray solid;
+}
+.task-status-outer-pill-On.Track{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #4ecbc4;;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-status-outer-pill-Off.Track{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #f06a6a;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}
+.task-status-outer-pill-At.Risk{
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #f8df72;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+}

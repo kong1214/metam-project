@@ -64,7 +64,6 @@ def edit_project(project_id):
     project = Project.query.get(project_id)
 
     form = CreateProjectForm()
-    print(f"\n\n\n{dict(form.data)}\n\n\n")
     form ['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
 

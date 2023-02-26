@@ -31,7 +31,6 @@ function CreateProjectPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(dueDate)
 
     const newProject = {
       project_name: projectName,
@@ -63,6 +62,7 @@ function CreateProjectPage() {
         </ul>
         <label for="project-name-input">Project Name</label>
         <input
+          id="project-name-input"
           type="text"
           value={projectName}
           onChange={(e) => setProjectName(e.target.value)}
