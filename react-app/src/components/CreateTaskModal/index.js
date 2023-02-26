@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { useParams } from "react-router-dom";
+import { createTask } from "../../store/task";
 
 
-function CreateTaskFormModal({}) {
+function CreateTaskFormModal({projectId}) {
 
     function dateFormatter(date) {
         const dateArr = date.split("/")
@@ -48,6 +50,8 @@ function CreateTaskFormModal({}) {
             created_at: date,
             updated_at: date
         }
+        return dispatch(createTask(newTask, projectId))
+        .then(() => closeModal())
 
     };
 

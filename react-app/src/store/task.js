@@ -12,7 +12,7 @@ const getSingle = (task) => ({
     type: GET_SINGLE_TASK,
     task
 })
-const add = (task) => ({
+const add = (task, projectId) => ({
     type: CREATE_A_TASK,
     task
 })
@@ -40,6 +40,19 @@ export const getAllTasks = (projectId) => async (dispatch) => {
     }
 };
 
+export const createTask = (task, projectId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/project/${projectId}`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(task)
+    })
+    if(response.ok) {
+        const task = await response.json()
+        dispatch(add(task))
+        return task
+    }
+}
+
 
 
 
@@ -52,6 +65,10 @@ const task = (state = initialState, action) => {
         case GET_ALL_TASKS:
             newState = { allTasks: {}, singleTask: {} }
             newState.allTasks = action.tasks
+            return newState
+        case CREATE_A_TASK:
+            newState = {allTasks: {...state.allTasks}, singleTask: {}}
+            newState.allTasks[action.task.id] = action.task
             return newState
         default:
             return state;

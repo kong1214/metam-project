@@ -54,7 +54,7 @@ function ProjectDropDownArrow({ project }) {
                 <OpenModalButton
                     buttonText="Add a Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<CreateTaskFormModal />}
+                    modalComponent={<CreateTaskFormModal projectId={project.id}/>}
                 />
             </div>
         </>
