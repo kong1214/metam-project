@@ -42,3 +42,27 @@ def create_task(project_id):
         db.session.commit()
         return new_task.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@task_routes.route('/<int:task_id>', methods=["PUT"])
+@login_required
+def edit_task(task_id):
+    """
+    Add a Task to a Project
+    """
+    task = Task.query.get(task_id)
+
+    form = CreateTaskForm()
+    form ['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+
+        task.task_name=form.data["task_name"]
+        task.due_date=form.data["due_date"]
+        task.priority=form.data["priority"]
+        task.task_status=form.data["task_status"]
+        task.project_section=form.data["project_section"]
+        task.description=form.data["description"]
+        task.updated_at=form.data["updated_at"]
+
+        db.session.commit()
+        return task.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

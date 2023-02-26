@@ -52,7 +52,18 @@ export const createTask = (task, projectId) => async (dispatch) => {
         return task
     }
 }
-
+export const editTask = (task, taskId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/${taskId}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(task)
+    })
+    if(response.ok) {
+        const task = await response.json()
+        dispatch(edit(task))
+        return task
+    }
+}
 
 
 
@@ -67,6 +78,10 @@ const task = (state = initialState, action) => {
             newState.allTasks = action.tasks
             return newState
         case CREATE_A_TASK:
+            newState = {allTasks: {...state.allTasks}, singleTask: {}}
+            newState.allTasks[action.task.id] = action.task
+            return newState
+        case EDIT_A_TASK:
             newState = {allTasks: {...state.allTasks}, singleTask: {}}
             newState.allTasks[action.task.id] = action.task
             return newState

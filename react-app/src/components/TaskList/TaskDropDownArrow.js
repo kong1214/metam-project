@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
-import EditProjectFormModal from "../EditProjectModal";
+import EditTaskFormModal from "../EditTaskModal";
 import DeleteProjectModal from "../DeleteProjectModal";
 
 function TaskDropDownArrow({ task }) {
@@ -45,7 +45,7 @@ function TaskDropDownArrow({ task }) {
                 <OpenModalButton
                     buttonText="Edit Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<EditProjectFormModal task={task}/>}
+                    modalComponent={<EditTaskFormModal task={task}/>}
                 />
 
                 <OpenModalButton
