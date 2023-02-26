@@ -50,7 +50,7 @@ function EditProjectFormModal({ project }) {
 
     return (
         <>
-            <h1>Create Project</h1>
+            <h1>Edit Project</h1>
             <form onSubmit={handleSubmit}>
                 <ul>
                     {errors.map((error, idx) => (

@@ -77,23 +77,29 @@
 .left-navbar-top-container{
   display: flex;
   flex-direction: column;
-  margin: 6%;
-  height: 10%;
+  margin: 10%;
+  height: 8%;
   justify-content: space-between;
 }
 .create-project-button{
     border: 1px solid lightgray;
-    width: 80px;
-    height: 40px;
+    width: 50%;
+    height: 20;
     border-radius: 20px;
 }
 .my-workspace-container{
   display: flex;
   flex-direction: column;
-  margin: 6%;
-  padding-top: 6%;
+  margin: 10%;
+  padding-top: 15%;
   border-top: 1px solid #424244;
 }
 .my-workspace-header{
   margin-bottom: 5%;
+  padding-bottom: 5%;
+  width: 70%;
+  border-bottom: 1px solid #424244;
+}
+.left-nav-individual-project{
+  margin-bottom: 4%;
 }

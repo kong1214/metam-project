@@ -40,8 +40,6 @@ function TaskDropDownArrow({ task }) {
                 <i className="fa-solid fa-caret-down"/>
             </button>
             <div className={ulClassName} ref={ulRef}>
-                <div>
-                </div>
                 <OpenModalButton
                     buttonText="Edit Task"
                     onButtonClick={closeMenu}

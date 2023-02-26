@@ -29,7 +29,7 @@ function LeftNavBar() {
                 </div>
                 <div className="projects-container">
                     {projectsArr.map(project => (
-                        <div>
+                        <div className="left-nav-individual-project">
                             <NavLink to={`/project/${project.id}`} className="individual-project">{project.project_name}</NavLink>
                         </div>
                     ))}
