@@ -67,7 +67,7 @@
 
 /* LEFT NAV BAR */
 .left-navbar-container{
-  min-height: 100%;
+  min-height: 100vh;
   width: 15%;
   display: flex;
   background-color: #2e2e30;
@@ -95,11 +95,12 @@
   border-top: 1px solid #424244;
 }
 .my-workspace-header{
-  margin-bottom: 5%;
+  margin-bottom: 8%;
   padding-bottom: 5%;
   width: 70%;
   border-bottom: 1px solid #424244;
 }
 .left-nav-individual-project{
-  margin-bottom: 4%;
+  margin-bottom: 8%;
+  font-size: 14px;
 }
