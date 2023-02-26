@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditTaskFormModal from "../EditTaskModal";
-import DeleteProjectModal from "../DeleteProjectModal";
+import DeleteTaskModal from "../DeleteTaskModal";
 
 function TaskDropDownArrow({ task }) {
     const dispatch = useDispatch();
@@ -51,7 +51,7 @@ function TaskDropDownArrow({ task }) {
                 <OpenModalButton
                     buttonText="Delete Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<DeleteProjectModal task={task}/>}
+                    modalComponent={<DeleteTaskModal taskId={task.id}/>}
                 />
             </div>
         </>

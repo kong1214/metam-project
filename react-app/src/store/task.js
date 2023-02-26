@@ -64,7 +64,15 @@ export const editTask = (task, taskId) => async (dispatch) => {
         return task
     }
 }
-
+export const deleteTask = (taskId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/${taskId}`, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    })
+    if (response.ok) {
+        dispatch(remove(taskId))
+    }
+}
 
 
 const initialState = { allTasks: {}, singleTask: {} };
@@ -84,6 +92,10 @@ const task = (state = initialState, action) => {
         case EDIT_A_TASK:
             newState = {allTasks: {...state.allTasks}, singleTask: {}}
             newState.allTasks[action.task.id] = action.task
+            return newState
+        case DELETE_A_TASK:
+            newState = {allTasks: {...state.allTasks}, singleTask: {}}
+            delete newState.allTasks[action.taskId]
             return newState
         default:
             return state;

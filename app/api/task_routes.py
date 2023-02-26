@@ -66,3 +66,18 @@ def edit_task(task_id):
         db.session.commit()
         return task.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@task_routes.route('/<int:task_id>', methods=["DELETE"])
+@login_required
+def delete_task(task_id):
+    """
+    Add a Task to a Project
+    """
+    task = Task.query.get(task_id)
+
+    if task is None:
+        return {"error": f"No task found with id {task_id}"}
+
+    db.session.delete(task)
+    db.session.commit()
+    return {'success': "True", "status_code": 200}
