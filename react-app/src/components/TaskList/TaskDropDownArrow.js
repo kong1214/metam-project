@@ -49,7 +49,7 @@ function TaskDropDownArrow({ task }) {
                 <OpenModalButton
                     buttonText="Delete Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<DeleteTaskModal taskId={task.id}/>}
+                    modalComponent={<DeleteTaskModal task={task}/>}
                 />
             </div>
         </>

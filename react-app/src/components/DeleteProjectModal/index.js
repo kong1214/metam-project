@@ -19,7 +19,7 @@ function DeleteProjectModal({ project }) {
 
   return (
     <div className="delete-modal-container">
-      <div className="delete-modal-header">Delete the Project?</div>
+      <div className="delete-modal-header">Delete Project: {project.project_name}?</div>
       <ul> This will delete the project, along with any:
         <li>Tasks that are only in this project</li>
       </ul>

@@ -6,20 +6,20 @@ import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import "./DeleteTaskModal.css"
 
-function DeleteTaskModal({ taskId }) {
+function DeleteTaskModal({ task }) {
   const dispatch = useDispatch();
   const history = useHistory()
   const { closeModal } = useModal();
 
   const handleDelete = async () => {
 
-    return dispatch(deleteTask(taskId))
+    return dispatch(deleteTask(task.id))
       .then(() => closeModal())
   }
 
   return (
     <div className="delete-modal-container">
-      <div className="delete-modal-header">Delete the task?</div>
+      <div className="delete-modal-header">Delete Task: {task.task_name}?</div>
       <div className="delete-modal-buttons">
         <button className="delete-modal-cancel-button" onClick={() => closeModal()}>Cancel</button>
         <button className="delete-modal-delete-button" onClick={() => handleDelete()}>Delete</button>
