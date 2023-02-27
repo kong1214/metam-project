@@ -40,8 +40,6 @@ function TaskDropDownArrow({ task }) {
                 <i className="fa-solid fa-caret-down"/>
             </button>
             <div className={ulClassName} ref={ulRef}>
-                <div>
-                </div>
                 <OpenModalButton
                     buttonText="Edit Task"
                     onButtonClick={closeMenu}
@@ -51,7 +49,7 @@ function TaskDropDownArrow({ task }) {
                 <OpenModalButton
                     buttonText="Delete Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<DeleteTaskModal taskId={task.id}/>}
+                    modalComponent={<DeleteTaskModal task={task}/>}
                 />
             </div>
         </>

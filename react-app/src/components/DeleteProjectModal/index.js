@@ -5,27 +5,30 @@ import { deleteProject } from "../../store/project";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 
-function DeleteProjectModal({project}) {
+function DeleteProjectModal({ project }) {
   const dispatch = useDispatch();
   const history = useHistory()
   const { closeModal } = useModal();
 
   const handleDelete = async () => {
-    
+
     return dispatch(deleteProject(project.id))
-    .then(() => closeModal())
-    .then(() => history.push("/home"))
+      .then(() => closeModal())
+      .then(() => history.push("/home"))
   }
 
   return (
-    <>
-      <h1>Delete the project?</h1>
+    <div className="delete-modal-container">
+      <div className="delete-modal-header">Delete Project: {project.project_name}?</div>
       <ul> This will delete the project, along with any:
         <li>Tasks that are only in this project</li>
       </ul>
-      <button onClick={() => closeModal()}>Cancel</button>
-      <button onClick={() => handleDelete()}>Delete</button>
-    </>
+      <div className="delete-modal-buttons">
+
+        <button className="delete-modal-cancel-button" onClick={() => closeModal()}>Cancel</button>
+        <button className="delete-modal-delete-button" onClick={() => handleDelete()}>Delete</button>
+      </div>
+    </div>
   );
 }
 

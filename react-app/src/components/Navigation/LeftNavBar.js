@@ -6,7 +6,7 @@ import { getAllProjects } from "../../store/project";
 
 function LeftNavBar() {
     const dispatch = useDispatch()
-
+    const history = useHistory()
     const sessionUser = useSelector(state => state.session.user);
     const projects = useSelector(state => state.project.allProjects)
     const projectsArr = Object.values(projects)
@@ -18,7 +18,7 @@ function LeftNavBar() {
     return (
         <div className="left-navbar-container">
             <div className="left-navbar-top-container">
-                <button className="create-project-button">
+                <button className="create-project-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project">Create Project</NavLink>
                 </button>
                 <NavLink to="/home">Home</NavLink>
@@ -29,7 +29,7 @@ function LeftNavBar() {
                 </div>
                 <div className="projects-container">
                     {projectsArr.map(project => (
-                        <div>
+                        <div className="left-nav-individual-project">
                             <NavLink to={`/project/${project.id}`} className="individual-project">{project.project_name}</NavLink>
                         </div>
                     ))}
