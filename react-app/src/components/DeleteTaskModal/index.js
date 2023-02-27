@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTask } from "../../store/task";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
+import "./DeleteTaskModal.css"
 
-function DeleteTaskModal({taskId}) {
+function DeleteTaskModal({ taskId }) {
   const dispatch = useDispatch();
   const history = useHistory()
   const { closeModal } = useModal();
@@ -13,15 +14,17 @@ function DeleteTaskModal({taskId}) {
   const handleDelete = async () => {
 
     return dispatch(deleteTask(taskId))
-    .then(() => closeModal())
+      .then(() => closeModal())
   }
 
   return (
-    <>
-      <h1>Delete the task?</h1>
-      <button onClick={() => closeModal()}>Cancel</button>
-      <button onClick={() => handleDelete()}>Delete</button>
-    </>
+    <div className="delete-modal-container">
+      <div className="delete-modal-header">Delete the task?</div>
+      <div className="delete-modal-buttons">
+        <button className="delete-modal-cancel-button" onClick={() => closeModal()}>Cancel</button>
+        <button className="delete-modal-delete-button" onClick={() => handleDelete()}>Delete</button>
+      </div>
+    </div>
   );
 }
 
