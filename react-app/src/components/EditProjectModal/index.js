@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { editProject } from "../../store/project";
+import "./EditProjectModal.css"
 
 function EditProjectFormModal({ project }) {
 
@@ -24,7 +25,7 @@ function EditProjectFormModal({ project }) {
     const year = today.getUTCFullYear();
     let month = today.getUTCMonth() + 1;
     if (month < 10) {
-      month = `0${month}`
+        month = `0${month}`
     }
     const day = today.getUTCDate();
     const date = `${month}/${day}/${year}`;
@@ -32,7 +33,7 @@ function EditProjectFormModal({ project }) {
     const dateParser = (date) => {
         const dateArr = date.split("-")
         return `${dateArr[1]}/${dateArr[2]}/${dateArr[0]}`
-      }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -45,64 +46,75 @@ function EditProjectFormModal({ project }) {
             updated_at: date
         }
         return (dispatch(editProject(updatedProject, project.id)))
-        .then(() => closeModal())
+            .then(() => closeModal())
     };
 
     return (
-        <>
-            <h1>Edit Project</h1>
-            <form onSubmit={handleSubmit}>
+        <div id="edit-project-container">
+            <div className="edit-project-header">Edit Project</div>
+            <form id="edit-project-form-container" onSubmit={handleSubmit}>
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
-                <label for="project-name-input">Project Name</label>
-                <input
-                    type="text"
-                    value={projectName}
-                    onChange={(e) => setProjectName(e.target.value)}
-                    required
-                />
-                <label for="project-icon-dropdown">Project Icon</label>
-                <select
-                    id="project-icon-dropdown"
-                    className="dropdown-create"
-                    value={projectIcon}
-                    onChange={(e) => setProjectIcon(e.target.value)}
-                    required
-                >
-                    <option value="">Select an icon</option>
-                    <option value="briefcase">*briefcase icon*</option>
-                    <option value="chat_bubble">*chat_bubble icon*</option>
-                    <option value="monitor">*monitor icon*</option>
-                    <option value="shoe">*shoe icon*</option>
-                </select>
-                <label for="project-status-dropdown">Project Status</label>
-                <select
-                    id="project-status-dropdown"
-                    className="dropdown-create"
-                    value={projectStatus}
-                    onChange={(e) => setProjectStatus(e.target.value)}
-                    required
-                >
-                    <option value="">Select a status</option>
-                    <option value="On Track">On Track</option>
-                    <option value="At Risk">At Risk</option>
-                    <option value="Off Track">Off Track</option>
-                    <option value="On Hold">On Hold</option>
-                </select>
-                <label for="dueDate">Due Date</label>
-                <input
-                    type="date"
-                    id="dueDate"
-                    value={dueDate}
-                    onChange={(e) => setDueDate(e.target.value)}
-                    required
-                />
-                <button type="submit">Edit</button>
+                <div id="create-project-form-name-container" className="label-input-container">
+                    <label id="project-name-input-label">Project Name</label>
+                    <input
+                        id="project-name-input"
+                        type="text"
+                        value={projectName}
+                        onChange={(e) => setProjectName(e.target.value)}
+                        required
+                    />
+                </div>
+                <div id="create-project-icon-status-container">
+                    <div id="create-project-form-icon-container"  className="label-input-container">
+                        <label id="project-icon-dropdown-label">Project Icon</label>
+                        <select
+                            id="project-icon-dropdown-input"
+                            className="dropdown-create"
+                            value={projectIcon}
+                            onChange={(e) => setProjectIcon(e.target.value)}
+                            required
+                        >
+                            <option value="">Select an icon</option>
+                            <option value="briefcase">Briefcase</option>
+                            <option value="chat_bubble">Chat Bubble</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="shoe">Shoe</option>
+                        </select>
+                    </div>
+                    <div id="create-project-form-status-container" className="label-input-container">
+                        <label id="project-status-dropdown-label">Project Status</label>
+                        <select
+                            id="project-status-dropdown-input"
+                            className="dropdown-create"
+                            value={projectStatus}
+                            onChange={(e) => setProjectStatus(e.target.value)}
+                            required
+                        >
+                            <option value="">Select a status</option>
+                            <option value="On Track">On Track</option>
+                            <option value="At Risk">At Risk</option>
+                            <option value="Off Track">Off Track</option>
+                            <option value="On Hold">On Hold</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="create-project-form-due-date-container" className="label-input-container">
+                    <label id="dueDate-label">Due Date</label>
+                    <input
+                        type="date"
+                        id="dueDate-input"
+                        value={dueDate}
+                        onChange={(e) => setDueDate(e.target.value)}
+                        required
+                    />
+                </div>
+                <button id="edit-project-button" type="submit">Edit</button>
             </form>
-        </>
+        </div>
     );
 }
 

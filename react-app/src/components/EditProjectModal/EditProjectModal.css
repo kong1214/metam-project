@@ -1,0 +1,24 @@
+#edit-form-container{
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#edit-project-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+    height: 500px;
+}
+.edit-project-header{
+    font-size: 32px;
+    line-height: 40px
+}
+#edit-project-button{
+    border: none;
+    color: white;
+    background-color: #4573d2;
+    height: 30px;
+    border-radius: 10px;
+}
