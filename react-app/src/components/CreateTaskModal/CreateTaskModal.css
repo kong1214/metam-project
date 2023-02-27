@@ -1,0 +1,57 @@
+#create-task-container {
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-task-header {
+    font-size: 32px;
+    line-height: 40px
+}
+
+#create-task-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+    height: 500px;
+}
+
+#create-task-button {
+    border: none;
+    color: white;
+    background-color: #4573d2;
+    height: 30px;
+    border-radius: 10px;
+}
+
+#create-task-priority-status-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#create-task-section-dueDate-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#create-task-dueDate-input {
+    height: 30px;
+    width: 198px;
+    padding: 0px;
+}
+
+#task-description-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#task-name-input {
+    border: none;
+    border-bottom: 1px solid gray;
+    height: 30px;
+    font-size: 16px;
+}

@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useParams } from "react-router-dom";
 import { createTask } from "../../store/task";
+import "./CreateTaskModal.css";
 
-
-function CreateTaskFormModal({projectId}) {
+function CreateTaskFormModal({ projectId }) {
 
     function dateFormatter(date) {
         const dateArr = date.split("/")
@@ -28,7 +28,7 @@ function CreateTaskFormModal({projectId}) {
     const year = today.getUTCFullYear();
     let month = today.getUTCMonth() + 1;
     if (month < 10) {
-      month = `0${month}`
+        month = `0${month}`
     }
     const day = today.getUTCDate();
     const date = `${month}/${day}/${year}`;
@@ -36,7 +36,7 @@ function CreateTaskFormModal({projectId}) {
     const dateParser = (date) => {
         const dateArr = date.split("-")
         return `${dateArr[1]}/${dateArr[2]}/${dateArr[0]}`
-      }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -51,85 +51,101 @@ function CreateTaskFormModal({projectId}) {
             updated_at: date
         }
         return dispatch(createTask(newTask, projectId))
-        .then(() => closeModal())
+            .then(() => closeModal())
 
     };
 
     return (
-        <>
-            <h1>Create Task</h1>
-            <form onSubmit={handleSubmit}>
+        <div id="create-task-container">
+            <div className="create-task-header">Create Task</div>
+            <form id="create-task-form-container" onSubmit={handleSubmit}>
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
-                <label for="task-name-input">Task Name</label>
-                <input
-                    id="task-name-input"
-                    type="text"
-                    value={taskName}
-                    onChange={(e) => setTaskName(e.target.value)}
-                    required
-                />
-                <label for="task-priority-dropdown">Task Priority</label>
-                <select
-                    id="task-priority-dropdown"
-                    className="dropdown-create"
-                    value={priority}
-                    onChange={(e) => setPriority(e.target.value)}
-                    required
-                >
-                    <option value="">Select a priority</option>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                </select>
-                <label for="task-status-dropdown">Task Status</label>
-                <select
-                    id="task-status-dropdown"
-                    className="dropdown-create"
-                    value={taskStatus}
-                    onChange={(e) => setTaskStatus(e.target.value)}
-                    required
-                >
-                    <option value="">Select a status</option>
-                    <option value="On Track">On Track</option>
-                    <option value="At Risk">At Risk</option>
-                    <option value="Off Track">Off Track</option>
-                </select>
-                <label for="task-project-section-dropdown">Project Section</label>
-                <select
-                    id="task-project-section-dropdown"
-                    className="dropdown-create"
-                    value={projectSection}
-                    onChange={(e) => setProjectSection(e.target.value)}
-                    required
-                >
-                    <option value="">Select a section</option>
-                    <option value="To do">To do</option>
-                    <option value="Doing">Doing</option>
-                    <option value="Done">Done</option>
-                </select>
-                <label for="dueDate">Due Date</label>
-                <input
-                    type="date"
-                    id="dueDate"
-                    value={dueDate}
-                    onChange={(e) => setDueDate(e.target.value)}
-                    required
-                />
-                <label for="task-description-input">Task Description</label>
-                <textarea
-                    id="task-description-input"
-                    type="textarea"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
-                <button type="submit">Create</button>
+                <div id="create-project-form-name-container" className="label-input-container">
+                    <label id="task-name-input-label">Task Name</label>
+                    <input
+                        id="task-name-input"
+                        type="text"
+                        value={taskName}
+                        onChange={(e) => setTaskName(e.target.value)}
+                        required
+                    />
+                </div>
+                <div id="create-task-priority-status-container">
+                    <div id="task-priority-container" className="label-input-container">
+                        <label id="task-priority-dropdown-label">Task Priority</label>
+                        <select
+                            id="task-priority-dropdown-input"
+                            className="dropdown-create"
+                            value={priority}
+                            onChange={(e) => setPriority(e.target.value)}
+                            required
+                        >
+                            <option value="">Select a priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div id="task-status-container" className="label-input-container">
+                        <label id="task-status-dropdown-label">Task Status</label>
+                        <select
+                            id="task-status-dropdown-input"
+                            className="dropdown-create"
+                            value={taskStatus}
+                            onChange={(e) => setTaskStatus(e.target.value)}
+                            required
+                        >
+                            <option value="">Select a status</option>
+                            <option value="On Track">On Track</option>
+                            <option value="At Risk">At Risk</option>
+                            <option value="Off Track">Off Track</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="create-task-section-dueDate-container">
+                    <div id="create-task-section-container" className="label-input-container">
+                        <label id="task-project-section-dropdown-label">Project Section</label>
+                        <select
+                            id="task-project-section-dropdown-input"
+                            className="dropdown-create"
+                            value={projectSection}
+                            onChange={(e) => setProjectSection(e.target.value)}
+                            required
+                        >
+                            <option value="">Select a section</option>
+                            <option value="To do">To do</option>
+                            <option value="Doing">Doing</option>
+                            <option value="Done">Done</option>
+                        </select>
+                    </div>
+                    <div id="create-task-dueDate-container" className="label-input-container">
+                        <label id="create-task-dueDate-label">Due Date</label>
+                        <input
+                            type="date"
+                            id="create-task-dueDate-input"
+                            value={dueDate}
+                            onChange={(e) => setDueDate(e.target.value)}
+                            required
+                        />
+                    </div>
+                </div>
+                <div id="task-description-container">
+                    <label id="task-description-input-label">Task Description</label>
+                    <textarea
+                        id="task-description-input"
+                        type="textarea"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        required
+                    />
+                </div>
+                <button id="create-task-button" type="submit">Create</button>
             </form>
-        </>
+        </div>
     );
 }
 
