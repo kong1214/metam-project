@@ -31,18 +31,16 @@
 }
 .logged-out-nav-buttons-container{
   display: flex;
-  width: 12%;
+  width: 15%;
   justify-content: space-between;
 }
-.login-button.nav-button{
+.splash-login-button{
   border: none;
   background-color: white;
   color: #727272;
+  height: 35px;
 }
-.signup-button{
-  background-color: #0D0E10;
-  color: #FFFFFF;
-}
+
 .nav-button{
   height: 35px;
 }

@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -17,19 +19,36 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+      closeModal()
+      history.push("/home")
     }
   };
+
+
+  const logInDemoUser = async (e) => {
+    e.preventDefault()
+    //made whats commented out is what was there before
+    const data = await dispatch(login("demo@aa.io", "password"));
+    if (data) {
+      setErrors(data);
+    } else {
+      closeModal()
+      history.push("/home")
+    }
+  }
+
+  let errorsClassName = "errors-container"
+  if (errors.length > 0) errorsClassName += " visible"
 
   return (
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
+        <div className={errorsClassName}>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <div className="individual-error" key={idx}>{error}</div>
           ))}
-        </ul>
+        </div>
         <label>
           Email
           <input
@@ -49,6 +68,7 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button className="login-form-button" type="submit" onClick={logInDemoUser}>Demo-User</button>
       </form>
     </>
   );

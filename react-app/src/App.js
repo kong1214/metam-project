@@ -31,12 +31,6 @@ function App() {
           <Route exact path="/">
             <SplashPage />
           </Route>
-          <Route exact path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route exact path="/signup">
-            <SignupFormPage />
-          </Route>
           <Route exact path="/home">
             <HomePage />
           </Route>
