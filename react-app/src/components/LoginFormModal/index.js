@@ -41,36 +41,42 @@ function LoginFormModal() {
   if (errors.length > 0) errorsClassName += " visible"
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div cid="login-container">
+      <div className="login-header">Log In</div>
+      <form id="login-form-container" onSubmit={handleSubmit}>
         <div className={errorsClassName}>
           {errors.map((error, idx) => (
             <div className="individual-error" key={idx}>{error}</div>
           ))}
         </div>
-        <label>
-          Email
+        <div id="login-form-email-container" className="label-input-container">
+          <label id="login-email-input-label" className="login-label">Email</label>
           <input
+            className="login-input"
+            id="login-email-input"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
+        </div>
+        <div id="login-form-password-container" className="label-input-container">
+          <label id="login-password-input-label" className="login-label">Password</label>
           <input
+            className="login-input"
+            id="login-password-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Log In</button>
-        <button className="login-form-button" type="submit" onClick={logInDemoUser}>Demo-User</button>
+        </div>
+        <div className="login-form-buttons">
+          <button className="login-form-button" type="submit">Log In</button>
+          <button className="login-form-button" type="submit" onClick={logInDemoUser}>Demo-User</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 
