@@ -48,7 +48,12 @@ function EditProjectFormModal({ project }) {
         return await (dispatch(editProject(updatedProject, project.id)))
             .then((res) => {
                 if (res.errors) {
-                    setErrors(res.errors)
+                    let errorsArr = []
+                    for (const error of res.errors) {
+                      const errorSplit = error.split(" : ")
+                      errorsArr.push(errorSplit[1])
+                    }
+                    setErrors(errorsArr)
                 } else closeModal()
             })
     };

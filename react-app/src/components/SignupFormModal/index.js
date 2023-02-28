@@ -14,12 +14,19 @@ function SignupFormModal() {
 	const [errors, setErrors] = useState([]);
 	const { closeModal } = useModal();
 
+	let errorsArr = []
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
 			const data = await dispatch(signUp(firstName, lastName, email, password));
 			if (data) {
-				setErrors(data);
+				console.log(data)
+				for (const error of data) {
+					console.log(error)
+					const errorSplit = error.split(" : ")
+					errorsArr.push(errorSplit[1])
+				}
+				setErrors(errorsArr);
 			} else {
 				closeModal();
 			}

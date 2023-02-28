@@ -53,7 +53,12 @@ function CreateTaskFormModal({ projectId }) {
         return await dispatch(createTask(newTask, projectId))
             .then((res) => {
                 if (res.errors) {
-                    setErrors(res.errors)
+                    let errorsArr = []
+                    for (const error of res.errors) {
+                      const errorSplit = error.split(" : ")
+                      errorsArr.push(errorSplit[1])
+                    }
+                    setErrors(errorsArr)
                 } else closeModal()
             })
     };
