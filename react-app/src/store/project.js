@@ -59,6 +59,11 @@ export const createProject = (project) => async (dispatch) => {
         const project = await response.json()
         dispatch(add(project))
         return project
+    } else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return {errors: data.errors}
+		}
     }
 }
 
@@ -72,6 +77,11 @@ export const editProject = (project, projectId) => async (dispatch) => {
         const updatedProject = await response.json()
         dispatch(edit(updatedProject))
         return updatedProject
+    } else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return {errors: data.errors}
+		}
     }
 }
 export const deleteProject = (projectId) => async (dispatch) => {

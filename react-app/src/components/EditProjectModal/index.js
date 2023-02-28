@@ -45,19 +45,25 @@ function EditProjectFormModal({ project }) {
             due_date: dateParser(dueDate),
             updated_at: date
         }
-        return (dispatch(editProject(updatedProject, project.id)))
-            .then(() => closeModal())
+        return await (dispatch(editProject(updatedProject, project.id)))
+            .then((res) => {
+                if (res.errors) {
+                    setErrors(res.errors)
+                } else closeModal()
+            })
     };
 
+    let errorsClassName="errors-container"
+    if (errors.length > 0) errorsClassName += " visible"
     return (
         <div id="edit-project-container">
             <div className="edit-project-header">Edit Project</div>
             <form id="edit-project-form-container" onSubmit={handleSubmit}>
-                <ul>
+                <div className={errorsClassName}>
                     {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
+                        <div className="individual-error"key={idx}>{error}</div>
                     ))}
-                </ul>
+                </div>
                 <div id="create-project-form-name-container" className="label-input-container">
                     <label id="project-name-input-label">Project Name</label>
                     <input

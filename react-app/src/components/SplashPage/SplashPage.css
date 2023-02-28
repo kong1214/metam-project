@@ -36,7 +36,9 @@
     width: 85%;
     margin-bottom: 10%;
 }
-.signup-button.splash-button{
+.splash-signup-button{
     height: 35px;
     width: 125px;
+    background-color: #0D0E10;
+    color: #FFFFFF;
 }

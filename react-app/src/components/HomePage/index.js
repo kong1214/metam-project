@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import LeftNavBar from '../Navigation/LeftNavBar';
 import { useSelector } from 'react-redux';
 import "./HomePage.css"
@@ -19,7 +19,9 @@ function HomePage() {
 
     const today = `${day}, ${month} ${date}`
 
-    if (!sessionUser) return null;
+    if (!sessionUser) return (
+        <Redirect to="/"/>
+    )
     return (
         <div className='home-page-content-and-left-navbar'>
             <LeftNavBar />

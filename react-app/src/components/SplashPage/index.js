@@ -3,10 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import SplashNav from './SplashNav';
+import SignUpFormModal from "../SignupFormModal"
+import OpenModalButton from "../OpenModalButton";
 import "./SplashPage.css"
 
 function SplashPage() {
     const sessionUser = useSelector(state => state.session.user);
+
 
     if (sessionUser) return <Redirect to="/home" />;
     return (
@@ -21,9 +24,13 @@ function SplashPage() {
                     <div className="splash-about-metam">
                         Metam helps you manage your projects, prioritize your tasks, and organize your to-do's. Stay on track, both profesionally and personally.
                     </div>
-                    <button className="signup-button splash-button">
-                        <NavLink exact to="/signup">Get Started</NavLink>
-                    </button>
+                    <div>
+                        <OpenModalButton
+                            buttonText="Get Started"
+                            modalComponent={<SignUpFormModal />}
+                            className="splash-signup-button"
+                        />
+                    </div>
                 </div>
                 <div className="splash-right-column">
                     Right Column Content Goes Here

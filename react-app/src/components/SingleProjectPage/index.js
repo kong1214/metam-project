@@ -24,7 +24,9 @@ function SingleProjectPage() {
 
 
 
-    if (!sessionUser) return null;
+    if (!sessionUser) return (
+        <Redirect to="/"/>
+    )
     if (!project) return null;
 
     return (

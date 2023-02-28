@@ -50,6 +50,11 @@ export const createTask = (task, projectId) => async (dispatch) => {
         const task = await response.json()
         dispatch(add(task))
         return task
+    } else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return {errors: data.errors}
+		}
     }
 }
 export const editTask = (task, taskId) => async (dispatch) => {
@@ -62,6 +67,11 @@ export const editTask = (task, taskId) => async (dispatch) => {
         const task = await response.json()
         dispatch(edit(task))
         return task
+    } else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return {errors: data.errors}
+		}
     }
 }
 export const deleteTask = (taskId) => async (dispatch) => {
