@@ -1,4 +1,4 @@
-.splash-content{
+.splash-content {
     display: flex;
     width: 70%;
     margin-top: 3%;
@@ -7,38 +7,70 @@
     height: 86vh;
     justify-content: space-between;
 }
-.splash-left-column{
+
+.splash-left-column {
     display: flex;
     flex-direction: column;
     width: 40%;
     justify-content: start;
     align-items: start;
 }
-.splash-right-column{
+
+.splash-right-column {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 55%;
     justify-content: center;
     align-items: center;
 }
-.splash-header{
+
+.splash-header {
     width: 85%;
     font-size: 2.8125rem;
 }
-.splash-line-break{
+
+.splash-line-break {
     margin-top: 10%;
     width: 30%;
     border-top: 1px dashed black;
     margin-bottom: 10%;
 }
-.splash-about-metam{
+
+.splash-about-metam {
     font-size: 20px;
     width: 85%;
     margin-bottom: 10%;
 }
-.splash-signup-button{
+
+.splash-signup-button {
     height: 35px;
     width: 125px;
     background-color: #0D0E10;
     color: #FFFFFF;
+}
+
+#splash-images-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#first-picture {
+    position: absolute;
+    bottom: 50%;
+    width: 85%
+}
+
+#second-picture {
+    position: absolute;
+    bottom: 25%;
+    left: 65%;
+    height: 30%
+}
+#splash-image-decoration-rectangle {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    background-color: rgba(69, 115, 210);
+    left: 40%;
 }

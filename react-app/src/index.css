@@ -15,3 +15,7 @@ body{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif
 }
+a {
+    display: flex;
+    align-items: center;
+}

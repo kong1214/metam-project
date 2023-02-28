@@ -6,6 +6,9 @@ import SplashNav from './SplashNav';
 import SignUpFormModal from "../SignupFormModal"
 import OpenModalButton from "../OpenModalButton";
 import "./SplashPage.css"
+import projectPage from "./splash-page-screenshot.png"
+import projectList from "./splash-page-screenshot2.png"
+import statusExample from "./splash-page-screenshot3.png"
 
 function SplashPage() {
     const sessionUser = useSelector(state => state.session.user);
@@ -33,7 +36,11 @@ function SplashPage() {
                     </div>
                 </div>
                 <div className="splash-right-column">
-                    Right Column Content Goes Here
+                    <div id="splash-images-container">
+                        <div id="splash-image-decoration-rectangle"></div>
+                        <img id="first-picture" src={projectPage} />
+                        <img id="second-picture" src={projectList} />
+                    </div>
                 </div>
             </div>
         </div>
