@@ -59,6 +59,12 @@ export const createProject = (project) => async (dispatch) => {
         const project = await response.json()
         dispatch(add(project))
         return project
+    } else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+            console.log(data.errors)
+			return {errors: data.errors}
+		}
     }
 }
 

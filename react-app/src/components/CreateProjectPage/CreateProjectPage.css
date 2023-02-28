@@ -61,3 +61,20 @@
 #dueDate-input{
     height: 30px;
 }
+.errors-container{
+    height: 0px;
+    width: 100%;
+}
+.errors-container.visible{
+    display: flex;
+    flex-direction: column;
+    height: 3%;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.individual-error{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red;
+}

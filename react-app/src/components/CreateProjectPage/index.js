@@ -32,9 +32,15 @@ function CreateProjectPage() {
     return `${dateArr[1]}/${dateArr[2]}/${dateArr[0]}`
   }
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // if (projectName.length > 1 && projectName.length < 30) {
+    //   window.alert(
+    //     "The project name must be between 1 and 30 characters long."
+    //   )
+    //   return
+    // }
     const newProject = {
       project_name: projectName,
       project_icon: projectIcon,
@@ -44,25 +50,30 @@ function CreateProjectPage() {
       updated_at: date
     }
     return await dispatch(createProject(newProject))
-      .then(async (res) => {
-        const thisProject = await dispatch(getSingleProject(res.id))
-        return thisProject
+      .then((res) => {
+        if (res.errors) {
+          setErrors(res.errors)
+        } else history.push(`/project/${res.id}`)
       })
-      .then(async (res) => {
-        await history.push(`/project/${res.project.id}`)
-      })
+      // .catch(async (res) => {
+      //     console.log(res)
+      //     const data = await res.json();
+      //     if (data && data.errors) setErrors(data.errors)
+      //   }
+      // )
   };
-
+  let errorsClassName="errors-container"
+  if (errors.length > 0) errorsClassName += " visible"
   return (
     <div className="create-project-center-container">
       <div className="create-project-container">
         <div className="new-project-header">New Project</div>
         <form className="create-project-form-container" onSubmit={handleSubmit}>
-          <ul>
+          <div className={errorsClassName}>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <div className="individual-error" key={idx}>{error}</div>
             ))}
-          </ul>
+          </div>
           <div id="create-project-form-name-container" className="label-input-container">
             <label id="project-name-input-label" className="form-label">Project Name</label>
             <input
