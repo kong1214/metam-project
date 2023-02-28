@@ -50,20 +50,26 @@ function CreateTaskFormModal({ projectId }) {
             created_at: date,
             updated_at: date
         }
-        return dispatch(createTask(newTask, projectId))
-            .then(() => closeModal())
-
+        return await dispatch(createTask(newTask, projectId))
+            .then((res) => {
+                if (res.errors) {
+                    setErrors(res.errors)
+                } else closeModal()
+            })
     };
+
+    let errorsClassName = "errors-container"
+    if (errors.length > 0) errorsClassName += " visible"
 
     return (
         <div id="create-task-container">
             <div className="create-task-header">Create Task</div>
             <form id="create-task-form-container" onSubmit={handleSubmit}>
-                <ul>
+                <div className={errorsClassName}>
                     {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
+                        <div className="individual-error" key={idx}>{error}</div>
                     ))}
-                </ul>
+                </div>
                 <div id="create-project-form-name-container" className="label-input-container">
                     <label id="task-name-input-label">Task Name</label>
                     <input

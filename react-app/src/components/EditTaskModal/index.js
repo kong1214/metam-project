@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { editTask } from "../../store/task";
 
 
-function EditTaskFormModal({task}) {
+function EditTaskFormModal({ task }) {
 
     function dateFormatter(date) {
         const dateArr = date.split("/")
@@ -28,7 +28,7 @@ function EditTaskFormModal({task}) {
     const year = today.getUTCFullYear();
     let month = today.getUTCMonth() + 1;
     if (month < 10) {
-      month = `0${month}`
+        month = `0${month}`
     }
     const day = today.getUTCDate();
     const date = `${month}/${day}/${year}`;
@@ -36,7 +36,7 @@ function EditTaskFormModal({task}) {
     const dateParser = (date) => {
         const dateArr = date.split("-")
         return `${dateArr[1]}/${dateArr[2]}/${dateArr[0]}`
-      }
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -51,19 +51,25 @@ function EditTaskFormModal({task}) {
             updated_at: date
         }
         return dispatch(editTask(updatedTask, task.id))
-        .then(() => closeModal())
-
+            .then((res) => {
+                if (res.errors) {
+                    setErrors(res.errors)
+                } else closeModal()
+            })
     };
+
+    let errorsClassName = "errors-container"
+    if (errors.length > 0) errorsClassName += " visible"
 
     return (
         <div id="create-task-container">
             <div className="create-task-header">Edit Task</div>
             <form id="create-task-form-container" onSubmit={handleSubmit}>
-                <ul>
+                <div className={errorsClassName}>
                     {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
+                        <div className="individual-error" key={idx}>{error}</div>
                     ))}
-                </ul>
+                </div>
                 <div id="create-project-form-name-container" className="label-input-container">
                     <label id="task-name-input-label">Task Name</label>
                     <input
