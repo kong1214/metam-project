@@ -7,6 +7,7 @@ import OpenModalButton from "../OpenModalButton";
 import SignUpFormModal from "../SignupFormModal"
 import LoginFormModal from "../LoginFormModal"
 import "../Navigation/Navigation.css"
+import logo from "./logo.png"
 
 function SplashNav() {
     const dispatch = useDispatch();
@@ -14,21 +15,23 @@ function SplashNav() {
     const ulRef = useRef();
 
 
-
     return (
         <div className="logged-out-navbar-container">
-            <div style={{ color: "rgb(114, 114, 114)" }}>
-                <NavLink exact to="/">metam</NavLink>
+            <div className="home-button-container">
+                <NavLink exact to="/">
+                    <img className="nav-logo" src={logo}></img>
+                    <div id="metam-splash-nav">metam</div>
+                </NavLink>
             </div>
             <div className="logged-out-nav-buttons-container">
                 <OpenModalButton
                     buttonText="Log In"
-                    modalComponent={<LoginFormModal/>}
+                    modalComponent={<LoginFormModal />}
                     className="splash-login-button"
                 />
                 <OpenModalButton
                     buttonText="Get Started"
-                    modalComponent={<SignUpFormModal/>}
+                    modalComponent={<SignUpFormModal />}
                     className="splash-signup-button"
                 />
             </div>

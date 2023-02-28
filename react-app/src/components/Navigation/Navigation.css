@@ -11,6 +11,7 @@
   border-radius: 10px;
   overflow: hidden;
   z-index: 1;
+  top: 4%;
   right: 2%;
   /* top: 0%; */
 }
@@ -40,7 +41,19 @@
   color: #727272;
   height: 35px;
 }
-
+.home-button-container{
+  height: 100%;
+  width: 25%;
+  display: flex;
+  align-items: center;
+}
+.nav-logo{
+  height: 35px;
+}
+#metam-splash-nav{
+  height: 100%;
+  font-size: 25px;
+}
 .nav-button{
   height: 35px;
 }
@@ -62,7 +75,15 @@
   display: flex;
   justify-content: space-between;
 }
-
+#metam-nav{
+  height: 100%;
+  font-size: 25px;
+  color: white
+}
+.profile-button{
+  display: flex;
+  align-items: center;
+}
 /* LEFT NAV BAR */
 .left-navbar-container{
   min-height: 100%;

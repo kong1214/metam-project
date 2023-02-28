@@ -6,6 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import './Navigation.css';
+import logo from "./logo.png"
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
@@ -16,8 +17,11 @@ function Navigation({ isLoaded }) {
 		sessionLinks = (
 			<div className="logged-in-navbar-container">
 				<div className="logged-in-nav-buttons-and-home-container">
-					<div style={{ color: "white" }}>
-						<NavLink exact to="/">Metam</NavLink>
+					<div className="home-button-container">
+						<NavLink exact to="/">
+							<img className="nav-logo" src={logo}></img>
+							<div id="metam-nav">metam</div>
+						</NavLink>
 					</div>
 					<div className="profile-button">
 						<ProfileButton user={sessionUser} />
