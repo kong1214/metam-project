@@ -1,0 +1,24 @@
+#signup-header{
+    font-size: 32px;
+    line-height: 40px
+}
+#signup-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    height: 600px;
+}
+#signup-form-button{
+    border: none;
+    color: white;
+    background-color: #4573d2;
+    height: 30px;
+    border-radius: 10px;
+}
+.signup-input{
+    border: none;
+    border-bottom: 1px solid gray;
+    height: 30px;
+    font-size: 16px;
+}

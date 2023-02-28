@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteProject } from "../../store/project";
 import { Redirect, useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
+import "./DeleteProjectModal.css"
 
 function DeleteProjectModal({ project }) {
   const dispatch = useDispatch();
@@ -18,13 +19,13 @@ function DeleteProjectModal({ project }) {
   }
 
   return (
-    <div className="delete-modal-container">
+    <div id="delete-modal-container">
       <div className="delete-modal-header">Delete Project: {project.project_name}?</div>
-      <ul> This will delete the project, along with any:
-        <li>Tasks that are only in this project</li>
-      </ul>
+      <div className="delete-project-content-container">
+        <div id="delte-project-warning">This will delete the project, along with any:</div>
+        <li className="each-deletion">Tasks that are only in this project</li>
+      </div>
       <div className="delete-modal-buttons">
-
         <button className="delete-modal-cancel-button" onClick={() => closeModal()}>Cancel</button>
         <button className="delete-modal-delete-button" onClick={() => handleDelete()}>Delete</button>
       </div>
