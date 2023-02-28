@@ -41,7 +41,7 @@ function LoginFormModal() {
   if (errors.length > 0) errorsClassName += " visible"
 
   return (
-    <div cid="login-container">
+    <div id="login-container">
       <div className="login-header">Log In</div>
       <form id="login-form-container" onSubmit={handleSubmit}>
         <div className={errorsClassName}>
