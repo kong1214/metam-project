@@ -21,15 +21,25 @@ def email_length(form, field):
     if len(email) < 3 or len(email) > 29:
         raise ValidationError('Email must be between 2 and 29 letters')
 
-def name_length(form, field):
+def first_name_length(form, field):
     name = field.data
     if len(name) < 2 or len(name) > 29:
-        raise ValidationError('Name must be between 2 and 29 letters')
+        raise ValidationError('First name must be between 2 and 29 letters')
 
-def name_is_letters(form, field):
+def last_name_length(form, field):
+    name = field.data
+    if len(name) < 2 or len(name) > 29:
+        raise ValidationError('Last name must be between 2 and 29 letters')
+
+def first_name_is_letters(form, field):
     name = field.data
     if not name.isalpha():
-        raise ValidationError('Name must be only letters')
+        raise ValidationError('Your first name must be only letters')
+
+def last_name_is_letters(form, field):
+    name = field.data
+    if not name.isalpha():
+        raise ValidationError('Your last name must be only letters')
 
 def password_length(form, field):
     password = field.data
@@ -37,7 +47,7 @@ def password_length(form, field):
         raise ValidationError('Password must be six or more characters')
 
 class SignUpForm(FlaskForm):
-    first_name = StringField('first_name', validators=[DataRequired(), name_length, name_is_letters])
-    last_name = StringField('last_name', validators=[DataRequired(), name_length, name_is_letters])
+    first_name = StringField('first_name', validators=[DataRequired(), first_name_length, first_name_is_letters])
+    last_name = StringField('last_name', validators=[DataRequired(), last_name_length, last_name_is_letters])
     email = StringField('email', validators=[DataRequired(), user_exists, is_email, email_length])
     password = StringField('password', validators=[DataRequired(), password_length])

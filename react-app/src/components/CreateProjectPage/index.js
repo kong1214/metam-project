@@ -52,17 +52,22 @@ function CreateProjectPage() {
     return await dispatch(createProject(newProject))
       .then((res) => {
         if (res.errors) {
-          setErrors(res.errors)
+          let errorsArr = []
+          for (const error of res.errors) {
+            const errorSplit = error.split(" : ")
+            errorsArr.push(errorSplit[1])
+          }
+          setErrors(errorsArr)
         } else history.push(`/project/${res.id}`)
       })
-      // .catch(async (res) => {
-      //     console.log(res)
-      //     const data = await res.json();
-      //     if (data && data.errors) setErrors(data.errors)
-      //   }
-      // )
+    // .catch(async (res) => {
+    //     console.log(res)
+    //     const data = await res.json();
+    //     if (data && data.errors) setErrors(data.errors)
+    //   }
+    // )
   };
-  let errorsClassName="errors-container"
+  let errorsClassName = "errors-container"
   if (errors.length > 0) errorsClassName += " visible"
   return (
     <div className="create-project-center-container">

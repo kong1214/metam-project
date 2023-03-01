@@ -102,6 +102,7 @@
 }
 .create-project-button{
     border: 1px solid lightgray;
+    color: black;
     width: 50%;
     height: 20;
     border-radius: 20px;
@@ -122,4 +123,5 @@
 .left-nav-individual-project{
   margin-bottom: 8%;
   font-size: 14px;
+  color: white;
 }

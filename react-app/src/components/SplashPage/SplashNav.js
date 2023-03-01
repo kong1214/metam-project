@@ -7,7 +7,7 @@ import OpenModalButton from "../OpenModalButton";
 import SignUpFormModal from "../SignupFormModal"
 import LoginFormModal from "../LoginFormModal"
 import "../Navigation/Navigation.css"
-import logo from "./logo.png"
+import logo from "./splash-images/logo.png"
 
 function SplashNav() {
     const dispatch = useDispatch();
