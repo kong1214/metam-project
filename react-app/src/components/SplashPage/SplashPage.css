@@ -4,7 +4,7 @@
     margin-top: 3%;
     margin-left: 15%;
     margin-right: 15%;
-    height: 86vh;
+    height: 89vh;
     justify-content: space-between;
 }
 
@@ -73,4 +73,63 @@
     height: 100%;
     background-color: rgba(69, 115, 210);
     left: 40%;
+}
+
+/* FOOTER */
+#footer-container{
+    background-color: #363639;
+    border-bottom: 1px solid #424244;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 25vh
+}
+#footer-header{
+    color: white;
+    width: 20%;
+    font-size: 40pt;
+    display: flex;
+    justify-content: center;
+}
+.footer-label-container{
+    display: flex;
+}
+#footer-content-container{
+    display: flex;
+    justify-content: center;
+    width: 35%;
+}
+#linked-in-logo{
+    height: 70px;
+}
+#footer-email-container{
+    height: auto;
+}
+#email-logo{
+    height: 70px;
+}
+.footer-logo-container{
+    display: flex;
+    align-items: center;
+}
+#footer-linked-in-link-container{
+    margin-right: 5%;
+}
+#footer-github-link-container{
+    margin-right: 5%;
+}
+#footer-linked-in{
+    margin-left: 7%;
+}
+#footer-email-container{
+    display: flex;
+    align-items: center;
+}
+.footer-field{
+    color: white !important;
+    font-weight: 550;
+}
+#footer-email-label{
+    margin-right: 5%;
 }

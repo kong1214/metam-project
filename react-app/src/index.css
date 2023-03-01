@@ -4,7 +4,7 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
 }
 a:visited {
     text-decoration: none;
-    color: inherit !important;
+    color: inherit;
 }
 a:link {
     text-decoration: none;
