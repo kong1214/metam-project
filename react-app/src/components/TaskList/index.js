@@ -13,7 +13,7 @@ function TaskList({ projectIsLoaded, projectId }) {
 
     useEffect(() => {
         dispatch(getAllTasks(projectId))
-    }, [dispatch, Object.values(tasksObj).length, projectId])
+    }, [Object.values(tasksObj).length, projectId])
 
     if (Object.values(tasksObj).length === 0) tasksObj = { task_error: "No task yet for this section" }
     let tasks = Object.values(tasksObj)
