@@ -10,10 +10,38 @@ function SingleTask({ task }) {
             <div>There are no tasks in this section!</div>
         )
     }
+
+    const dropdowns = document.querySelectorAll('.dropdown')
+
+    if (dropdowns) {
+
+        dropdowns.forEach((dropdown) => {
+            const trigger = dropdown.querySelector('.task-name')
+            const menu = dropdown.querySelector('.task-description-dropdown')
+
+            trigger.addEventListener('mouseover', () => {
+                menu.style.display = 'block';
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                menu.style.display = 'none';
+            });
+        })
+    }
+
+
     return (
         <div className="single-task-container">
             <div className="task-name-container">
-                <div className="task-name">{task.task_name}</div>
+                <div className="dropdown">
+                    <div className="task-name">{task.task_name}</div>
+                    <div className="task-description-dropdown">
+                        <div id="description-header">Description</div>
+                        <div id="task-description">
+                            {task.description}
+                        </div>
+                    </div>
+                </div>
                 <div className="task-drop-down-arrow">
                     <TaskDropDownArrow task={task} />
                 </div>
