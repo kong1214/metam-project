@@ -1,4 +1,4 @@
-.tasks-column-header{
+.tasks-column-header {
     display: flex;
     align-items: center;
     min-height: 40px;
@@ -6,7 +6,8 @@
     border-bottom: 1px lightgray solid;
     margin-bottom: 1%;
 }
-.section-header{
+
+.section-header {
     display: flex;
     align-items: center;
     min-width: 100%;
@@ -15,7 +16,8 @@
     font-size: 18px;
     font-weight: bold;
 }
-.single-task-container{
+
+.single-task-container {
     display: flex;
     align-items: center;
     min-width: 100%;
@@ -24,15 +26,18 @@
     border-bottom: 1px lightgray solid;
     margin-bottom: 1%;
 }
-.task-name-container{
+
+.task-name-container {
     min-width: 70%;
     display: flex;
     justify-content: space-between;
 }
-.task-drop-down-arrow{
+
+.task-drop-down-arrow {
     margin-right: 1%;
 }
-.task-dropdown{
+
+.task-dropdown {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -46,23 +51,27 @@
     overflow: hidden;
     z-index: 1;
 }
+
 .hidden {
     display: none;
 }
-.task-due-date{
+
+.task-due-date {
     display: flex;
     justify-content: center;
     min-width: 9%;
     border-left: 1px lightgray solid;
     border-right: 1px lightgray solid;
 }
-.task-priority-container{
+
+.task-priority-container {
     display: flex;
     justify-content: center;
     min-width: 9%;
     border-right: 1px lightgray solid;
 }
-.task-priority-outer-pill-Medium{
+
+.task-priority-outer-pill-Medium {
     font-size: 16px;
     background-color: #f1bd6c;
     display: flex;
@@ -71,16 +80,19 @@
     height: 25px;
     padding: 0 8px;
 }
-.task-priority-outer-pill-High{
+
+.task-priority-outer-pill-High {
     font-size: 16px;
-    background-color: #b36bd4;;
+    background-color: #b36bd4;
+    ;
     display: flex;
     align-items: center;
     border-radius: 12.5px;
     height: 25px;
     padding: 0 8px;
 }
-.task-priority-outer-pill-Low{
+
+.task-priority-outer-pill-Low {
     font-size: 16px;
     background-color: #9ee7e3;
     display: flex;
@@ -89,22 +101,26 @@
     height: 25px;
     padding: 0 8px;
 }
-.task-status-container{
+
+.task-status-container {
     display: flex;
     justify-content: center;
     min-width: 9%;
     border-right: 1px lightgray solid;
 }
-.task-status-outer-pill-On.Track{
+
+.task-status-outer-pill-On.Track {
     font-size: 16px;
-    background-color: #4ecbc4;;
+    background-color: #4ecbc4;
+    ;
     display: flex;
     align-items: center;
     border-radius: 12.5px;
     height: 25px;
     padding: 0 8px;
 }
-.task-status-outer-pill-Off.Track{
+
+.task-status-outer-pill-Off.Track {
     font-size: 16px;
     background-color: #f06a6a;
     display: flex;
@@ -113,7 +129,8 @@
     height: 25px;
     padding: 0 8px;
 }
-.task-status-outer-pill-At.Risk{
+
+.task-status-outer-pill-At.Risk {
     font-size: 16px;
     background-color: #f8df72;
     display: flex;
@@ -121,4 +138,37 @@
     border-radius: 12.5px;
     height: 25px;
     padding: 0 8px;
+}
+
+/*task description */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.task-name{
+    cursor: pointer;
+}
+.task-description-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 110%;
+    /* left: 0; */
+    z-index: 1;
+    display: none;
+    background-color: #424244;
+    padding: 15px;
+    width: 300px;
+    height: 200px;
+    border-radius: 25px;
+    word-wrap: break-word;
+    color: white;
+
+}
+.dropdown:hover .task-description-dropdown {
+  display: block;
+}
+#description-header{
+    font-style: italic;
+    text-decoration:underline;
+    margin-bottom: 2%;
 }
