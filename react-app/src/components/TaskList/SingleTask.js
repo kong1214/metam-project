@@ -33,7 +33,7 @@ function SingleTask({ task }) {
     return (
         <div className="single-task-container">
             <div className="task-name-container">
-                <div className="dropdown">
+                <div className="description-dropdown">
                     <div className="task-name">{task.task_name}</div>
                     <div className="task-description-dropdown">
                         <div id="description-header">Description</div>

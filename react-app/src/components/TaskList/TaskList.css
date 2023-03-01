@@ -141,7 +141,7 @@
 }
 
 /*task description */
-.dropdown {
+.description-dropdown {
   position: relative;
   display: inline-block;
 }
@@ -164,7 +164,7 @@
     color: white;
 
 }
-.dropdown:hover .task-description-dropdown {
+.description-dropdown:hover .task-description-dropdown {
   display: block;
 }
 #description-header{
