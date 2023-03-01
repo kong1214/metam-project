@@ -18,17 +18,17 @@ function SingleProjectPage() {
 
     useEffect(() => {
         dispatch(getSingleProject(projectId))
-            .then(() => setProjectIsLoaded(true))
-    }, [dispatch, projectId, project.project_name, project.project_icon, project.project_status])
+        setProjectIsLoaded(true)
+    }, [projectId, project.project_name, project.project_icon, project.project_status])
 
 
 
     if (!sessionUser) return (
         <Redirect to="/" />
     )
-    if (!project) return null;
-    console.log(project)
-    if (sessionUser.id !== project.project_owner_id) return (
+    if (projectIsLoaded && !Object.values(project).length) return null;
+
+    if (projectIsLoaded && sessionUser.id !== project.project_owner_id) return (
         <Redirect to="/home" />
     )
 
@@ -37,7 +37,7 @@ function SingleProjectPage() {
             <LeftNavBar />
             <div className='single-project-content-container'>
                 <ProjectHeader project={project} />
-                <TaskList projectIsLoaded={projectIsLoaded} projectId={projectId} />
+                {projectIsLoaded && <TaskList projectIsLoaded={projectIsLoaded} projectId={projectId} />}
             </div>
         </div>
     )
