@@ -40,6 +40,9 @@ function HomePage() {
                         {`Hello ${sessionUser.first_name}`}
                     </div>
                 </div>
+                <div id="home-page-body-container">
+                    More content coming soon!
+                </div>
             </div>
         </div>
     )

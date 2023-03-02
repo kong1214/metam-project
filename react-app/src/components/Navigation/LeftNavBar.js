@@ -21,7 +21,7 @@ function LeftNavBar() {
                 <button className="create-project-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project">Create Project</NavLink>
                 </button>
-                <NavLink to="/home">Home</NavLink>
+                <NavLink to="/home" activeClassName="top-container-active" className="top-container-link" style={{}}>Home</NavLink>
             </div>
             <div className="my-workspace-container">
                 <div className="my-workspace-header">
@@ -30,7 +30,7 @@ function LeftNavBar() {
                 <div className="projects-container">
                     {projectsArr.map(project => (
                         <div className="left-nav-individual-project">
-                            <NavLink to={`/project/${project.id}`} className="individual-project">{project.project_name}</NavLink>
+                            <NavLink to={`/project/${project.id}`} activeClassName="individual-project">{project.project_name}</NavLink>
                         </div>
                     ))}
                 </div>
