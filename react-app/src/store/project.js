@@ -3,6 +3,7 @@ const GET_SINGLE_PROJECT = "projects/GET_SINGLE_PROJECTS";
 const CREATE_A_PROJECT = "projects/CREATE_A_PROJECT"
 const EDIT_A_PROJECT = "projects/EDIT_A_PROJECT"
 const DELETE_A_PROJECT = "projects/DELETE_A_PROJECT"
+const CLEAR_SINGLE_PROJECT = "projects/CLEAR_SINGLE_PROJECT"
 
 const getAll = (projects) => ({
     type: GET_ALL_PROJECTS,
@@ -23,6 +24,10 @@ const edit = (project) => ({
 const remove = (projectId) => ({
     type: DELETE_A_PROJECT,
     projectId
+})
+
+export const clearProject = () => ({
+    type: CLEAR_SINGLE_PROJECT
 })
 
 export const getAllProjects = () => async (dispatch) => {
@@ -99,6 +104,7 @@ export const deleteProject = (projectId) => async (dispatch) => {
 const initialState = { allProjects: {}, singleProject: {} };
 
 const project = (state = initialState, action) => {
+    console.log(action)
     let newState;
     switch (action.type) {
         case GET_ALL_PROJECTS:
@@ -120,6 +126,10 @@ const project = (state = initialState, action) => {
         case DELETE_A_PROJECT:
             newState = {allProjects: {...state.allProjects}, singleProject: {}}
             delete newState.allProjects[action.projectId]
+            return newState
+        case CLEAR_SINGLE_PROJECT:
+            newState = {...state}
+            newState = {allProjects: {...state.allProjects}, singleProject: {}}
             return newState
         default:
             return state;

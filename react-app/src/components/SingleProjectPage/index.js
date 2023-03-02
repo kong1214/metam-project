@@ -16,7 +16,7 @@ function SingleProjectPage() {
 
     useEffect(() => {
         dispatch(getSingleProject(projectId))
-        setProjectIsLoaded(true)
+        .then(() => setProjectIsLoaded(true))
     }, [projectId, project.project_name, project.project_icon, project.project_status])
 
 
@@ -24,6 +24,7 @@ function SingleProjectPage() {
     if (!sessionUser) return (
         <Redirect to="/" />
     )
+
     if (projectIsLoaded && !Object.values(project).length) return null;
 
     if (projectIsLoaded && sessionUser.id !== project.project_owner_id) return (
