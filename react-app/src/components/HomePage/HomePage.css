@@ -25,3 +25,105 @@
 .home-page-greeting{
     font-size: 32px;
 }
+#home-page-body-container{
+    width: 100%;
+    height: 100%;
+}
+/*TASK PILL */
+#home-page-tasks-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#home-page-task-pills-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.task-pill-container {
+    width: 80%;
+    max-width: 100%; /* or any other value that suits your needs */
+    white-space: normal;
+    word-wrap: break-word;
+    height: 50px;
+    max-height: 100px;
+    border-radius: 25px;
+    border: 1px solid black;
+    margin-top: 1.5%;
+    display: flex;
+    align-items: center;
+    word-wrap: break-word
+}
+.task-pill-task-priority-Medium {
+    font-size: 16px;
+    background-color: #f1bd6c;
+    display: flex;
+    align-items: center;
+    border-radius: 12.5px;
+    height: 25px;
+    padding: 0 8px;
+
+}
+
+.task-pill-task-priority-High {
+    font-size: 16px;
+    background-color: #b36bd4;
+    display: flex;
+    align-items: center;
+    border-radius: 12.5px;
+    height: 25px;
+    padding: 0 8px;
+}
+
+.task-pill-task-priority-Low {
+    font-size: 16px;
+    background-color: #9ee7e3;
+    display: flex;
+    align-items: center;
+    border-radius: 12.5px;
+    height: 25px;
+    padding: 0 8px;
+}
+.task-pill-task-status-On.Track {
+    font-size: 16px;
+    background-color: #4ecbc4;
+    ;
+    display: flex;
+    align-items: center;
+    border-radius: 12.5px;
+    height: 25px;
+    padding: 0 8px;
+}
+
+.task-pill-task-status-Off.Track {
+    font-size: 16px;
+    background-color: #f06a6a;
+    display: flex;
+    align-items: center;
+    border-radius: 12.5px;
+    height: 25px;
+    padding: 0 8px;
+}
+
+.task-pill-task-status-At.Risk {
+    font-size: 16px;
+    background-color: #f8df72;
+    display: flex;
+    align-items: center;
+    border-radius: 12.5px;
+    height: 25px;
+    padding: 0 8px;
+}
+.task-pill-info{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.task-pill-name{
+    font-weight: bold;
+}
