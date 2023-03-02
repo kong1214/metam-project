@@ -32,14 +32,13 @@
 }
 .logged-out-nav-buttons-container{
   display: flex;
-  width: 15%;
-  justify-content: space-between;
 }
 .splash-login-button{
   border: none;
   background-color: white;
   color: #727272;
   height: 35px;
+  margin-right: 10px;
 }
 .home-button-container{
   height: 100%;
