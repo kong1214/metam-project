@@ -97,13 +97,15 @@
 .left-navbar-top-container{
   display: flex;
   flex-direction: column;
-  margin: 10%;
-  height: 8%;
+  height: 10%;
+  margin-top: 10%;
+  margin-bottom: 10%;
   justify-content: space-between;
 }
 .create-project-button{
     border: 1px solid lightgray;
     color: black;
+    margin-left: 10%;
     width: 40%;
     height: 35px;
     border-radius: 20px;
@@ -111,13 +113,13 @@
 .my-workspace-container{
   display: flex;
   flex-direction: column;
-  margin: 10%;
   padding-top: 15%;
   border-top: 1px solid #424244;
 }
 .my-workspace-header{
   margin-bottom: 8%;
   padding-bottom: 5%;
+  margin-left: 10%;
   width: 70%;
   border-bottom: 1px solid #424244;
 }
@@ -135,13 +137,19 @@
   background-color: #6a696a;
 }
 .individual-project{
-  border-top: 1px gray solid;
-  border-bottom: 1px gray solid;
-  background-color: #6a696a;
+  padding-left: 10%;
   padding-top: 2%;
   padding-bottom: 2%;
 }
-.top-container-active{
+.individual-project-active{
+  border-top: 1px gray solid;
+  border-bottom: 1px gray solid;
+  background-color: #6a696a;
+  padding-left: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.top-container-link-active{
   border-top: 1px gray solid;
   border-bottom: 1px gray solid;
   background-color: #6a696a;
@@ -150,4 +158,13 @@
   border-top: 1px gray solid;
   border-bottom: 1px gray solid;
   background-color: #6a696a;
+}
+.top-container-link{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 10%;
+  display: flex;
+}
+.fa-solid.fa-house {
+  padding-right: 4%;
 }
