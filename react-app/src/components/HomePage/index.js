@@ -1,20 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import LeftNavBar from '../Navigation/LeftNavBar';
 import { clearProject } from "../../store/project"
 import { useSelector, useDispatch } from 'react-redux';
+import { getAllTasksByDate } from '../../store/task';
+import TaskPill from './TaskPill';
 import "./HomePage.css"
 
 function HomePage() {
     const sessionUser = useSelector(state => state.session.user);
+    const tasks = useSelector(state => state.task.dueToday)
     const dispatch = useDispatch()
-
+    const [tasksLoaded, setTasksLoaded] = useState(false)
     const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 
     useEffect(() => {
         dispatch(clearProject())
+        dispatch(getAllTasksByDate(sessionUser.id))
+            .then(() => setTasksLoaded(true))
     }, [dispatch])
 
     const todayObj = new Date();
@@ -25,8 +30,11 @@ function HomePage() {
     const today = `${day}, ${month} ${date}`
 
     if (!sessionUser) return (
-        <Redirect to="/"/>
+        <Redirect to="/" />
     )
+
+    if (!tasksLoaded) return null
+
     return (
         <div className='home-page-content-and-left-navbar'>
             <LeftNavBar />
@@ -41,7 +49,14 @@ function HomePage() {
                     </div>
                 </div>
                 <div id="home-page-body-container">
-                    More content coming soon!
+                    <div id="home-page-tasks-container">
+                        <div>Tasks Due Today:</div>
+                        <div id="home-page-task-pills-container">
+                            {Object.values(tasks).map(task => (
+                                <TaskPill task={task} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

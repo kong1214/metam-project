@@ -1,4 +1,5 @@
 const GET_ALL_TASKS = "TASK/GET_ALL_TASKS";
+const GET_ALL_TASKS_BY_DATE = "TASK/GET_ALL_TASKS_BY_DATE"
 const GET_SINGLE_TASK = "TASKS/GET_SINGLE_TASKS";
 const CREATE_A_TASK = "TASKS/CREATE_A_TASK"
 const EDIT_A_TASK = "TASKS/EDIT_A_TASK"
@@ -8,6 +9,10 @@ const getAll = (tasks) => ({
     type: GET_ALL_TASKS,
     tasks
 });
+const getAllByDate = (tasks) => ({
+    type: GET_ALL_TASKS_BY_DATE,
+    tasks
+})
 const getSingle = (task) => ({
     type: GET_SINGLE_TASK,
     task
@@ -39,6 +44,21 @@ export const getAllTasks = (projectId) => async (dispatch) => {
         return normalizedData
     }
 };
+
+export const getAllTasksByDate = (userId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/user/${userId}`)
+
+    if (response.ok) {
+        const data = await response.json();
+        let normalizedData = {}
+        data.tasks.forEach(task => {
+            normalizedData[task.id] = task
+        })
+        dispatch(getAllByDate(normalizedData));
+        return normalizedData
+    }
+}
+
 
 export const createTask = (task, projectId) => async (dispatch) => {
     const response = await fetch(`/api/tasks/project/${projectId}`, {
@@ -85,27 +105,32 @@ export const deleteTask = (taskId) => async (dispatch) => {
 }
 
 
-const initialState = { allTasks: {}, singleTask: {} };
+const initialState = { allTasks: {}, singleTask: {}, dueToday: {} };
 
 
 const task = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_ALL_TASKS:
-            newState = { allTasks: {}, singleTask: {} }
+            newState = { allTasks: {}, singleTask: {}, dueToday: {} }
             newState.allTasks = action.tasks
             return newState
+        case GET_ALL_TASKS_BY_DATE:
+            newState = {allTasks: {}, singleTask: {}, dueToday: {}}
+            newState.dueToday = action.tasks
+            return newState
         case CREATE_A_TASK:
-            newState = {allTasks: {...state.allTasks}, singleTask: {}}
+            newState = {allTasks: {...state.allTasks}, singleTask: {}, dueToday: {}}
             newState.allTasks[action.task.id] = action.task
             return newState
         case EDIT_A_TASK:
-            newState = {allTasks: {...state.allTasks}, singleTask: {}}
+            newState = {allTasks: {...state.allTasks}, singleTask: {}, dueToday: {}}
             newState.allTasks[action.task.id] = action.task
             return newState
         case DELETE_A_TASK:
-            newState = {allTasks: {...state.allTasks}, singleTask: {}}
+            newState = {allTasks: {...state.allTasks}, singleTask: {}, dueToday: {...state.dueToday}}
             delete newState.allTasks[action.taskId]
+            delete newState.dueToday[action.taskId]
             return newState
         default:
             return state;

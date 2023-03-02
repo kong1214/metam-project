@@ -3,6 +3,7 @@ from flask_login import login_required, current_user
 from app.models import Task, Project, db
 from app.forms import CreateTaskForm
 from app.api.auth_routes import validation_errors_to_error_messages
+from datetime import date
 
 task_routes = Blueprint('tasks', __name__)
 
@@ -11,11 +12,34 @@ task_routes = Blueprint('tasks', __name__)
 @login_required
 def get_all_tasks(project_id):
     """
-    Query for all tasks of a project and returns them in a list of user dictionaries
+    Query for all tasks of a project and returns them in a list of dictionaries
     """
     project = Project.query.get(project_id)
     tasks = project.tasks
     return {'tasks': [task.to_dict() for task in tasks]}
+
+@task_routes.route('/user/<int:user_id>')
+@login_required
+def get_all_tasks_by_date(user_id):
+    """
+    Query for all tasks due today and returns them in a list of dictionaries
+    """
+
+    projects = current_user.projects
+    project_ids = [project.to_dict()['id'] for project in projects]
+
+    date_obj = date.today()
+    today = date_obj.strftime("%m/%d/%Y")
+    # print(f"\n\n\n{today}\n\n\n")
+    tasks = []
+    for project_id in project_ids:
+        project_tasks = db.session.execute(db.select(Task).filter(Task.project_id == project_id, Task.due_date == today).join(Project, Project.id == Task.project_id)).all()
+        # print(f"\n\n\n{project_tasks}\n\n\n")
+        for task in project_tasks:
+            tasks.append(task[0].to_dict())
+    # print(f"\n\n\n{tasks}\n\n\n")
+    return {'tasks': tasks}
+
 
 @task_routes.route('/project/<int:project_id>', methods=["POST"])
 @login_required
