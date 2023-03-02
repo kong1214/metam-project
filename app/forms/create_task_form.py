@@ -6,7 +6,7 @@ from app.models import User
 
 
 class CreateTaskForm(FlaskForm):
-    task_name = StringField('Name', validators=[DataRequired(), Length(min=1, max=80, message= "The task name must be between 1 and 80 characters long.")])
+    task_name = StringField('Name', validators=[DataRequired(), Length(min=1, max=30, message= "The task name must be between 1 and 30 characters long.")])
     due_date = StringField('Due Date', validators=[DataRequired()])
     priority = StringField('Icon', validators=[DataRequired()])
     task_status = StringField('Status', validators=[DataRequired()])
