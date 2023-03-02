@@ -19,3 +19,11 @@ a {
     display: flex;
     align-items: center;
 }
+.modal-button{
+    border: none;
+    height: 30px;
+    border-radius: 15px;
+    width: 80%;
+    background-color: #4573d2;
+    color: white;
+}
