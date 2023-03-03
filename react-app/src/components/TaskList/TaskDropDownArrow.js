@@ -44,12 +44,14 @@ function TaskDropDownArrow({ task }) {
                     buttonText="Edit Task"
                     onButtonClick={closeMenu}
                     modalComponent={<EditTaskFormModal task={task}/>}
+                    className="modal-button"
                 />
 
                 <OpenModalButton
                     buttonText="Delete Task"
                     onButtonClick={closeMenu}
                     modalComponent={<DeleteTaskModal task={task}/>}
+                    className="modal-button"
                 />
             </div>
         </>
