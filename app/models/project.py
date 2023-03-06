@@ -18,7 +18,7 @@ class Project(db.Model):
 
     user = db.relationship("User", back_populates="projects")
     tasks = db.relationship("Task", back_populates="project", cascade="all, delete-orphan")
-    
+    sections = db.relationship("Section", back_populates="project", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
