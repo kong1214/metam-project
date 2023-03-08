@@ -8,8 +8,8 @@ class Section(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    section_name = db.Column(db.String(50), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("projects.id")))
+    name = db.Column(db.String(50), nullable=False)
     created_at = db.Column(db.String)
     updated_at = db.Column(db.String)
 
@@ -21,7 +21,7 @@ class Section(db.Model):
         return {
             'id': self.id,
             'project_id': self.project_id,
-            'section_name': self.section_name,
+            'name': self.name,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }
