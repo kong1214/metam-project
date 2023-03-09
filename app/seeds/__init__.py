@@ -2,6 +2,8 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .projects import seed_projects, undo_projects
 from .tasks import seed_tasks, undo_tasks
+from .sections import seed_sections, undo_sections
+from .project_users import seed_project_users, undo_project_users
 
 from app.models.db import db, environment, SCHEMA
 
@@ -20,10 +22,14 @@ def seed():
         # Make sure to add all your other model's undo functions below
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.projects RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.project_users RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.sections RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.tasks RESTART IDENTITY CASCADE;")
         db.session.commit()
     seed_users()
     seed_projects()
+    seed_project_users()
+    seed_sections()
     seed_tasks()
 
     # Add other seed functions here
@@ -34,5 +40,7 @@ def seed():
 def undo():
     undo_users()
     undo_projects()
+    undo_project_users()
+    undo_sections()
     undo_tasks()
     # Add other undo functions here
