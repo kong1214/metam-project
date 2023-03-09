@@ -61,7 +61,6 @@ function CreateProjectPage() {
         } else history.push(`/project/${res.id}`)
       })
     // .catch(async (res) => {
-    //     console.log(res)
     //     const data = await res.json();
     //     if (data && data.errors) setErrors(data.errors)
     //   }

@@ -2,21 +2,32 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
 import SingleTask from "./SingleTask";
+import { getAllSections } from "../../store/section";
 import { getAllTasks, clearTasks } from "../../store/task";
 import "./TaskList.css"
 
-function TaskList({ projectIsLoaded, projectId }) {
+function TaskList({ projectIsLoaded, projectId, numSections }) {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
     const project = useSelector(state => state.project.singleProject)
+    const sectionsObj = useSelector(state => state.section)
+    const [sectionsLoaded, setSectionsLoaded] = useState(false);
     let tasksObj = useSelector(state => state.task.allTasks)
 
     useEffect(() => {
-        dispatch(getAllTasks(projectId))
+        dispatch(getAllSections(projectId))
+        setSectionsLoaded(true)
     }, [Object.values(tasksObj).length, projectId])
+
+    useEffect(() => {
+        if (sectionsLoaded) {
+            dispatch(getAllTasks(projectId))
+        }
+    }, [Object.values(tasksObj).length, sectionsLoaded])
 
     if (Object.values(tasksObj).length === 0) tasksObj = { task_error: "No task yet for this section" }
     let tasks = Object.values(tasksObj)
+    let sections = Object.values(sectionsObj)
     let toDoTasks = []
     let doingTasks = []
     let doneTasks = []

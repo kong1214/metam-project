@@ -25,10 +25,12 @@ def single_project(project_id):
     """
     project = Project.query.get(project_id)
     tasks = project.tasks
-    user = project.user
+    sections = project.sections
+    users = project.users
     parsed_project = project.to_dict()
     parsed_project["num_tasks"] = len(tasks)
-    parsed_project["owner"] = user.to_dict()
+    parsed_project["num_sections"] = len(sections)
+    parsed_project["users"] = [user.to_dict() for user in users]
     return {"project": parsed_project}
 
 @project_routes.route('', methods=["POST"])
