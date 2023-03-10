@@ -34,7 +34,7 @@ function SingleTask({ task }) {
         <div className="single-task-container">
             <div className="task-name-container">
                 <div className="description-dropdown">
-                    <div className="task-name">{task.task_name}</div>
+                    <div className="task-name">{task.name}</div>
                     <div className="task-description-dropdown">
                         <div id="description-header">Description</div>
                         <div id="task-description">
@@ -53,8 +53,8 @@ function SingleTask({ task }) {
                 </div>
             </div>
             <div className={"task-status-container"}>
-                <div className={`task-status-outer-pill-${task.task_status}`}>
-                    {task.task_status}
+                <div className={`task-status-outer-pill-${task.status}`}>
+                    {task.status}
                 </div>
             </div>
         </div>

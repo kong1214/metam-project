@@ -15,19 +15,30 @@ function TaskList({ projectIsLoaded, projectId, numSections }) {
     let tasksObj = useSelector(state => state.task.allTasks)
 
     useEffect(() => {
+        setSectionsLoaded(false)
         dispatch(getAllSections(projectId))
         setSectionsLoaded(true)
-    }, [Object.values(tasksObj).length, projectId])
+    }, [numSections, projectId])
 
     useEffect(() => {
         if (sectionsLoaded) {
             dispatch(getAllTasks(projectId))
         }
-    }, [Object.values(tasksObj).length, sectionsLoaded])
+    }, [Object.values(tasksObj).length, sectionsLoaded, projectId])
 
-    if (Object.values(tasksObj).length === 0) tasksObj = { task_error: "No task yet for this section" }
+    if (Object.values(sectionsObj).length === 0) return null
+    if (Object.values(tasksObj).length === 0) return null;
     let tasks = Object.values(tasksObj)
     let sections = Object.values(sectionsObj)
+
+    let parsedSectionsAndTasks = {}
+    for (const section of sections) {
+        parsedSectionsAndTasks[section.name] = []
+    }
+    for (const task of tasks) {
+        parsedSectionsAndTasks[task.section.name].push(task)
+    }
+
     let toDoTasks = []
     let doingTasks = []
     let doneTasks = []
@@ -53,29 +64,10 @@ function TaskList({ projectIsLoaded, projectId, numSections }) {
                         <div className="task-priority-container">Priority</div>
                         <div className="task-status-container">Status</div>
                     </div>
-                    <div className="to-do-container section-container">
-                        <div className="to-do-header-container section-header">To do</div>
-                        <div className="to-do-tasks-container">
-                            {toDoTasks.map(task => (
-                                <SingleTask task={task} />
-                            ))}
-                        </div>
-                    </div>
-                    <div className="doing-container section-container">
-                        <div className="doing-header-container section-header">Doing</div>
-                        <div className="doing-tasks-container">
-                            {doingTasks.map(task => (
-                                <SingleTask task={task} />
-                            ))}
-                        </div>
-                    </div>
-                    <div className="done-container section-container">
-                        <div className="done-header-container section-header">Done</div>
-                        <div className="done-tasks-container">
-                            {doneTasks.map(task => (
-                                <SingleTask task={task} />
-                            ))}
-                        </div>
+                    <div className="section-container">
+                        {sections.map(section => (
+                            <div>{section.name}</div>
+                        ))}
                     </div>
                 </div>
             )}

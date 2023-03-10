@@ -16,4 +16,5 @@ def get_all_sections(project_id):
 
     project = Project.query.get(project_id)
     sections = project.sections
+
     return {'sections': [section.to_dict() for section in sections]}
