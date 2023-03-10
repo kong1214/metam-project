@@ -7,7 +7,7 @@ import ProjectDropDownArrow from "./ProjectDropDownArrow";
 import LeftNavBar from "../Navigation/LeftNavBar";
 import "./SingleProjectPage.css"
 
-function ProjectHeader({ project }) {
+function ProjectHeader({ project, sections }) {
 
     let projectIcon
     if (project.icon === "chat_bubble") {
@@ -61,7 +61,7 @@ function ProjectHeader({ project }) {
                         {project.name}
                     </div>
                     <div className="single-project-dropdown" style={{ marginRight: "1.5%" }}>
-                        <ProjectDropDownArrow project={project} />
+                        <ProjectDropDownArrow project={project}/>
                     </div>
                     {projectStatus}
                 </div>

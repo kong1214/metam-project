@@ -65,7 +65,7 @@ function SingleProjectPage() {
         <div className='home-page-content-and-left-navbar'>
             <LeftNavBar />
             <div className='single-project-content-container'>
-                <ProjectHeader project={project} />
+                <ProjectHeader project={project}/>
                 <div className="tasks-column-header">
                     <div className="task-name-container">Task Name</div>
                     <div className="task-due-date">Due Date</div>

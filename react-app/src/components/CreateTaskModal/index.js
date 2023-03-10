@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useParams } from "react-router-dom";
 import { createTask } from "../../store/task";
@@ -8,16 +8,25 @@ import "./CreateTaskModal.css";
 
 function CreateTaskFormModal({ projectId }) {
 
+    const dispatch = useDispatch();
+
+    const sectionsObj = useSelector(state => state.section)
+    const sections = Object.values(sectionsObj)
+
     function dateFormatter(date) {
         const dateArr = date.split("/")
         return `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`
     }
 
-    const dispatch = useDispatch();
+    function sectionIdByName(name) {
+        const section = sections.filter(section => section.name === name)
+        return section.id
+    }
+
     const [taskName, setTaskName] = useState("");
     const [priority, setPriority] = useState("");
     const [taskStatus, setTaskStatus] = useState("");
-    const [projectSection, setProjectSection] = useState("")
+    const [projectSectionName, setProjectSectionName] = useState("")
     const [description, setDescription] = useState("");
     const [dueDate, setDueDate] = useState("");
     const [errors, setErrors] = useState([]);
@@ -44,7 +53,7 @@ function CreateTaskFormModal({ projectId }) {
             task_name: taskName,
             priority: priority,
             task_status: taskStatus,
-            project_section: projectSection,
+            section_id: sectionIdByName(projectSectionName),
             description: description,
             due_date: dateParser(dueDate),
             created_at: date,
@@ -123,14 +132,14 @@ function CreateTaskFormModal({ projectId }) {
                         <select
                             id="task-project-section-dropdown-input"
                             className="dropdown-create"
-                            value={projectSection}
-                            onChange={(e) => setProjectSection(e.target.value)}
+                            value={projectSectionName}
+                            onChange={(e) => setProjectSectionName(e.target.value)}
                             required
                         >
                             <option value="">Select a section</option>
-                            <option value="To do">To do</option>
-                            <option value="Doing">Doing</option>
-                            <option value="Done">Done</option>
+                            {sections.map(section => (
+                                <option value={section.name}>{section.name}</option>
+                            ))}
                         </select>
                     </div>
                     <div id="create-task-dueDate-container" className="label-input-container">

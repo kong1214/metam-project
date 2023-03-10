@@ -1,23 +1,37 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useParams } from "react-router-dom";
 import { editTask } from "../../store/task";
+import section from "../../store/section";
 
 
 function EditTaskFormModal({ task }) {
+
+    const sectionsObj = useSelector(state => state.section)
+    const sections = Object.values(sectionsObj)
 
     function dateFormatter(date) {
         const dateArr = date.split("/")
         return `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`
     }
 
+    function sectionNameForTask(task) {
+        const section = sectionsObj[task.section_id]
+        return section.name
+    }
+
+    function sectionIdByName(name) {
+        const section = sections.filter(section => section.name === name)
+        return section.id
+    }
+
     const dispatch = useDispatch();
-    const [taskName, setTaskName] = useState(task.task_name);
+    const [taskName, setTaskName] = useState(task.name);
     const [priority, setPriority] = useState(task.priority);
-    const [taskStatus, setTaskStatus] = useState(task.task_status);
-    const [projectSection, setProjectSection] = useState(task.project_section)
+    const [taskStatus, setTaskStatus] = useState(task.status);
+    const [projectSectionName, setProjectSectionName] = useState(sectionNameForTask(task))
     const [description, setDescription] = useState(task.description);
     const [dueDate, setDueDate] = useState(dateFormatter(task.due_date));
     const [errors, setErrors] = useState([]);
@@ -44,7 +58,7 @@ function EditTaskFormModal({ task }) {
             task_name: taskName,
             priority: priority,
             task_status: taskStatus,
-            project_section: projectSection,
+            section_id: sectionIdByName(projectSectionName),
             description: description,
             due_date: dateParser(dueDate),
             created_at: date,
@@ -123,14 +137,14 @@ function EditTaskFormModal({ task }) {
                         <select
                             id="task-project-section-dropdown-input"
                             className="dropdown-create"
-                            value={projectSection}
-                            onChange={(e) => setProjectSection(e.target.value)}
+                            value={projectSectionName}
+                            onChange={(e) => setProjectSectionName(e.target.value)}
                             required
                         >
                             <option value="">Select a section</option>
-                            <option value="To do">To do</option>
-                            <option value="Doing">Doing</option>
-                            <option value="Done">Done</option>
+                            {sections.map(section => (
+                                <option value={section.name}>{section.name}</option>
+                            ))}
                         </select>
                     </div>
                     <div id="create-task-dueDate-container" className="label-input-container">

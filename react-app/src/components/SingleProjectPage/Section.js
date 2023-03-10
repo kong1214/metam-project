@@ -14,7 +14,7 @@ function Section({ section, tasks = []}) {
         <div className="section-container">
             <div className="section-header">{section.name}</div>
             {tasks.length === 0 ? (
-                <div> no tasks for this section </div>
+                <div> No tasks for this section </div>
             ) : (
                 tasks.map((task) => (
                     <SingleTask key={task.id} task={task} />
