@@ -53,17 +53,18 @@ def create_task(project_id):
 
         new_task = Task(
             project_id=project_id,
-            task_name=form.data["task_name"],
+            name=form.data["name"],
             due_date=form.data["due_date"],
             priority=form.data["priority"],
-            task_status=form.data["task_status"],
-            project_section=form.data["project_section"],
+            status=form.data["status"],
+            section_id=form.data["section_id"],
             description=form.data["description"],
             created_at=form.data["created_at"],
             updated_at=form.data["updated_at"]
         )
         db.session.add(new_task)
         db.session.commit()
+
         return new_task.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -79,11 +80,11 @@ def edit_task(task_id):
     form ['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
 
-        task.task_name=form.data["task_name"]
+        task.name=form.data["name"]
         task.due_date=form.data["due_date"]
         task.priority=form.data["priority"]
-        task.task_status=form.data["task_status"]
-        task.project_section=form.data["project_section"]
+        task.status=form.data["status"]
+        task.section_id=form.data["section_id"]
         task.description=form.data["description"]
         task.updated_at=form.data["updated_at"]
 

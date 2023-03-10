@@ -23,7 +23,7 @@ function EditTaskFormModal({ task }) {
     }
 
     function sectionIdByName(name) {
-        const section = sections.filter(section => section.name === name)
+        const section = sections.find(section => section.name === name)
         return section.id
     }
 
@@ -55,9 +55,9 @@ function EditTaskFormModal({ task }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const updatedTask = {
-            task_name: taskName,
+            name: taskName,
             priority: priority,
-            task_status: taskStatus,
+            status: taskStatus,
             section_id: sectionIdByName(projectSectionName),
             description: description,
             due_date: dateParser(dueDate),

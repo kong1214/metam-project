@@ -19,7 +19,7 @@ function CreateTaskFormModal({ projectId }) {
     }
 
     function sectionIdByName(name) {
-        const section = sections.filter(section => section.name === name)
+        const section = sections.find(section => section.name === name)
         return section.id
     }
 
@@ -48,11 +48,12 @@ function CreateTaskFormModal({ projectId }) {
     }
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         const newTask = {
-            task_name: taskName,
+            name: taskName,
             priority: priority,
-            task_status: taskStatus,
+            status: taskStatus,
             section_id: sectionIdByName(projectSectionName),
             description: description,
             due_date: dateParser(dueDate),
