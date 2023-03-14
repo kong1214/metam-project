@@ -35,6 +35,7 @@ def get_all_tasks_by_date(user_id):
     for project_id in project_ids:
         project_tasks = db.session.execute(db.select(Task).filter(Task.project_id == project_id, Task.due_date == today).join(Project, Project.id == Task.project_id)).all()
         # print(f"\n\n\n{project_tasks}\n\n\n")
+
         for task in project_tasks:
             tasks.append(task[0].to_dict())
     # print(f"\n\n\n{tasks}\n\n\n")
@@ -96,7 +97,7 @@ def edit_task(task_id):
 @login_required
 def delete_task(task_id):
     """
-    Add a Task to a Project
+    Delete a Task to a Project
     """
     task = Task.query.get(task_id)
 
