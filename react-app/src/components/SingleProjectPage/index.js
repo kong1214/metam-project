@@ -48,7 +48,6 @@ function SingleProjectPage() {
         <Redirect to="/home" />
     )
 
-    if (!Object.values(sectionsObj).length) return null
     const sections = Object.values(sectionsObj)
     const tasks = Object.values(tasksObj)
 

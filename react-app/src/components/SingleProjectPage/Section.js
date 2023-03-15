@@ -8,8 +8,6 @@ import { getAllTasks, clearTasks } from "../../store/task";
 
 function Section({ section, tasks = []}) {
 
-    console.log(`tasks for section ${section.id}`)
-    console.log("tasks", tasks)
     return (
         <div className="section-container">
             <div className="section-header">{section.name}</div>
