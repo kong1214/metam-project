@@ -57,7 +57,7 @@ function ProjectHeader({ project, sections }) {
                     <div className="project-icon-container" style={{ marginRight: "1.5%" }}>
                         {projectIcon}
                     </div>
-                    <div className="project-name-container" style={{ fontSize: "20px", marginRight: "1.5%" }}>
+                    <div className="project-name-container" style={{ fontSize: "20px", marginRight: ".5%" }}>
                         {project.name}
                     </div>
                     <div className="single-project-dropdown" style={{ marginRight: "1.5%" }}>
