@@ -21,7 +21,7 @@ function Section({ section, tasks = [], index }) {
                 <div className="section-container" {...provided.draggableProps} ref={provided.innerRef}>
                     <div className="section-header">
                     <div className="drag-handle" {...provided.dragHandleProps}>
-                        <i className="fa-solid fa-bars" style={{marginRight: ".5em"}}></i>
+                        <i className="fa-solid fa-bars bars-icon" style={{marginRight: ".5em"}}></i>
                     </div>
                         {section.name}
                     </div>

@@ -37,7 +37,7 @@ function SingleTask({ task, index }) {
             {provided => (
                 <div className="single-task-container" ref={provided.innerRef} {...provided.draggableProps}>
                     <div className="drag-handle" {...provided.dragHandleProps}>
-                        <i className="fa-solid fa-bars" style={{marginRight: ".5em"}}></i>
+                        <i className="fa-solid fa-bars bars-icon"></i>
                     </div>
                     <div className="task-name-container">
                         <div className="description-dropdown">

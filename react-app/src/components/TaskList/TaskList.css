@@ -17,6 +17,16 @@
     font-weight: bold;
 }
 
+.bars-icon{
+    margin-right: .5em;
+    display: none;
+    color: gray
+}
+
+.section-header:hover .bars-icon{
+    display: flex;
+}
+
 .single-task-container {
     display: flex;
     align-items: center;
@@ -26,6 +36,13 @@
     border-bottom: 1px lightgray solid;
     margin-bottom: 1%;
     margin-top: 1%;
+}
+.single-task-container:hover{
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
+}
+.single-task-container:hover .bars-icon{
+    display: flex;
 }
 
 .task-name-container {
@@ -144,11 +161,10 @@
 /*task description */
 .description-dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
-.task-name{
-    cursor: pointer;
-}
+
 .task-description-dropdown {
     position: absolute;
     top: 100%;
