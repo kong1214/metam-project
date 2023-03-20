@@ -4,6 +4,7 @@ import { Redirect, useParams } from "react-router-dom";
 import { getSingleProject } from "../../store/project";
 import { getAllSections } from "../../store/section";
 import { getAllTasks, clearTasks } from "../../store/task";
+import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import LeftNavBar from "../Navigation/LeftNavBar";
 import ProjectHeader from "./ProjectHeader";
 import Section from "./Section";
@@ -59,25 +60,41 @@ function SingleProjectPage() {
         } else parsedTasks[task.section_id].push(task)
     })
 
-    console.log("parsedTasks", parsedTasks)
+    function onDragEnd() {
+        alert('dropped ')
+    }
+
     return (
         <div className='home-page-content-and-left-navbar'>
             <LeftNavBar />
             <div className='single-project-content-container'>
-                <ProjectHeader project={project}/>
+                <ProjectHeader project={project} />
                 <div className="tasks-column-header">
                     <div className="task-name-container">Task Name</div>
                     <div className="task-due-date">Due Date</div>
                     <div className="task-priority-container">Priority</div>
                     <div className="task-status-container">Status</div>
                 </div>
-                {sections.length === 0 ? (
-                    <div>No Sections Yet!</div>
-                ) : (
-                    sections.map((section) => (
-                        <Section key={section.id} section={section} tasks={parsedTasks[section.id] || []} />
-                )
-                ))}
+                <DragDropContext onDragEnd={onDragEnd}>
+                    {sections.length === 0 ? (
+                        <div>No Sections Yet!</div>
+                    ) : (
+                        <Droppable droppableId="sections">
+                            {(provided) => (
+                                <div {...provided.droppableProps} ref={provided.innerRef}>
+                                    {sections.map((section, index) => (
+                                        <Section
+                                            key={section.id}
+                                            section={section}
+                                            tasks={parsedTasks[section.id] || []}
+                                            index={index}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </Droppable>
+                    )}
+                </DragDropContext>
             </div>
         </div>
     )

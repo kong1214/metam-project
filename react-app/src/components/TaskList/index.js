@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
 import SingleTask from "./SingleTask";
 import { getAllSections } from "../../store/section";
@@ -53,6 +54,9 @@ function TaskList({ projectIsLoaded, projectId, numSections }) {
         }
     }
 
+    function onDragEnd() {
+        alert('dropped ')
+    }
 
     return (
         <>
@@ -64,11 +68,17 @@ function TaskList({ projectIsLoaded, projectId, numSections }) {
                         <div className="task-priority-container">Priority</div>
                         <div className="task-status-container">Status</div>
                     </div>
-                    <div className="section-container">
-                        {sections.map(section => (
-                            <div>{section.name}</div>
-                        ))}
-                    </div>
+                    <DragDropContext onDragEnd={onDragEnd}>
+                        <Droppable droppableId="all-sections" direction="vertical" type="row">
+                            {provided => (
+                                <div className="section-container" {...provided.droppableProps} ref={provided.innerRef}>
+                                    {sections.map(section => (
+                                        <div>{section.name}</div>
+                                    ))}
+                                </div>
+                            )}
+                        </Droppable>
+                    </DragDropContext>
                 </div>
             )}
         </>
