@@ -43,7 +43,7 @@ function SingleProjectPage() {
         <Redirect to="/" />
     )
 
-    // if (projectIsLoaded && !Object.values(project).length) return null;
+    if (projectIsLoaded && !Object.values(project).length) return null;
 
     if (projectIsLoaded && sessionUser.id !== project.owner_id) return (
         <Redirect to="/home" />
