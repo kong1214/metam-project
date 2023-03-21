@@ -73,7 +73,7 @@ def create_task(project_id):
 @login_required
 def edit_task(task_id):
     """
-    Add a Task to a Project
+    Edit a Task
     """
     task = Task.query.get(task_id)
 
@@ -92,6 +92,19 @@ def edit_task(task_id):
         db.session.commit()
         return task.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@task_routes.route('/drag/<int:task_id>', methods=["PUT"])
+@login_required
+def move_task(task_id):
+    """
+    Edit a Task's section or order to a Project
+    """
+    task = Task.query.get(task_id)
+    data = request.get_json()
+    print(f"\n\n\n{data}\n\n\n")
+
+
+    return data
 
 @task_routes.route('/<int:task_id>', methods=["DELETE"])
 @login_required

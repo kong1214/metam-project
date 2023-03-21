@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 8119707ed7c5
-Revises:
-Create Date: 2023-03-08 20:25:13.695337
+Revision ID: 60a5c1a9abd2
+Revises: 
+Create Date: 2023-03-20 19:25:23.193179
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '8119707ed7c5'
+revision = '60a5c1a9abd2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -49,6 +49,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('project_id', sa.Integer(), nullable=True),
     sa.Column('name', sa.String(length=50), nullable=False),
+    sa.Column('order', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.String(), nullable=True),
     sa.Column('updated_at', sa.String(), nullable=True),
     sa.ForeignKeyConstraint(['project_id'], ['projects.id'], ),
@@ -59,6 +60,7 @@ def upgrade():
     sa.Column('project_id', sa.Integer(), nullable=False),
     sa.Column('section_id', sa.Integer(), nullable=False),
     sa.Column('assignee_id', sa.Integer(), nullable=True),
+    sa.Column('order', sa.Integer(), nullable=True),
     sa.Column('name', sa.String(length=50), nullable=False),
     sa.Column('due_date', sa.String(), nullable=True),
     sa.Column('priority', sa.String(), nullable=True),
