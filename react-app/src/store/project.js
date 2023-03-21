@@ -107,7 +107,7 @@ const project = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_ALL_PROJECTS:
-            newState = { allProjects: {}, singleProject: {...state.singleProject} }
+            newState = { allProjects: {}, singleProject: {} }
             newState.allProjects = action.projects
             return newState
         case GET_SINGLE_PROJECT:
