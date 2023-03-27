@@ -6,6 +6,7 @@ def seed_tasks():
         project_id=1,
         section_id=1,
         assignee_id=1,
+        order=1,
         name="First Task",
         due_date="02/25/2023",
         priority="Low",
@@ -18,6 +19,7 @@ def seed_tasks():
         project_id=1,
         section_id=2,
         assignee_id=2,
+        order=1,
         name="Second Task",
         due_date="02/25/2023",
         priority="Medium",
@@ -30,6 +32,7 @@ def seed_tasks():
         project_id=1,
         section_id=3,
         assignee_id=3,
+        order=1,
         name="Third Task",
         due_date="02/25/2023",
         priority="High",
@@ -40,8 +43,9 @@ def seed_tasks():
     )
     task4 = Task(
         project_id=2,
-        section_id=1,
+        section_id=5,
         assignee_id=1,
+        order=1,
         name="First Task",
         due_date="02/25/2023",
         priority="High",
@@ -52,8 +56,9 @@ def seed_tasks():
     )
     task5 = Task(
         project_id=3,
-        section_id=2,
+        section_id=10,
         assignee_id=2,
+        order=1,
         name="First Task",
         due_date="02/25/2023",
         priority="Low",

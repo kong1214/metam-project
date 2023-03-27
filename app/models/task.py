@@ -11,6 +11,7 @@ class Task(db.Model):
     project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("projects.id")), nullable=False)
     section_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("sections.id")), nullable=False)
     assignee_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=True)
+    order = db.Column(db.Integer)
     name = db.Column(db.String(50), nullable=False)
     due_date = db.Column(db.String)
     priority = db.Column(db.String)
@@ -33,6 +34,7 @@ class Task(db.Model):
             'due_date': self.due_date,
             'priority': self.priority,
             'status': self.status,
+            'order': self.order,
             'description': self.description,
             'created_at': self.created_at,
             'updated_at': self.updated_at,

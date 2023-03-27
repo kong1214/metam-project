@@ -10,6 +10,7 @@ class Section(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("projects.id")))
     name = db.Column(db.String(50), nullable=False)
+    order = db.Column(db.Integer)
     created_at = db.Column(db.String)
     updated_at = db.Column(db.String)
 
@@ -22,6 +23,7 @@ class Section(db.Model):
             'id': self.id,
             'project_id': self.project_id,
             'name': self.name,
+            'order': self.order,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }

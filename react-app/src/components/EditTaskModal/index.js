@@ -17,21 +17,10 @@ function EditTaskFormModal({ task }) {
         return `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`
     }
 
-    function sectionNameForTask(task) {
-        const section = sectionsObj[task.section_id]
-        return section.name
-    }
-
-    function sectionIdByName(name) {
-        const section = sections.find(section => section.name === name)
-        return section.id
-    }
-
     const dispatch = useDispatch();
     const [taskName, setTaskName] = useState(task.name);
     const [priority, setPriority] = useState(task.priority);
     const [taskStatus, setTaskStatus] = useState(task.status);
-    const [projectSectionName, setProjectSectionName] = useState(sectionNameForTask(task))
     const [description, setDescription] = useState(task.description);
     const [dueDate, setDueDate] = useState(dateFormatter(task.due_date));
     const [errors, setErrors] = useState([]);
@@ -58,7 +47,6 @@ function EditTaskFormModal({ task }) {
             name: taskName,
             priority: priority,
             status: taskStatus,
-            section_id: sectionIdByName(projectSectionName),
             description: description,
             due_date: dateParser(dueDate),
             created_at: date,
@@ -132,21 +120,6 @@ function EditTaskFormModal({ task }) {
                     </div>
                 </div>
                 <div id="create-task-section-dueDate-container">
-                    <div id="create-task-section-container" className="label-input-container">
-                        <label id="task-project-section-dropdown-label">Project Section</label>
-                        <select
-                            id="task-project-section-dropdown-input"
-                            className="dropdown-create"
-                            value={projectSectionName}
-                            onChange={(e) => setProjectSectionName(e.target.value)}
-                            required
-                        >
-                            <option value="">Select a section</option>
-                            {sections.map(section => (
-                                <option value={section.name}>{section.name}</option>
-                            ))}
-                        </select>
-                    </div>
                     <div id="create-task-dueDate-container" className="label-input-container">
                         <label id="create-task-dueDate-label">Due Date</label>
                         <input
