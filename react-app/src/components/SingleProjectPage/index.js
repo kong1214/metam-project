@@ -8,7 +8,6 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import LeftNavBar from "../Navigation/LeftNavBar";
 import ProjectHeader from "./ProjectHeader";
 import Section from "./Section";
-import TaskList from "../TaskList";
 import "./SingleProjectPage.css"
 
 function SingleProjectPage() {
@@ -45,9 +44,9 @@ function SingleProjectPage() {
 
     // if (projectIsLoaded && !Object.values(project).length) return null;
 
-    if (projectIsLoaded && sessionUser.id !== project.owner_id) return (
-        <Redirect to="/home" />
-    )
+    // if (projectIsLoaded && sessionUser.id !== project.owner_id) return (
+    //     <Redirect to="/home" />
+    // )
 
     const sections = Object.values(sectionsObj)
     const tasks = Object.values(tasksObj)

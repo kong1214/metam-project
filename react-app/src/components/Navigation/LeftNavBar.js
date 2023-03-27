@@ -21,7 +21,7 @@ function LeftNavBar() {
                 <button className="create-project-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project">Create Project</NavLink>
                 </button>
-                <NavLink to="/home" activeClassName="top-container-link-active" className="top-container-link" style={{}}>
+                <NavLink to="/home" activeClassName="top-container-link-active" className="top-container-link">
                     <i className="fa-solid fa-house"></i>
                     Home
                 </NavLink>

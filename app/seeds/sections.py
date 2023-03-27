@@ -78,7 +78,7 @@ def seed_sections():
         created_at="02/20/2023",
         updated_at="02/20/2023"
     )
-    section12 = Section(
+    section13 = Section(
         project_id=4,
         name="Complete",
         order=2,
@@ -86,7 +86,7 @@ def seed_sections():
         updated_at="02/20/2023"
     )
 
-    all_sections = [section1, section2, section3, section4, section6, section7, section8, section9, section10, section11, section12]
+    all_sections = [section1, section2, section3, section4, section6, section7, section8, section9, section10, section11, section12, section13]
     add_tasks = [db.session.add(section) for section in all_sections]
 
 def undo_sections():

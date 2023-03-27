@@ -50,6 +50,9 @@ def create_task(project_id):
     """
     form = CreateTaskForm()
     form ['csrf_token'].data = request.cookies['csrf_token']
+    query = db.session.query(Task).filter(Task.project_id == project_id, Task.section_id == form.data["section_id"]).order_by(Task.order.desc())
+    highest_order_task = query.first()
+    print(f"\n\n\n{highest_order_task.to_dict()}\n\n\n")
     if form.validate_on_submit():
 
         new_task = Task(
@@ -61,7 +64,8 @@ def create_task(project_id):
             section_id=form.data["section_id"],
             description=form.data["description"],
             created_at=form.data["created_at"],
-            updated_at=form.data["updated_at"]
+            updated_at=form.data["updated_at"],
+            order=highest_order_task.to_dict()["order"]+1
         )
         db.session.add(new_task)
         db.session.commit()
@@ -79,6 +83,7 @@ def edit_task(task_id):
 
     form = CreateTaskForm()
     form ['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
 
         task.name=form.data["name"]
@@ -88,6 +93,7 @@ def edit_task(task_id):
         task.section_id=form.data["section_id"]
         task.description=form.data["description"]
         task.updated_at=form.data["updated_at"]
+
 
         db.session.commit()
         return task.to_dict()
@@ -101,10 +107,39 @@ def move_task(task_id):
     """
     task = Task.query.get(task_id)
     data = request.get_json()
-    print(f"\n\n\n{data}\n\n\n")
+    new_order = data.get('newOrder')
+    new_section_id = data.get('newSectionId')
+    old_order = task.order
 
+        # If the task is being moved within the same section
+    if task.section_id == new_section_id:
+        if new_order > old_order:
+            # Moving the task down within the section
+            tasks = Task.query.filter_by(section_id=new_section_id).filter(Task.order > old_order, Task.order <= new_order).all()
+            for t in tasks:
+                t.order -= 1
+        elif new_order < old_order:
+            # Moving the task up within the section
+            tasks = Task.query.filter_by(section_id=new_section_id).filter(Task.order >= new_order, Task.order < old_order).all()
+            for t in tasks:
+                t.order += 1
+        task.order = new_order
+    else:
+        # If the task is being moved to a different section
+        # Move all tasks in the current section down one if order is greater than the current task's order
+        tasks = Task.query.filter_by(section_id=task.section_id).filter(Task.order > task.order).all()
+        for t in tasks:
+            t.order -= 1
+        # Move all tasks with an order above the task's new order up one
+        new_section_tasks = Task.query.filter_by(section_id=new_section_id).filter(Task.order >= new_order).all()
+        for t in new_section_tasks:
+            t.order += 1
+        task.section_id = new_section_id
+        task.order = new_order
 
-    return data
+    db.session.commit()
+    return task.to_dict()
+
 
 @task_routes.route('/<int:task_id>', methods=["DELETE"])
 @login_required

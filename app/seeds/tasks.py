@@ -43,7 +43,7 @@ def seed_tasks():
     )
     task4 = Task(
         project_id=2,
-        section_id=1,
+        section_id=5,
         assignee_id=1,
         order=1,
         name="First Task",
@@ -56,7 +56,7 @@ def seed_tasks():
     )
     task5 = Task(
         project_id=3,
-        section_id=2,
+        section_id=10,
         assignee_id=2,
         order=1,
         name="First Task",

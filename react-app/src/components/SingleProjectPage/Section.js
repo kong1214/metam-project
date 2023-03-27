@@ -9,6 +9,7 @@ import { getAllTasks, clearTasks } from "../../store/task";
 
 function Section({ section, tasks = [], index }) {
 
+    const sortedTasks = tasks.sort((a, b) => a.order - b.order)
 
     function onDragEnd() {
         alert('dropped ')
@@ -31,7 +32,7 @@ function Section({ section, tasks = [], index }) {
                         <Droppable droppableId={stringSectionId} type="task">
                             {(provided) => (
                                 <div {...provided.droppableProps} ref={provided.innerRef}>
-                                    {tasks.map((task) => (
+                                    {sortedTasks.map((task) => (
                                         <SingleTask key={task.id} task={task} index={index} />
                                     ))}
                                     {provided.placeholder}

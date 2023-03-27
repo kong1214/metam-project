@@ -34,6 +34,7 @@ class Task(db.Model):
             'due_date': self.due_date,
             'priority': self.priority,
             'status': self.status,
+            'order': self.order,
             'description': self.description,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
