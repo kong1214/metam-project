@@ -30,15 +30,15 @@ def get_all_tasks_by_date(user_id):
 
     date_obj = date.today()
     today = date_obj.strftime("%m/%d/%Y")
-    # print(f"\n\n\n{today}\n\n\n")
+
     tasks = []
     for project_id in project_ids:
         project_tasks = db.session.execute(db.select(Task).filter(Task.project_id == project_id, Task.due_date == today).join(Project, Project.id == Task.project_id)).all()
-        # print(f"\n\n\n{project_tasks}\n\n\n")
+
 
         for task in project_tasks:
             tasks.append(task[0].to_dict())
-    # print(f"\n\n\n{tasks}\n\n\n")
+
     return {'tasks': tasks}
 
 
@@ -52,7 +52,7 @@ def create_task(project_id):
     form ['csrf_token'].data = request.cookies['csrf_token']
     query = db.session.query(Task).filter(Task.project_id == project_id, Task.section_id == form.data["section_id"]).order_by(Task.order.desc())
     highest_order_task = query.first()
-    print(f"\n\n\n{highest_order_task.to_dict()}\n\n\n")
+
     if form.validate_on_submit():
 
         new_task = Task(

@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 import { getSingleProject } from "../../store/project";
 import { getAllSections } from "../../store/section";
-import { getAllTasks, clearTasks } from "../../store/task";
+import task, { getAllTasks, moveTask, clearTasks } from "../../store/task";
+
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import LeftNavBar from "../Navigation/LeftNavBar";
 import ProjectHeader from "./ProjectHeader";
@@ -18,6 +19,7 @@ function SingleProjectPage() {
     let tasksObj = useSelector(state => state.task.allTasks)
     const [projectIsLoaded, setProjectIsLoaded] = useState(false)
     const [sectionsIsLoaded, setSectionsIsLoaded] = useState(false)
+    const [taskMoved, setTaskMoved] = useState(false)
     const { projectId } = useParams()
 
     useEffect(() => {
@@ -36,7 +38,7 @@ function SingleProjectPage() {
         if (sectionsIsLoaded) {
             dispatch(getAllTasks(projectId))
         }
-    }, [project.num_tasks, sectionsIsLoaded, projectId])
+    }, [project.num_tasks, sectionsIsLoaded, projectId, taskMoved])
 
     if (!sessionUser) return (
         <Redirect to="/" />
@@ -59,8 +61,24 @@ function SingleProjectPage() {
         } else parsedTasks[task.section_id].push(task)
     })
 
-    function onDragEnd() {
-        alert('dropped ')
+    function onDragEnd(result) {
+        const { destination, source, draggableId, type } = result;
+
+        console.log("destination", destination)
+        console.log("source", source)
+        console.log("draggableId", draggableId)
+        console.log("type", type)
+
+        if (!destination) {
+            return;
+        }
+        if (type === "task") {
+            const taskId = +draggableId.split("-")[1]
+            const sectionId = +destination.droppableId.split("-")[1]
+            const order = destination.index + 1
+            dispatch(moveTask(taskId, order, sectionId))
+            setTaskMoved(true)
+        }
     }
 
     return (
@@ -78,7 +96,7 @@ function SingleProjectPage() {
                     {sections.length === 0 ? (
                         <div>No Sections Yet!</div>
                     ) : (
-                        <Droppable droppableId="sections">
+                        <Droppable droppableId="sections" type="section">
                             {(provided) => (
                                 <div {...provided.droppableProps} ref={provided.innerRef}>
                                     {sections.map((section, index) => (
