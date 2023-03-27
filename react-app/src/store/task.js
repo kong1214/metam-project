@@ -18,7 +18,7 @@ const getSingle = (task) => ({
     type: GET_SINGLE_TASK,
     task
 })
-const add = (task, projectId) => ({
+const add = (task) => ({
     type: CREATE_A_TASK,
     task
 })

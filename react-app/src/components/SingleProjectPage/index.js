@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 import { getSingleProject } from "../../store/project";
-import { getAllSections } from "../../store/section";
+import { getAllSections, createSection } from "../../store/section";
 import task, { getAllTasks, moveTask, clearTasks } from "../../store/task";
-
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import LeftNavBar from "../Navigation/LeftNavBar";
 import ProjectHeader from "./ProjectHeader";
 import Section from "./Section";
+import AddSection from "./AddSection";
 import "./SingleProjectPage.css"
 
 function SingleProjectPage() {
@@ -19,6 +19,7 @@ function SingleProjectPage() {
     let tasksObj = useSelector(state => state.task.allTasks)
     const [projectIsLoaded, setProjectIsLoaded] = useState(false)
     const [sectionsIsLoaded, setSectionsIsLoaded] = useState(false)
+    const [newSectionAdded, setNewSectionAdded] = useState(false)
     const [taskMoved, setTaskMoved] = useState(false)
     const { projectId } = useParams()
 
@@ -81,6 +82,9 @@ function SingleProjectPage() {
         }
     }
 
+
+
+
     return (
         <div className='home-page-content-and-left-navbar'>
             <LeftNavBar />
@@ -112,6 +116,7 @@ function SingleProjectPage() {
                         </Droppable>
                     )}
                 </DragDropContext>
+                <AddSection projectId={projectId}/>
             </div>
         </div>
     )
