@@ -45,3 +45,21 @@ def add_section(project_id):
         return new_section.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@section_routes.route('/<int:section_id>', methods=["DELETE"])
+@login_required
+def delete_section(section_id):
+    """
+    Delete a section from a Project
+    """
+    section = Section.query.get(section_id)
+    # Query for all sections in the section with an order after the section to delete and move their order down by 1
+    sections = Section.query.filter_by(project_id=section.project_id).filter(Section.order > section.order).all()
+    for s in sections:
+        s.order -= 1
+    if section is None:
+        return {"error": f"No section found with id {section_id}"}
+
+    db.session.delete(section)
+    db.session.commit()
+    return {'success': "True", "status_code": 200}

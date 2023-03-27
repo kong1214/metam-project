@@ -5,7 +5,8 @@ import SingleTask from "../TaskList/SingleTask";
 import { Draggable, Droppable } from "react-beautiful-dnd"
 import { getAllSections } from "../../store/section";
 import { getAllTasks, clearTasks } from "../../store/task";
-
+import SectionDropDown from "./SectionDropDown";
+import "./SingleProjectPage.css"
 
 function Section({ section, tasks = [], index }) {
 
@@ -23,6 +24,9 @@ function Section({ section, tasks = [], index }) {
                             <i className="fa-solid fa-bars bars-icon" style={{ marginRight: ".5em" }}></i>
                         </div>
                         {section.name}
+                        <div id="section-dropdown-ellipses">
+                            <SectionDropDown section={section} />
+                        </div>
                     </div>
                     {tasks.length === 0 ? (
                         <Droppable droppableId={stringSectionId} type="task">

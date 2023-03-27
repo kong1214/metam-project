@@ -1,6 +1,6 @@
 const GET_ALL_SECTIONS = "sections/GET_ALL_SECTIONS";
 const CREATE_SECTION = "sections/CREATE_SECTION"
-
+const DELETE_SECTION = 'sections/DELETE_SECTION'
 
 const getAll = (sections) => ({
     type: GET_ALL_SECTIONS,
@@ -10,7 +10,10 @@ const create = (section) => ({
     type: CREATE_SECTION,
     section
 })
-
+const remove = (sectionId) => ({
+    type: DELETE_SECTION,
+    sectionId
+})
 
 export const getAllSections = (projectId) => async (dispatch) => {
     const response = await fetch(`/api/sections/${projectId}`)
@@ -44,6 +47,15 @@ export const createSection = (projectId, section) => async (dispatch) => {
     }
 }
 
+export const deleteSection = (sectionId) => async (dispatch) => {
+    const response = await fetch(`/api/sections/${sectionId}`, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    })
+    if (response.ok) {
+        dispatch(remove(sectionId))
+    }
+}
 const initialState = {};
 
 const section = (state = initialState, action) => {
@@ -56,6 +68,10 @@ const section = (state = initialState, action) => {
         case CREATE_SECTION:
             newState = {...state}
             newState[action.section.id] = action.section
+            return newState
+        case DELETE_SECTION:
+            newState = {...state}
+            delete newState[action.sectionId]
             return newState
         default:
             return state;
