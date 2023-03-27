@@ -46,6 +46,27 @@ def add_section(project_id):
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@section_routes.route('/<int:section_id>', methods=["PUT"])
+@login_required
+def edit_section(section_id):
+    """
+    Edit a section's name to a project
+    """
+
+    section = Section.query.get(section_id)
+
+    form = CreateSectionForm()
+    form ['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+
+        section.name=form.data["name"]
+        section.updated_at=form.data["updated_at"]
+
+        db.session.commit()
+        return section.to_dict()
+
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 @section_routes.route('/<int:section_id>', methods=["DELETE"])
 @login_required
 def delete_section(section_id):

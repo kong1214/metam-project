@@ -49,7 +49,6 @@ function EditTaskFormModal({ task }) {
             status: taskStatus,
             description: description,
             due_date: dateParser(dueDate),
-            created_at: date,
             updated_at: date
         }
         return dispatch(editTask(updatedTask, task.id))

@@ -1,0 +1,29 @@
+.edit-section-header{
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+#edit-section-button-container{
+    text-align: end;
+}
+.edit-section-button {
+    border: none;
+    color: white;
+    background-color: #4573d2;
+    margin-top: 8px;
+    height: 30px;
+    width: 25%;
+    border-radius: 15px;
+}
+
+.edit-section-label-input{
+    width: 100%;
+}
+
+.edit-section-input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid gray;
+    height: 30px;
+    font-size: 16px;
+}

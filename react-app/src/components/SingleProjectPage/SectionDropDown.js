@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
+import EditSectionModal from "../SectionModals/EditSectionModal";
 import DeleteSectionModal from "../SectionModals/DeleteSectionModal";
 import "./SingleProjectPage.css"
 
@@ -40,6 +41,12 @@ function SectionDropDown({ section }) {
                 <i className="fa-solid fa-ellipsis fa-xl section-ellipsis-icon"></i>
             </button>
             <div className={ulClassName} ref={ulRef}>
+                <OpenModalButton
+                    buttonText="Edit Section"
+                    onButtonClick={closeMenu}
+                    modalComponent={<EditSectionModal section={section}/>}
+                    className="modal-button"
+                />
                 <OpenModalButton
                     buttonText="Delete Section"
                     onButtonClick={closeMenu}

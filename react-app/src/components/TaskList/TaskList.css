@@ -25,7 +25,6 @@
 .single-task-container:hover .bars-icon {
     display: flex;
 }
-
 .task-name-container {
     min-width: 70%;
     display: flex;
