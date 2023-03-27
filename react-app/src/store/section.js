@@ -1,6 +1,7 @@
 const GET_ALL_SECTIONS = "sections/GET_ALL_SECTIONS";
 const CREATE_SECTION = "sections/CREATE_SECTION"
 const EDIT_SECTION = "sections/EDIT_SECTION"
+const EDIT_SECTION_ORDER = "sections/EDIT_SECTION_ORDER"
 const DELETE_SECTION = 'sections/DELETE_SECTION'
 
 const getAll = (sections) => ({
@@ -13,6 +14,10 @@ const create = (section) => ({
 })
 const edit = (section) => ({
     type: EDIT_SECTION,
+    section
+})
+const move = (section) => ({
+    type: EDIT_SECTION_ORDER,
     section
 })
 const remove = (sectionId) => ({
@@ -69,6 +74,20 @@ export const editSection = (section) => async (dispatch) => {
 		}
     }
 }
+
+export const moveSection = (sectionId, newOrder) => async (dispatch) => {
+    const response = await fetch(`/api/sections/drag/${sectionId}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({newOrder})
+    })
+    if (response.ok) {
+        const section = await response.json()
+        dispatch(move(section))
+        return section
+    }
+}
+
 export const deleteSection = (sectionId) => async (dispatch) => {
     const response = await fetch(`/api/sections/${sectionId}`, {
         method: "DELETE",
@@ -92,6 +111,10 @@ const section = (state = initialState, action) => {
             newState[action.section.id] = action.section
             return newState
         case EDIT_SECTION:
+            newState = {...state}
+            newState[action.section.id] = action.section
+            return newState
+        case EDIT_SECTION_ORDER:
             newState = {...state}
             newState[action.section.id] = action.section
             return newState

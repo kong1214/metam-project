@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 import { getSingleProject } from "../../store/project";
-import { getAllSections, createSection } from "../../store/section";
+import { getAllSections, moveSection } from "../../store/section";
 import task, { getAllTasks, moveTask, clearTasks } from "../../store/task";
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import LeftNavBar from "../Navigation/LeftNavBar";
@@ -19,7 +19,7 @@ function SingleProjectPage() {
     let tasksObj = useSelector(state => state.task.allTasks)
     const [projectIsLoaded, setProjectIsLoaded] = useState(false)
     const [sectionsIsLoaded, setSectionsIsLoaded] = useState(false)
-    const [newSectionAdded, setNewSectionAdded] = useState(false)
+    const [sectionMoved, setSectionMoved] = useState(false)
     const [taskMoved, setTaskMoved] = useState(false)
     const { projectId } = useParams()
 
@@ -33,7 +33,7 @@ function SingleProjectPage() {
             dispatch(getAllSections(projectId))
                 .then(() => setSectionsIsLoaded(true))
         }
-    }, [project.num_sections, projectId, projectIsLoaded])
+    }, [project.num_sections, projectId, projectIsLoaded, sectionMoved])
 
     useEffect(() => {
         if (sectionsIsLoaded) {
@@ -51,7 +51,7 @@ function SingleProjectPage() {
     //     <Redirect to="/home" />
     // )
 
-    const sections = Object.values(sectionsObj)
+    const sections = Object.values(sectionsObj).sort((a, b) => a.order - b.order)
     const tasks = Object.values(tasksObj)
 
     const parsedTasks = {}
@@ -61,6 +61,7 @@ function SingleProjectPage() {
             parsedTasks[task.section_id].push(task)
         } else parsedTasks[task.section_id].push(task)
     })
+
 
     function onDragEnd(result) {
         const { destination, source, draggableId, type } = result;
@@ -75,9 +76,17 @@ function SingleProjectPage() {
             dispatch(moveTask(taskId, order, sectionId))
             setTaskMoved(!taskMoved)
         }
+        else if (type === "section") {
+            console.log("destination", destination)
+            console.log("source", source)
+            console.log("draggableId", draggableId)
+            console.log("type", type)
+            const sectionId = +draggableId.split("-")[1]
+            const order = destination.index + 1
+            dispatch(moveSection(sectionId, order))
+            setSectionMoved(!sectionMoved)
+        }
     }
-
-
 
 
     return (
@@ -106,6 +115,7 @@ function SingleProjectPage() {
                                             index={index}
                                         />
                                     ))}
+                                    {provided.placeholder}
                                 </div>
                             )}
                         </Droppable>

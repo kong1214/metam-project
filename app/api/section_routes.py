@@ -50,7 +50,7 @@ def add_section(project_id):
 @login_required
 def edit_section(section_id):
     """
-    Edit a section's name to a project
+    Edit a section's name
     """
 
     section = Section.query.get(section_id)
@@ -66,6 +66,32 @@ def edit_section(section_id):
         return section.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@section_routes.route('/drag/<int:section_id>', methods=["PUT"])
+@login_required
+def move_section(section_id):
+    """
+    Move a section
+    """
+    section = Section.query.get(section_id)
+    data = request.get_json()
+    new_order = data.get('newOrder')
+    old_order = section.order
+
+    if new_order > old_order:
+        # Moving the section down within the project
+        sections = Section.query.filter_by(project_id=section.project_id).filter(Section.order > old_order, Section.order <= new_order).all()
+        for s in sections:
+            s.order -= 1
+    elif new_order < old_order:
+        # Moving the section up within the project
+        sections = Section.query.filter_by(project_id=section.project_id).filter(Section.order >= new_order, Section.order < old_order).all()
+        for s in sections:
+            s.order += 1
+    section.order = new_order
+
+    db.session.commit()
+    return section.to_dict()
 
 @section_routes.route('/<int:section_id>', methods=["DELETE"])
 @login_required
