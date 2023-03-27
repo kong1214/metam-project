@@ -77,7 +77,7 @@ function SingleProjectPage() {
             const sectionId = +destination.droppableId.split("-")[1]
             const order = destination.index + 1
             dispatch(moveTask(taskId, order, sectionId))
-            setTaskMoved(true)
+            setTaskMoved(!taskMoved)
         }
     }
 

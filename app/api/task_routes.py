@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, session
 from flask_login import login_required, current_user
 from app.models import Task, Project, db
-from app.forms import CreateTaskForm
+from app.forms import CreateTaskForm, EditTaskForm
 from app.api.auth_routes import validation_errors_to_error_messages
 from datetime import date
 
@@ -81,7 +81,7 @@ def edit_task(task_id):
     """
     task = Task.query.get(task_id)
 
-    form = CreateTaskForm()
+    form = EditTaskForm()
     form ['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
@@ -90,7 +90,6 @@ def edit_task(task_id):
         task.due_date=form.data["due_date"]
         task.priority=form.data["priority"]
         task.status=form.data["status"]
-        task.section_id=form.data["section_id"]
         task.description=form.data["description"]
         task.updated_at=form.data["updated_at"]
 
@@ -148,7 +147,10 @@ def delete_task(task_id):
     Delete a Task to a Project
     """
     task = Task.query.get(task_id)
-
+    # Query for all tasks in the section with an order after the task to delete and move their order down by 1
+    section_tasks = Task.query.filter_by(section_id=task.section_id).filter(Task.order > task.order).all()
+    for t in section_tasks:
+        t.order -= 1
     if task is None:
         return {"error": f"No task found with id {task_id}"}
 
