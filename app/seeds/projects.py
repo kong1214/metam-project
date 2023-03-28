@@ -3,37 +3,37 @@ from app.models import db, Project, environment, SCHEMA
 
 def seed_projects():
     project1 = Project(
-        project_owner_id=1,
-        project_name="First Project for User 1",
-        project_icon="chat_bubble",
-        project_status="On Track",
+        owner_id=1,
+        name="First Project for User 1",
+        icon="chat_bubble",
+        status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",
         updated_at="02/20/2023",
     )
     project2 = Project(
-        project_owner_id=2,
-        project_name="First Project for User 2",
-        project_icon="briefcase",
-        project_status="On Track",
+        owner_id=2,
+        name="First Project for User 2",
+        icon="briefcase",
+        status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",
         updated_at="02/20/2023",
     )
     project3 = Project(
-        project_owner_id=3,
-        project_name="First Project for User 3",
-        project_icon="monitor",
-        project_status="On Track",
+        owner_id=3,
+        name="First Project for User 3",
+        icon="monitor",
+        status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",
         updated_at="02/20/2023",
     )
     project4 = Project(
-        project_owner_id=1,
-        project_name="Second Project for User 1",
-        project_icon="shoe",
-        project_status="On Track",
+        owner_id=1,
+        name="Second Project for User 1",
+        icon="shoe",
+        status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",
         updated_at="02/20/2023",

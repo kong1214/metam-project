@@ -32,7 +32,7 @@ export const clearProject = () => ({
 
 export const getAllProjects = () => async (dispatch) => {
     const response = await fetch("/api/projects");
-
+    console.log("response", response)
     if (response.ok) {
         const data = await response.json();
         let normalizedData = {}
@@ -90,7 +90,6 @@ export const editProject = (project, projectId) => async (dispatch) => {
     }
 }
 export const deleteProject = (projectId) => async (dispatch) => {
-    console.log(projectId)
     const response = await fetch(`/api/projects/${projectId}`, {
         method: "DELETE",
         headers: {"Content-Type": "application/json"}
@@ -104,11 +103,11 @@ export const deleteProject = (projectId) => async (dispatch) => {
 const initialState = { allProjects: {}, singleProject: {} };
 
 const project = (state = initialState, action) => {
-    console.log(action)
+
     let newState;
     switch (action.type) {
         case GET_ALL_PROJECTS:
-            newState = { allProjects: {}, singleProject: {...state.singleProject} }
+            newState = { allProjects: {}, singleProject: {} }
             newState.allProjects = action.projects
             return newState
         case GET_SINGLE_PROJECT:

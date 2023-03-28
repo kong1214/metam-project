@@ -20,9 +20,10 @@ function DeleteProjectModal({ project }) {
 
   return (
     <div id="delete-modal-container">
-      <div className="delete-modal-header">Delete Project: {project.project_name}?</div>
+      <div className="delete-modal-header">Delete Project: {project.name}?</div>
       <div className="delete-project-content-container">
-        <div id="delte-project-warning">This will delete the project, along with any:</div>
+        <div id="delete-project-warning">This will delete the project, along with any:</div>
+        <li className="each-deletion">Sections that are in this project</li>
         <li className="each-deletion">Tasks that are only in this project</li>
       </div>
       <div className="delete-modal-buttons">

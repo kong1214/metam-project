@@ -7,15 +7,6 @@
     margin-bottom: 1%;
 }
 
-.section-header {
-    display: flex;
-    align-items: center;
-    min-width: 100%;
-    min-height: 40px;
-    margin-bottom: 1%;
-    font-size: 18px;
-    font-weight: bold;
-}
 
 .single-task-container {
     display: flex;
@@ -25,8 +16,15 @@
     border-top: 1px lightgray solid;
     border-bottom: 1px lightgray solid;
     margin-bottom: 1%;
+    margin-top: 1%;
 }
-
+.single-task-container:hover{
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+}
+.single-task-container:hover .bars-icon {
+    display: flex;
+}
 .task-name-container {
     min-width: 70%;
     display: flex;
@@ -143,11 +141,10 @@
 /*task description */
 .description-dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
-.task-name{
-    cursor: pointer;
-}
+
 .task-description-dropdown {
     position: absolute;
     top: 100%;

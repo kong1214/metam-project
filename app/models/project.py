@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-
+from .projectuser import project_users
 
 class Project(db.Model):
     __tablename__ = 'projects'
@@ -8,25 +8,25 @@ class Project(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    project_owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    project_name = db.Column(db.String(50), nullable=False)
-    project_icon = db.Column(db.String, nullable=False)
-    project_status = db.Column(db.String, nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    name = db.Column(db.String(50), nullable=False)
+    icon = db.Column(db.String, nullable=False)
+    status = db.Column(db.String, nullable=False)
     due_date = db.Column(db.String)
     created_at = db.Column(db.String)
     updated_at = db.Column(db.String)
 
-    user = db.relationship("User", back_populates="projects")
+    users = db.relationship("User", secondary=project_users, back_populates="projects")
     tasks = db.relationship("Task", back_populates="project", cascade="all, delete-orphan")
-    
+    sections = db.relationship("Section", back_populates="project", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
             'id': self.id,
-            'project_owner_id': self.project_owner_id,
-            'project_name': self.project_name,
-            'project_icon': self.project_icon,
-            'project_status': self.project_status,
+            'owner_id': self.owner_id,
+            'name': self.name,
+            'icon': self.icon,
+            'status': self.status,
             'due_date': self.due_date,
             'created_at': self.created_at,
             'updated_at': self.updated_at,

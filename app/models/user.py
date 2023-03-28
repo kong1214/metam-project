@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-
+from .projectuser import project_users
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -15,8 +15,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    projects = db.relationship("Project", back_populates="user", cascade="all, delete-orphan")
-
+    projects = db.relationship("Project", secondary=project_users, back_populates="users")
+    tasks = db.relationship("Task", back_populates="assignee" )
 
     @property
     def password(self):

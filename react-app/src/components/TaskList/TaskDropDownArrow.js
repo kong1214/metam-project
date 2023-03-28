@@ -36,7 +36,7 @@ function TaskDropDownArrow({ task }) {
 
     return (
         <>
-            <button onClick={openMenu}>
+            <button onClick={openMenu} className="project-page-dropdown-button">
                 <i className="fa-solid fa-caret-down"/>
             </button>
             <div className={ulClassName} ref={ulRef}>
