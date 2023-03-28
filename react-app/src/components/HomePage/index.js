@@ -23,11 +23,13 @@ function HomePage() {
     }, [dispatch])
 
     const todayObj = new Date();
-    const month = MONTHS[todayObj.getUTCMonth()]
-    const day = DAYS[todayObj.getUTCDay()]
-    const date = todayObj.getUTCDate()
+    const month = MONTHS[todayObj.getMonth()]
+    const day = DAYS[todayObj.getDay()]
+    const date = todayObj.getDate()
 
     const today = `${day}, ${month} ${date}`
+
+    console.log(date)
 
     if (!sessionUser) return (
         <Redirect to="/" />
