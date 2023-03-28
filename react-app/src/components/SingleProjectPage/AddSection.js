@@ -48,16 +48,15 @@ function AddSection({ projectId }) {
         <div className="add-section-name-container">
             <form className="add-section-form" onSubmit={handleCreateSection}>
                 <div className="add-section-form-input-wrapper">
-                    <label className="section-text-field">
-                        <input
-                            type="text"
-                            value={sectionName}
-                            placeholder="Add a section"
-                            onChange={(e) => setSectionName(e.target.value)}
-                        />
-                    </label>
+                    <input
+                        id="add-section-input"
+                        type="text"
+                        value={sectionName}
+                        placeholder="Add a section"
+                        onChange={(e) => setSectionName(e.target.value)}
+                    />
                 </div>
-                <button className="add-section-submit-button" type="submit">
+                <button className="single-project-button" id="add-section-submit-button" type="submit">
                     Submit
                 </button>
             </form>

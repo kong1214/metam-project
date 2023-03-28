@@ -103,3 +103,24 @@
 .section-header:hover .bars-icon{
     display: flex;
 }
+
+/* Section Add */
+.add-section-form{
+    width: auto;
+}
+#add-section-input {
+    border: none;
+    border-bottom: 1px solid gray;
+    height: 30px;
+    width: 20%;
+    font-size: 16px;
+}
+#add-section-submit-button{
+    border: none;
+    color: white;
+    background-color: #4573d2;
+    margin-top: 8px;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+}
