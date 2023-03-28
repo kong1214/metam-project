@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useParams } from "react-router-dom";
 import { editTask } from "../../store/task";
+import section from "../../store/section";
 
 
 function EditTaskFormModal({ task }) {
+
+    const sectionsObj = useSelector(state => state.section)
+    const sections = Object.values(sectionsObj)
 
     function dateFormatter(date) {
         const dateArr = date.split("/")
@@ -14,10 +18,9 @@ function EditTaskFormModal({ task }) {
     }
 
     const dispatch = useDispatch();
-    const [taskName, setTaskName] = useState(task.task_name);
+    const [taskName, setTaskName] = useState(task.name);
     const [priority, setPriority] = useState(task.priority);
-    const [taskStatus, setTaskStatus] = useState(task.task_status);
-    const [projectSection, setProjectSection] = useState(task.project_section)
+    const [taskStatus, setTaskStatus] = useState(task.status);
     const [description, setDescription] = useState(task.description);
     const [dueDate, setDueDate] = useState(dateFormatter(task.due_date));
     const [errors, setErrors] = useState([]);
@@ -41,13 +44,11 @@ function EditTaskFormModal({ task }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const updatedTask = {
-            task_name: taskName,
+            name: taskName,
             priority: priority,
-            task_status: taskStatus,
-            project_section: projectSection,
+            status: taskStatus,
             description: description,
             due_date: dateParser(dueDate),
-            created_at: date,
             updated_at: date
         }
         return dispatch(editTask(updatedTask, task.id))
@@ -118,21 +119,6 @@ function EditTaskFormModal({ task }) {
                     </div>
                 </div>
                 <div id="create-task-section-dueDate-container">
-                    <div id="create-task-section-container" className="label-input-container">
-                        <label id="task-project-section-dropdown-label">Project Section</label>
-                        <select
-                            id="task-project-section-dropdown-input"
-                            className="dropdown-create"
-                            value={projectSection}
-                            onChange={(e) => setProjectSection(e.target.value)}
-                            required
-                        >
-                            <option value="">Select a section</option>
-                            <option value="To do">To do</option>
-                            <option value="Doing">Doing</option>
-                            <option value="Done">Done</option>
-                        </select>
-                    </div>
                     <div id="create-task-dueDate-container" className="label-input-container">
                         <label id="create-task-dueDate-label">Due Date</label>
                         <input

@@ -13,9 +13,9 @@ function EditProjectFormModal({ project }) {
     }
 
     const dispatch = useDispatch();
-    const [projectName, setProjectName] = useState(project.project_name);
-    const [projectIcon, setProjectIcon] = useState(project.project_icon);
-    const [projectStatus, setProjectStatus] = useState(project.project_status);
+    const [projectName, setProjectName] = useState(project.name);
+    const [projectIcon, setProjectIcon] = useState(project.icon);
+    const [projectStatus, setProjectStatus] = useState(project.status);
     const [errors, setErrors] = useState([]);
     const [dueDate, setDueDate] = useState(dateFormatter(project.due_date));
     const { closeModal } = useModal();
@@ -39,9 +39,9 @@ function EditProjectFormModal({ project }) {
         e.preventDefault();
 
         const updatedProject = {
-            project_name: projectName,
-            project_icon: projectIcon,
-            project_status: projectStatus,
+            name: projectName,
+            icon: projectIcon,
+            status: projectStatus,
             due_date: dateParser(dueDate),
             updated_at: date
         }

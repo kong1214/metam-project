@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
-import EditProjectFormModal from "../EditProjectModal";
-import DeleteProjectModal from "../DeleteProjectModal";
-import CreateTaskFormModal from "../CreateTaskModal";
+import EditSectionModal from "../SectionModals/EditSectionModal";
+import DeleteSectionModal from "../SectionModals/DeleteSectionModal";
+import "./SingleProjectPage.css"
 
-function ProjectDropDownArrow({ project }) {
+function SectionDropDown({ section }) {
     const dispatch = useDispatch();
     const history = useHistory()
     const [showMenu, setShowMenu] = useState(false);
@@ -32,31 +32,25 @@ function ProjectDropDownArrow({ project }) {
     }, [showMenu]);
 
 
-    const ulClassName = "project-dropdown" + (showMenu ? "" : " hidden");
+    const ulClassName = "section-dropdown" + (showMenu ? "" : " hidden");
     const closeMenu = () => setShowMenu(false);
 
     return (
         <>
             <button onClick={openMenu} className="project-page-dropdown-button">
-                <i className="fa-solid fa-caret-down"/>
+                <i className="fa-solid fa-ellipsis fa-xl section-ellipsis-icon"></i>
             </button>
             <div className={ulClassName} ref={ulRef}>
                 <OpenModalButton
-                    buttonText="Edit Project"
+                    buttonText="Edit Section"
                     onButtonClick={closeMenu}
-                    modalComponent={<EditProjectFormModal project={project}/>}
+                    modalComponent={<EditSectionModal section={section}/>}
                     className="modal-button"
                 />
                 <OpenModalButton
-                    buttonText="Delete Project"
+                    buttonText="Delete Section"
                     onButtonClick={closeMenu}
-                    modalComponent={<DeleteProjectModal project={project}/>}
-                    className="modal-button"
-                />
-                <OpenModalButton
-                    buttonText="Add a Task"
-                    onButtonClick={closeMenu}
-                    modalComponent={<CreateTaskFormModal projectId={project.id}/>}
+                    modalComponent={<DeleteSectionModal section={section}/>}
                     className="modal-button"
                 />
             </div>
@@ -64,4 +58,4 @@ function ProjectDropDownArrow({ project }) {
     );
 }
 
-export default ProjectDropDownArrow;
+export default SectionDropDown;

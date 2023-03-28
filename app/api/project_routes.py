@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, session
 from flask_login import login_required, current_user
-from app.models import Project, db
+from app.models import Project, User, db
 from app.forms import CreateProjectForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -25,10 +25,12 @@ def single_project(project_id):
     """
     project = Project.query.get(project_id)
     tasks = project.tasks
-    user = project.user
+    sections = project.sections
+    users = project.users
     parsed_project = project.to_dict()
     parsed_project["num_tasks"] = len(tasks)
-    parsed_project["owner"] = user.to_dict()
+    parsed_project["num_sections"] = len(sections)
+    parsed_project["users"] = [user.to_dict() for user in users]
     return {"project": parsed_project}
 
 @project_routes.route('', methods=["POST"])
@@ -37,18 +39,20 @@ def create_project():
     """
     Add a project
     """
+    user = db.session.query(User).get(current_user.id)
     form = CreateProjectForm()
     form ['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
 
         new_project = Project(
-            project_owner_id=current_user.id,
-            project_name=form.data["project_name"],
-            project_icon=form.data["project_icon"],
-            project_status=form.data["project_status"],
+            owner_id=current_user.id,
+            name=form.data["name"],
+            icon=form.data["icon"],
+            status=form.data["status"],
             due_date=form.data["due_date"],
             created_at=form.data["created_at"],
-            updated_at=form.data["updated_at"]
+            updated_at=form.data["updated_at"],
+            users=[user]
         )
         db.session.add(new_project)
         db.session.commit()
@@ -67,9 +71,9 @@ def edit_project(project_id):
     form ['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
 
-        project.project_name=form.data["project_name"]
-        project.project_icon=form.data["project_icon"]
-        project.project_status=form.data["project_status"]
+        project.name=form.data["name"]
+        project.icon=form.data["icon"]
+        project.status=form.data["status"]
         project.due_date=form.data["due_date"]
         project.updated_at=form.data["updated_at"]
 

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
+import { Draggable } from "react-beautiful-dnd"
 import TaskDropDownArrow from "./TaskDropDownArrow";
 import "./TaskList.css"
 
-function SingleTask({ task }) {
+function SingleTask({ task, index }) {
     if (!task) {
         return (
             <div>There are no tasks in this section!</div>
@@ -29,35 +30,43 @@ function SingleTask({ task }) {
         })
     }
 
+    const stringTaskId = `task-${(task.id).toString()}`
 
     return (
-        <div className="single-task-container">
-            <div className="task-name-container">
-                <div className="description-dropdown">
-                    <div className="task-name">{task.task_name}</div>
-                    <div className="task-description-dropdown">
-                        <div id="description-header">Description</div>
-                        <div id="task-description">
-                            {task.description}
+        <Draggable draggableId={stringTaskId} index={index} key={task.id}>
+            {provided => (
+                <div className="single-task-container" ref={provided.innerRef} {...provided.draggableProps}>
+                    <div className="drag-handle" {...provided.dragHandleProps}>
+                        <i className="fa-solid fa-bars bars-icon"></i>
+                    </div>
+                    <div className="task-name-container">
+                        <div className="description-dropdown">
+                            <div className="task-name">{task.name}</div>
+                            <div className="task-description-dropdown">
+                                <div id="description-header">Description</div>
+                                <div id="task-description">
+                                    {task.description}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="task-drop-down-arrow">
+                            <TaskDropDownArrow task={task} />
+                        </div>
+                    </div>
+                    <div className="task-due-date">{task.due_date}</div>
+                    <div className={"task-priority-container" + ` ${task.priority}`}>
+                        <div className={`task-priority-outer-pill-${task.priority}`}>
+                            {task.priority}
+                        </div>
+                    </div>
+                    <div className={"task-status-container"}>
+                        <div className={`task-status-outer-pill-${task.status}`}>
+                            {task.status}
                         </div>
                     </div>
                 </div>
-                <div className="task-drop-down-arrow">
-                    <TaskDropDownArrow task={task} />
-                </div>
-            </div>
-            <div className="task-due-date">{task.due_date}</div>
-            <div className={"task-priority-container" + ` ${task.priority}`}>
-                <div className={`task-priority-outer-pill-${task.priority}`}>
-                    {task.priority}
-                </div>
-            </div>
-            <div className={"task-status-container"}>
-                <div className={`task-status-outer-pill-${task.task_status}`}>
-                    {task.task_status}
-                </div>
-            </div>
-        </div>
+            )}
+        </Draggable>
     )
 }
 

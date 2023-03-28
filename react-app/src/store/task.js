@@ -3,6 +3,7 @@ const GET_ALL_TASKS_BY_DATE = "TASK/GET_ALL_TASKS_BY_DATE"
 const GET_SINGLE_TASK = "TASKS/GET_SINGLE_TASKS";
 const CREATE_A_TASK = "TASKS/CREATE_A_TASK"
 const EDIT_A_TASK = "TASKS/EDIT_A_TASK"
+const EDIT_TASK_ORDER = "TASKS/EDIT_TASK_ORDER"
 const DELETE_A_TASK = "TASKS/DELETE_A_TASK"
 
 const getAll = (tasks) => ({
@@ -17,12 +18,16 @@ const getSingle = (task) => ({
     type: GET_SINGLE_TASK,
     task
 })
-const add = (task, projectId) => ({
+const add = (task) => ({
     type: CREATE_A_TASK,
     task
 })
 const edit = (task) => ({
     type: EDIT_A_TASK,
+    task
+})
+const move = (task) => ({
+    type: EDIT_TASK_ORDER,
     task
 })
 const remove = (taskId) => ({
@@ -94,6 +99,19 @@ export const editTask = (task, taskId) => async (dispatch) => {
 		}
     }
 }
+export const moveTask = (taskId, newOrder, newSectionId) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/drag/${taskId}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({newOrder, newSectionId})
+    })
+    if (response.ok) {
+        const task = await response.json()
+        dispatch(move(task))
+        return task
+    }
+}
+
 export const deleteTask = (taskId) => async (dispatch) => {
     const response = await fetch(`/api/tasks/${taskId}`, {
         method: "DELETE",
@@ -124,6 +142,10 @@ const task = (state = initialState, action) => {
             newState.allTasks[action.task.id] = action.task
             return newState
         case EDIT_A_TASK:
+            newState = {allTasks: {...state.allTasks}, singleTask: {}, dueToday: {}}
+            newState.allTasks[action.task.id] = action.task
+            return newState
+        case EDIT_TASK_ORDER:
             newState = {allTasks: {...state.allTasks}, singleTask: {}, dueToday: {}}
             newState.allTasks[action.task.id] = action.task
             return newState

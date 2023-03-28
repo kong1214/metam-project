@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
+import { login } from "../../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTask } from "../../store/task";
+import { deleteSection } from "../../../store/section";
 import { Redirect, useHistory, useParams } from "react-router-dom";
-import { useModal } from "../../context/Modal";
-import "./DeleteTaskModal.css"
+import { useModal } from "../../../context/Modal";
 
-function DeleteTaskModal({ task }) {
+function DeleteSectionModal({ section }) {
   const dispatch = useDispatch();
-  const history = useHistory()
   const { closeModal } = useModal();
 
   const handleDelete = async () => {
 
-    return dispatch(deleteTask(task.id))
+    return dispatch(deleteSection(section.id))
       .then(() => closeModal())
   }
 
   return (
     <div className="delete-modal-container">
-      <div className="delete-modal-header">Delete Task: {task.name}?</div>
+      <div className="delete-modal-header">Delete Section: {section.name}?</div>
+      <div className="delete-section-content-container">
+        <div id="delete-section-warning">This will delete the project, along with any:</div>
+        <li className="each-deletion">Tasks that are in this section</li>
+      </div>
       <div className="delete-modal-buttons">
         <button className="delete-modal-cancel-button" onClick={() => closeModal()}>Cancel</button>
         <button className="delete-modal-delete-button" onClick={() => handleDelete()}>Delete</button>
@@ -28,4 +30,4 @@ function DeleteTaskModal({ task }) {
   );
 }
 
-export default DeleteTaskModal;
+export default DeleteSectionModal;

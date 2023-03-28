@@ -42,9 +42,9 @@ function CreateProjectPage() {
     //   return
     // }
     const newProject = {
-      project_name: projectName,
-      project_icon: projectIcon,
-      project_status: projectStatus,
+      name: projectName,
+      icon: projectIcon,
+      status: projectStatus,
       due_date: dateParser(dueDate),
       created_at: date,
       updated_at: date
@@ -61,7 +61,6 @@ function CreateProjectPage() {
         } else history.push(`/project/${res.id}`)
       })
     // .catch(async (res) => {
-    //     console.log(res)
     //     const data = await res.json();
     //     if (data && data.errors) setErrors(data.errors)
     //   }
