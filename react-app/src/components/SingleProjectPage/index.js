@@ -77,10 +77,6 @@ function SingleProjectPage() {
             setTaskMoved(!taskMoved)
         }
         else if (type === "section") {
-            console.log("destination", destination)
-            console.log("source", source)
-            console.log("draggableId", draggableId)
-            console.log("type", type)
             const sectionId = +draggableId.split("-")[1]
             const order = destination.index + 1
             dispatch(moveSection(sectionId, order))

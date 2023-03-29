@@ -2,29 +2,35 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink } from "react-router-dom";
 import { getAllProjects } from "../../store/project";
-
+import TeamList from "./TeamList";
 
 function LeftNavBar() {
     const dispatch = useDispatch()
     const history = useHistory()
     const sessionUser = useSelector(state => state.session.user);
     const projects = useSelector(state => state.project.allProjects)
+    const singleProject = useSelector(state => state.project.singleProject)
     const projectsArr = Object.values(projects)
+    const [selectedProject, setSelectedProject] = useState(null);
 
     useEffect(() => {
         dispatch(getAllProjects())
-    }, [dispatch, projectsArr.length])
+    }, [projectsArr.length])
+
 
     return (
         <div className="left-navbar-container">
             <div className="left-navbar-top-container">
-                <button className="create-project-button" onClick={() => history.push("/project")}>
+                <button className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project">Create Project</NavLink>
                 </button>
                 <NavLink to="/home" activeClassName="top-container-link-active" className="top-container-link">
                     <i className="fa-solid fa-house"></i>
                     Home
                 </NavLink>
+                {!!Object.values(singleProject).length && (
+                    <TeamList />
+                )}
             </div>
             <div className="my-workspace-container">
                 <div className="my-workspace-header">
