@@ -121,6 +121,9 @@
 #team-header{
   margin-bottom: 10px;
 }
+#team-members-container{
+  display: flex;
+}
 .user-profile-circle {
   display: inline-flex;
   justify-content: center;
@@ -142,7 +145,11 @@
 .logged-in-user{
   border: 1px solid red
 }
-
+.add-to-team-button{
+  border: none;
+  background-color: transparent;
+  color: white;
+}
 .my-workspace-container{
   display: flex;
   flex-direction: column;

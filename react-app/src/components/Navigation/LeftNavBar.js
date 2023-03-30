@@ -10,12 +10,17 @@ function LeftNavBar() {
     const sessionUser = useSelector(state => state.session.user);
     const projects = useSelector(state => state.project.allProjects)
     const singleProject = useSelector(state => state.project.singleProject)
+    const team = useSelector(state => state.team)
     const projectsArr = Object.values(projects)
-    const [selectedProject, setSelectedProject] = useState(null);
+    const [teamsAndProjectLoaded, setTeamsAndProjectLoaded] = useState(false);
 
     useEffect(() => {
         dispatch(getAllProjects())
     }, [projectsArr.length])
+
+    useEffect(() => {
+        setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
+    })
 
 
     return (
@@ -28,7 +33,7 @@ function LeftNavBar() {
                     <i className="fa-solid fa-house"></i>
                     Home
                 </NavLink>
-                {!!Object.values(singleProject).length && (
+                {teamsAndProjectLoaded && (
                     <TeamList />
                 )}
             </div>

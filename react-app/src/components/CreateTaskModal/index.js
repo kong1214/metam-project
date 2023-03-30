@@ -60,8 +60,10 @@ function CreateTaskFormModal({ projectId }) {
             created_at: date,
             updated_at: date
         }
+        console.log(newTask)
         return await dispatch(createTask(newTask, projectId))
             .then((res) => {
+                console.log(res)
                 if (res.errors) {
                     let errorsArr = []
                     for (const error of res.errors) {
