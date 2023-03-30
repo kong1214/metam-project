@@ -28,6 +28,7 @@ function TeamList() {
 
     // If No Project Owner found, return null
     if (projectOwnerUserIndex === -1) return null;
+    if (loggedInUserIndex === -1) return null;
 
     if (loggedInUserIndex !== projectOwnerUserIndex) {
         users.push(unparsedUsers[projectOwnerUserIndex])

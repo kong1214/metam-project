@@ -64,7 +64,7 @@ function TeamMemberDropDown({ user, className, initials, isSessionUser = false }
                     <OpenModalButton
                         buttonText={buttonText}
                         onButtonClick={closeMenu}
-                        modalComponent={<DeleteTeamMemberModal user={user} project={singleProject}/>}
+                        modalComponent={<DeleteTeamMemberModal user={user} project={singleProject} isCurrentUserAndNotOwner={isCurrentUserAndNotOwner}/>}
                         className={`modal-button ${isLoggedInProjectOwnerClassName}`}
                     />
                 )}
