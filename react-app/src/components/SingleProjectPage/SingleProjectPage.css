@@ -44,13 +44,15 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-evenly;
+    height: min-content;
     width: 10%;
-    height: 20%;
     background-color: white;
     border: .5px solid lightgray;
     border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
     overflow: hidden;
     z-index: 1;
     /* top: 0%; */
@@ -70,7 +72,7 @@
     justify-content: space-evenly;
     align-items: center;
     width: 10%;
-    height: 10%;
+    height: min-content;
     padding-top: 1%;
     padding-bottom: 1%;
     background-color: white;

@@ -34,3 +34,7 @@
   width: 100%;
   word-wrap: break-word;
 }
+.modal-button{
+  margin-top: 10px;
+  margin-bottom: 10px
+}
