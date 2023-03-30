@@ -23,7 +23,7 @@ function Navigation({ isLoaded }) {
 							<div id="metam-nav">metam</div>
 						</NavLink>
 					</div>
-					<div className="profile-button">
+					<div className="profile-button-container">
 						<ProfileButton user={sessionUser} />
 					</div>
 				</div>
