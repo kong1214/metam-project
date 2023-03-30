@@ -51,7 +51,14 @@ function TeamList() {
 
     return (
         <div id="team-container">
-            <div id="team-header">Team</div>
+            <div id="team-header">Team
+            {loggedInUserIndex === projectOwnerUserIndex &&
+                <OpenModalButton
+                    buttonText=""
+                    modalComponent={<AddTeamMemberModal projectId={singleProject.id} />}
+                    className="fa-solid fa-plus add-to-team-button"
+                />}
+                </div>
             <div id="team-members-container">
                 {isLoggedInProjectOwner ? (
                     <TeamMemberDropDown user={users[loggedInUserIndex]} className="user-profile-circle logged-in-user project-owner" initials={loggedInInitials} isSessionUser={true}/>
@@ -64,12 +71,6 @@ function TeamList() {
                 {remainingUsers.map((member) => (
                     <TeamMemberDropDown user={member} className="user-profile-circle" initials={`${member.first_name[0]}${member.last_name[0]}`} />
                 ))}
-                {loggedInUserIndex === projectOwnerUserIndex &&
-                <OpenModalButton
-                    buttonText=""
-                    modalComponent={<AddTeamMemberModal projectId={singleProject.id} />}
-                    className="fa-solid fa-plus add-to-team-button"
-                />}
             </div>
         </div>
     )
