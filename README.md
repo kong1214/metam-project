@@ -1,18 +1,18 @@
 # `Asana Clone: metam`
 
 ## metam Link:
-[https://metam.onrender.com]
+https://metam.onrender.com
 
 ## metam Description:
-metam is an Asana clone, where a logged in user can create projects and associated tasks within those projects to stay on track for different assignments. It is an application clone limited in functionality. Future feature implementation is in the works. More on that in the Features List.
+metam is an Asana clone, where a logged in user can create projects, teams, project sections, and tasks to stay on track for different assignments. Future feature implementation is in the works. More on that in the Features List.
 
 ## metam Technology:
-* React.js [https://reactjs.org/]
-* Redux.js [https://redux.js.org/]
-* SQLAlchemy [https://www.sqlalchemy.org/]
-* Flask [https://flask.palletsprojects.com/en/2.2.x/]
-* Sqlite3 [https://www.sqlite.org/index.html]
-* WTForms [https://wtforms.readthedocs.io/en/2.3.x/]
+* [React.js](https://reactjs.org/)
+* [Redux.js](https://redux.js.org/)
+* [SQLAlchemy](https://www.sqlalchemy.org/)
+* [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+* [Sqlite3](https://www.sqlite.org/index.html)
+* [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
 
 ## Current Features:
 
@@ -33,33 +33,43 @@ Project creators may assign tasks to members of the team.
 ### Tasks
 Team Members are able to view tasks for a project.
 Team Members are able to create tasks for a project, setting a priority, status, and due date and assigning them to predetermined project sections
+Team Members can drag these tasks to different sections or to a different order in the same section.
 Team Members are able to update and delete a task from a project
 
 ### Sections
 Team Members are able to create custom named sections for projects and assign tasks to each section.
 Team Members can see these sections along with all their associated tasks.
+Team Members can drag these sections and associated tasks to reorganize the order.
 Team Members can delete these sections, along with their associated tasks.
 
 
-## Future Features
+## Future Features:
 ### Assignees
-Tasks will be able to be assigned to specific team member(s).
+Tasks will be able to be assigned to specific team member(s) by the project owner.
+
+### Project Categories
+Users will be able to assign projects they are a team member in to different personal categories.
 
 ### User Profiles
-Users will be able to view their own profile, which will include tasks that are assigned to them for the week and current projects.
+Users will be able to view their own profile, which will include tasks that are assigned to them for the week and current projects, separated by project categories.
 Users will also be able to see other user profiles and view mutual projects and tasks.
+Users will be able to upload custom profile images using AWS, that will display instead of their initial for their user under the team list. Initials will be the default.
+
+### User Preferences
+Users will be able to toggle between different themes for the site.
 
 ### Kanban Board View
 Users will be able to toggle between a list view and a Kanban board view when looking at projects.
 
 ### Audit Log
-Project owners will be able to see any changes made to the project, team, sections, and task
-
+Project owners will be able to see any changes made to the project, team, sections, and tasks.
 
 
 ## Screenshots:
 ![image info](./README-images/Screenshot%202023-02-28%20143640.png)
+
 ![image info](./README-images/Screenshot%202023-02-28%20143544.png)
+
 ![image info](./README-images/Screenshot%202023-03-30%20131740.png)
 
 ## Contact:
