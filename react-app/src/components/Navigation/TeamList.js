@@ -23,17 +23,19 @@ function TeamList() {
     const loggedInUserIndex = unparsedUsers.findIndex((user) => sessionUser.id === user.id)
     const projectOwnerUserIndex = unparsedUsers.findIndex((user) => user.id === singleProject.owner_id)
 
-    // Remove the logged in user from the array and add them to the beginning
-    users.push(unparsedUsers[loggedInUserIndex])
-
-    // If No Project Owner found, return null
+    // If No Project Owner or Logged In User found, return null
     if (projectOwnerUserIndex === -1) return null;
     if (loggedInUserIndex === -1) return null;
 
+    // Remove the logged in user from the array and add them to the beginning
+    users.push(unparsedUsers[loggedInUserIndex])
+
+    // If the logged in user and the project owner are different, push the project owner to the users array
     if (loggedInUserIndex !== projectOwnerUserIndex) {
         users.push(unparsedUsers[projectOwnerUserIndex])
     }
 
+    // Filter the users by those who are not the logged in user nor the project owner and spread that into the users array
     const remainingUsers = unparsedUsers.filter((user) => user.id !== unparsedUsers[loggedInUserIndex].id && user.id !== unparsedUsers[projectOwnerUserIndex].id)
     users.push(...remainingUsers)
 
@@ -62,11 +64,12 @@ function TeamList() {
                 {remainingUsers.map((member) => (
                     <TeamMemberDropDown user={member} className="user-profile-circle" initials={`${member.first_name[0]}${member.last_name[0]}`} />
                 ))}
+                {loggedInUserIndex === projectOwnerUserIndex &&
                 <OpenModalButton
                     buttonText=""
                     modalComponent={<AddTeamMemberModal projectId={singleProject.id} />}
                     className="fa-solid fa-plus add-to-team-button"
-                />
+                />}
             </div>
         </div>
     )
