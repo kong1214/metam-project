@@ -27,17 +27,18 @@ function AddTeamMemberModal({projectId}) {
     })
   };
 
-
+  let errorsClassName = "errors-container"
+  if (errors.length > 0) errorsClassName += " visible"
   return (
     <>
       <div className="add-team-member-form-container">
         <h1 className="add-team-member-header">Add New Member</h1>
         <form onSubmit={handleSubmit}>
-          <ul>
+        <div className={errorsClassName}>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <div className="individual-error" key={idx}>{error}</div>
             ))}
-          </ul>
+          </div>
           <input
             id="add-team-member-input"
             placeholder="Email Address"
