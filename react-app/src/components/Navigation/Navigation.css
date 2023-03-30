@@ -111,10 +111,11 @@
     margin-bottom: 10%;
 }
 #team-container{
-  width: 100%;
+  width: 80%;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10%;
+  padding-right: 10%;
   display: flex;
   flex-direction: column;
 }
@@ -123,6 +124,9 @@
 }
 #team-members-container{
   display: flex;
+  flex-wrap: wrap;
+  height: 32px;
+  overflow: auto
 }
 .user-profile-circle {
   display: inline-flex;
