@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink } from "react-router-dom";
 import TeamMemberDropDown from "./TeamMemberDropDown";
-import AddTeamMemberModal from "../TeamModals/AddToTeamModal";
+import AddTeamMemberModal from "../TeamModals/AddTeamMemberModal.js";
 import OpenModalButton from "../OpenModalButton";
 import "./Navigation.css"
 

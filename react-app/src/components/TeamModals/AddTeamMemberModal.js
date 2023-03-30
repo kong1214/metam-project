@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { addToTeam } from "../../store/team";
+import "./AddTeamMemberModal.css"
 
 function AddTeamMemberModal({projectId}) {
   const dispatch = useDispatch();
@@ -38,15 +39,15 @@ function AddTeamMemberModal({projectId}) {
             ))}
           </ul>
           <input
-            className="add-team-member-input"
+            id="add-team-member-input"
             placeholder="Email Address"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <div className="add-team-member-button-container">
-            <button className="add-team-member-button" type="submit">Add</button>
+          <div id="add-team-member-button-container">
+            <button id="add-team-member-button" type="submit">Add</button>
           </div>
         </form>
       </div>

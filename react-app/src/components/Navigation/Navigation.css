@@ -125,7 +125,7 @@
 #team-members-container{
   display: flex;
   flex-wrap: wrap;
-  height: 32px;
+  height: 34px;
   overflow: auto
 }
 .user-profile-circle {
@@ -140,6 +140,7 @@
   font-size: 14px;
   font-weight: bold;
   margin-right: 8px;
+  margin-bottom: 2px;
   border: none;
 }
 
