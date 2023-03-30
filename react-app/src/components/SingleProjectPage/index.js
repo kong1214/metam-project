@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
 import { getSingleProject } from "../../store/project";
 import { getAllSections, moveSection } from "../../store/section";
+import { loadTeam } from "../../store/team";
 import task, { getAllTasks, moveTask, clearTasks } from "../../store/task";
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import LeftNavBar from "../Navigation/LeftNavBar";
@@ -17,6 +18,7 @@ function SingleProjectPage() {
     const project = useSelector(state => state.project.singleProject)
     let sectionsObj = useSelector(state => state.section)
     let tasksObj = useSelector(state => state.task.allTasks)
+    const [teamIsLoaded, setTeamIsLoaded] = useState(false)
     const [projectIsLoaded, setProjectIsLoaded] = useState(false)
     const [sectionsIsLoaded, setSectionsIsLoaded] = useState(false)
     const [sectionMoved, setSectionMoved] = useState(false)
@@ -24,22 +26,29 @@ function SingleProjectPage() {
     const { projectId } = useParams()
 
     useEffect(() => {
-        dispatch(getSingleProject(projectId))
-            .then(() => setProjectIsLoaded(true))
-    }, [projectId, project.name, project.icon, project.status])
+        dispatch(loadTeam(projectId))
+            .then(() => setTeamIsLoaded(true))
+    }, [dispatch, projectId])
+
+    useEffect(() => {
+        if (teamIsLoaded) {
+            dispatch(getSingleProject(projectId))
+                .then(() => setProjectIsLoaded(true))
+        }
+    }, [projectId, project.name, project.icon, project.status, teamIsLoaded])
 
     useEffect(() => {
         if (projectIsLoaded) {
             dispatch(getAllSections(projectId))
                 .then(() => setSectionsIsLoaded(true))
         }
-    }, [project.num_sections, projectId, projectIsLoaded, sectionMoved])
+    }, [projectId, project.num_sections, projectIsLoaded, sectionMoved])
 
     useEffect(() => {
         if (sectionsIsLoaded) {
             dispatch(getAllTasks(projectId))
         }
-    }, [project.num_tasks, sectionsIsLoaded, projectId, taskMoved])
+    }, [projectId, project.num_tasks, sectionsIsLoaded, taskMoved])
 
     if (!sessionUser) return (
         <Redirect to="/" />
@@ -77,10 +86,6 @@ function SingleProjectPage() {
             setTaskMoved(!taskMoved)
         }
         else if (type === "section") {
-            console.log("destination", destination)
-            console.log("source", source)
-            console.log("draggableId", draggableId)
-            console.log("type", type)
             const sectionId = +draggableId.split("-")[1]
             const order = destination.index + 1
             dispatch(moveSection(sectionId, order))
@@ -121,7 +126,7 @@ function SingleProjectPage() {
                         </Droppable>
                     )}
                 </DragDropContext>
-                <AddSection projectId={projectId}/>
+                <AddSection projectId={projectId} />
             </div>
         </div>
     )

@@ -4,9 +4,10 @@ import session from './session'
 import project from './project';
 import section from './section'
 import task from './task';
+import team from './team';
 
 const rootReducer = combineReducers({
-  session, project, section, task
+  session, project, section, task, team
 });
 
 

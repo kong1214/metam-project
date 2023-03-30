@@ -4,3 +4,4 @@ from .create_project_form import CreateProjectForm
 from .create_task_form import CreateTaskForm
 from .edit_task_form import EditTaskForm
 from .create_section_form import CreateSectionForm
+from .add_to_team_form import AddToTeamForm

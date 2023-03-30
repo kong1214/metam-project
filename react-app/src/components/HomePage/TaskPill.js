@@ -10,15 +10,15 @@ function TaskPill({ task }) {
             </div>
             priority task,
             <div className="task-pill-task-name task-pill-info task-pill-name">
-                {task.task_name}
+                {task.name}
             </div>
             for
             <div className="task-pill-project-name task-pill-info task-pill-name">
-                {task.project.project_name},
+                {task.project.name},
             </div>
             is
-            <div className={`task-pill-task-status-${task.task_status} task-pill-info`}>
-                {task.task_status}
+            <div className={`task-pill-task-status-${task.status} task-pill-info`}>
+                {task.status}
             </div>
         </div>
     )

@@ -1,0 +1,20 @@
+#add-team-member-input{
+    border: none;
+    border-bottom: 1px solid gray;
+    height: 30px;
+    width: 100%;
+    font-size: 16px;
+}
+#add-team-member-button-container{
+    width: 100%;
+    text-align: end;
+}
+#add-team-member-button{
+    border: none;
+    color: white;
+    background-color: #4573d2;
+    margin-top: 8px;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+}

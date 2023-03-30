@@ -52,11 +52,19 @@ def create_project():
             due_date=form.data["due_date"],
             created_at=form.data["created_at"],
             updated_at=form.data["updated_at"],
-            users=[user]
         )
+
+        new_project.users.append(user)
+
+
         db.session.add(new_project)
         db.session.commit()
-        return new_project.to_dict()
+
+        parsed_project = new_project.to_dict()
+        users = new_project.users
+        parsed_project["users"] = [user.to_dict() for user in users]
+
+        return parsed_project
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @project_routes.route('/<int:project_id>', methods=["PUT"])

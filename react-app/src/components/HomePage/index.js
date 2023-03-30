@@ -29,7 +29,7 @@ function HomePage() {
 
     const today = `${day}, ${month} ${date}`
 
-    console.log(date)
+    console.log(tasks)
 
     if (!sessionUser) return (
         <Redirect to="/" />

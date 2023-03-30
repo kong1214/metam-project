@@ -50,10 +50,15 @@ def create_task(project_id):
     """
     form = CreateTaskForm()
     form ['csrf_token'].data = request.cookies['csrf_token']
-    query = db.session.query(Task).filter(Task.project_id == project_id, Task.section_id == form.data["section_id"]).order_by(Task.order.desc())
+    query = Task.query.filter_by(section_id=form.data["section_id"]).order_by(Task.order.desc())
     highest_order_task = query.first()
+    if highest_order_task:
+        order = highest_order_task.to_dict()['order']+1
+    else:
+        order = 1
 
     if form.validate_on_submit():
+
 
         new_task = Task(
             project_id=project_id,
@@ -65,7 +70,7 @@ def create_task(project_id):
             description=form.data["description"],
             created_at=form.data["created_at"],
             updated_at=form.data["updated_at"],
-            order=highest_order_task.to_dict()["order"]+1
+            order=order
         )
         db.session.add(new_task)
         db.session.commit()
