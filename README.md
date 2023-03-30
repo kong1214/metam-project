@@ -8,6 +8,7 @@ metam is an Asana clone, where a logged in user can create projects, teams, proj
 
 ## metam Technology:
 * [React.js](https://reactjs.org/)
+* [React-Beautiful-DnD](https://github.com/atlassian/react-beautiful-dnd)
 * [Redux.js](https://redux.js.org/)
 * [SQLAlchemy](https://www.sqlalchemy.org/)
 * [Flask](https://flask.palletsprojects.com/en/2.2.x/)
