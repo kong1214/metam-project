@@ -24,3 +24,13 @@
   padding: 75px 100px;
   border-radius: 30px;;
 }
+
+.delete-modal-header{
+  text-align: center;
+  width: 100%;
+}
+
+.delete-modal-deletion-important{
+  width: 100%;
+  word-wrap: break-word;
+}

@@ -136,6 +136,7 @@
   font-size: 14px;
   font-weight: bold;
   margin-right: 8px;
+  border: none;
 }
 
 .project-owner{
@@ -200,7 +201,7 @@
   width: 80%;
   max-width: 80%; /* or any other value that suits your needs */
   white-space: normal;
-  word-wrap: break-all;
+  word-wrap: break-word;
 }
 .individual-project-active{
   border-top: 1px gray solid;

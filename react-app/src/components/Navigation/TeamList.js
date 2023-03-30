@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink } from "react-router-dom";
-import TeamMemberProfile from "./TeamMemberProfile";
+import TeamMemberDropDown from "./TeamMemberDropDown";
 import AddTeamMemberModal from "../TeamModals/AddToTeamModal";
 import OpenModalButton from "../OpenModalButton";
 import "./Navigation.css"
@@ -51,27 +51,21 @@ function TeamList() {
             <div id="team-header">Team</div>
             <div id="team-members-container">
                 {isLoggedInProjectOwner ? (
-                    <div className="user-profile-circle logged-in-user project-owner">
-                        {loggedInInitials}
-                    </div>
+                    <TeamMemberDropDown user={users[loggedInUserIndex]} className="user-profile-circle logged-in-user project-owner" initials={loggedInInitials} isSessionUser={true}/>
                 ) : (
-                    <div>
-                        <div className="user-profile-circle logged-in-user">
-                            {loggedInInitials}
-                        </div>
-                        <div className="user-profile-circle project-owner">
-                            {projectOwnerInitials}
-                        </div>
+                    <div style={{ display: "flex" }}>
+                        <TeamMemberDropDown user={users[loggedInUserIndex]} className="user-profile-circle logged-in-user" initials={loggedInInitials} isSessionUser={true}/>
+                        <TeamMemberDropDown user={users[projectOwnerUserIndex]} className="user-profile-circle project-owner" initials={projectOwnerInitials} />
                     </div>
                 )}
                 {remainingUsers.map((member) => (
-                    <TeamMemberProfile key={member.id} user={member} />
+                    <TeamMemberDropDown user={member} className="user-profile-circle" initials={`${member.first_name[0]}${member.last_name[0]}`} />
                 ))}
-                    <OpenModalButton
-                        buttonText=""
-                        modalComponent={<AddTeamMemberModal projectId={singleProject.id}/>}
-                        className="fa-solid fa-plus add-to-team-button"
-                    />
+                <OpenModalButton
+                    buttonText=""
+                    modalComponent={<AddTeamMemberModal projectId={singleProject.id} />}
+                    className="fa-solid fa-plus add-to-team-button"
+                />
             </div>
         </div>
     )

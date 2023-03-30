@@ -1,5 +1,6 @@
 const GET_TEAM_MEMBERS = "teams/GET_TEAM_MEMBERS"
 const ADD_TO_TEAM = "teans/ADD_TO_TEAM";
+const REMOVE_FROM_TEAM = "teams/REMOVE_FROM_TEAM"
 
 const getAll = (members) => ({
     type: GET_TEAM_MEMBERS,
@@ -9,6 +10,11 @@ const getAll = (members) => ({
 const add = (member) => ({
     type: ADD_TO_TEAM,
     member
+})
+
+const remove = (memberId) => ({
+    type: REMOVE_FROM_TEAM,
+    memberId
 })
 
 export const loadTeam = (projectId) => async dispatch => {
@@ -42,6 +48,16 @@ export const addToTeam = (projectId, email) => async (dispatch) => {
     }
 }
 
+export const removeUser = (projectId, memberId) => async (dispatch) => {
+    const response = await fetch(`/api/teams/project/${projectId}/user/${memberId}`, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    })
+    if (response.ok) {
+        dispatch(remove(memberId))
+    }
+}
+
 const initialState = {};
 
 const team = (state = initialState, action) => {
@@ -54,6 +70,10 @@ const team = (state = initialState, action) => {
         case ADD_TO_TEAM:
             newState = {...state}
             newState[action.member.id] = action.member
+            return newState
+        case REMOVE_FROM_TEAM:
+            newState = {...state}
+            delete newState[action.memberId]
             return newState
         default:
             return state;
