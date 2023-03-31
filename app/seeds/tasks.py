@@ -111,7 +111,7 @@ def seed_tasks():
     )
 
     """
-    Tasks for Second Project for User 2
+    Tasks for First Project for User 2
     """
     task9 = Task(
         project_id=2,
@@ -127,21 +127,102 @@ def seed_tasks():
         updated_at="02/20/2023"
     )
     task10 = Task(
-        project_id=3,
-        section_id=10,
+        project_id=2,
+        section_id=5,
         assignee_id=2,
-        order=1,
-        name="First Task",
+        order=2,
+        name="Second Task",
         due_date="02/25/2023",
         priority="Low",
         status="Off Track",
-        description="This is the first task for User 3's first project!",
+        description="This is the second task for User 2's first project!",
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
+    )
+    task11 = Task(
+        project_id=2,
+        section_id=6,
+        assignee_id=2,
+        order=1,
+        name="Third Task",
+        due_date="02/25/2023",
+        priority="Low",
+        status="At Risk",
+        description="This is the third task for User 2's first project!",
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
+    )
+    task12 = Task(
+        project_id=2,
+        section_id=7,
+        assignee_id=1,
+        order=1,
+        name="Fourth Task",
+        due_date="02/25/2023",
+        priority="Medium",
+        status="At Risk",
+        description="This is the fourth task for User 2's first project!",
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
+    )
+    task13 = Task(
+        project_id=2,
+        section_id=8,
+        assignee_id=2,
+        order=1,
+        name="Fifth Task",
+        due_date="02/25/2023",
+        priority="High",
+        status="On Track",
+        description="This is the fifth task for User 2's first project!",
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
+    )
+    """
+    Tasks for Get Hired
+    """
+    task14 = Task(
+        project_id=4,
+        section_id=12,
+        assignee_id=1,
+        order=1,
+        name="Learn",
+        due_date="02/25/2023",
+        priority="High",
+        status="On Track",
+        description="NEVER STOP!!!",
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
+    )
+    task15 = Task(
+        project_id=4,
+        section_id=12,
+        assignee_id=1,
+        order=2,
+        name="Fail Fail Fail",
+        due_date="02/25/2023",
+        priority="High",
+        status="On Track",
+        description="Failure is the best mechanism for both learning and growth. Enjoy the process and know that baby steps in the right direction, no matter how small, means you are moving forward.",
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
+    )
+    task16 = Task(
+        project_id=4,
+        section_id=12,
+        assignee_id=1,
+        order=3,
+        name="Success!",
+        due_date="02/25/2023",
+        priority="High",
+        status="On Track",
+        description="Your perseverance has been worth it. Time for the real work to start.",
         created_at="02/20/2023",
         updated_at="02/20/2023"
     )
 
 
-    all_tasks = [task1, task2, task3, task4, task5, task6, task7, task8, task9, task10]
+    all_tasks = [task1, task2, task3, task4, task5, task6, task7, task8, task9, task10, task11, task12, task13, task14, task15, task16]
     add_tasks = [db.session.add(task) for task in all_tasks]
 
     db.session.commit()

@@ -61,7 +61,7 @@ function ProjectHeader({ project, sections }) {
                         {project.name}
                     </div>
                     <div className="single-project-dropdown" style={{ marginRight: "1.5%" }}>
-                        <ProjectDropDownArrow project={project}/>
+                        <ProjectDropDownArrow project={project} sections={sections}/>
                     </div>
                     {projectStatus}
                 </div>
