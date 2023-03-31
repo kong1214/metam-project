@@ -62,6 +62,7 @@
     min-width: 9%;
     border-left: 1px lightgray solid;
     border-right: 1px lightgray solid;
+    font-size: 1em;
 }
 
 .task-priority-container {
@@ -69,36 +70,36 @@
     justify-content: center;
     min-width: 9%;
     border-right: 1px lightgray solid;
+    font-size: 1em;
 }
 
 .task-priority-outer-pill-Medium {
-    font-size: 16px;
+    font-size: 1em;
     background-color: #f1bd6c;
     display: flex;
     align-items: center;
-    border-radius: 12.5px;
-    height: 25px;
+    border-radius: 18px;
+    height: 35px;
     padding: 0 8px;
 }
 
 .task-priority-outer-pill-High {
-    font-size: 16px;
+    font-size: 1em;
     background-color: #b36bd4;
-    ;
     display: flex;
     align-items: center;
-    border-radius: 12.5px;
-    height: 25px;
+    border-radius: 18px;
+    height: 35px;
     padding: 0 8px;
 }
 
 .task-priority-outer-pill-Low {
-    font-size: 16px;
+    font-size: 1em;
     background-color: #9ee7e3;
     display: flex;
     align-items: center;
-    border-radius: 12.5px;
-    height: 25px;
+    border-radius: 18px;
+    height: 35px;
     padding: 0 8px;
 }
 
@@ -107,36 +108,36 @@
     justify-content: center;
     min-width: 9%;
     border-right: 1px lightgray solid;
+    font-size: 1em;
 }
 
 .task-status-outer-pill-On.Track {
-    font-size: 16px;
+    font-size: 1em;
     background-color: #4ecbc4;
-    ;
     display: flex;
     align-items: center;
-    border-radius: 12.5px;
-    height: 25px;
+    border-radius: 18px;
+    height: 35px;
     padding: 0 8px;
 }
 
 .task-status-outer-pill-Off.Track {
-    font-size: 16px;
+    font-size: 1em;
     background-color: #f06a6a;
     display: flex;
     align-items: center;
-    border-radius: 12.5px;
-    height: 25px;
+    border-radius: 18px;
+    height: 35px;
     padding: 0 8px;
 }
 
 .task-status-outer-pill-At.Risk {
-    font-size: 16px;
+    font-size: 1em;
     background-color: #f8df72;
     display: flex;
     align-items: center;
-    border-radius: 12.5px;
-    height: 25px;
+    border-radius: 18px;
+    height: 35px;
     padding: 0 8px;
 }
 

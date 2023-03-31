@@ -75,10 +75,10 @@ function SingleProjectPage() {
     function onDragEnd(result) {
         const { destination, source, draggableId, type } = result;
 
-        console.log("destination", destination)
-        console.log("source", source)
-        console.log("draggableId", draggableId)
-        console.log("type", type)
+        // console.log("destination", destination)
+        // console.log("source", source)
+        // console.log("draggableId", draggableId)
+        // console.log("type", type)
 
         if (!destination) {
             return;
@@ -98,11 +98,11 @@ function SingleProjectPage() {
             const destinationSection = sections.find(section => section.id === sectionId)
             const tasksInDestinationSection = destinationSection.tasks
 
-            console.log("taskId", taskId)
-            console.log("sectionId", sectionId)
-            console.log("order", order)
-            console.log("destinationSection", destinationSection)
-            console.log("tasksInDestinationSection", tasksInDestinationSection)
+            // console.log("taskId", taskId)
+            // console.log("sectionId", sectionId)
+            // console.log("order", order)
+            // console.log("destinationSection", destinationSection)
+            // console.log("tasksInDestinationSection", tasksInDestinationSection)
 
             // if destination section is empty, set order to 1
             if (tasksInDestinationSection.length === 0) {

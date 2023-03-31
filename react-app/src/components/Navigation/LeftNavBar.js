@@ -27,7 +27,7 @@ function LeftNavBar() {
         <div className="left-navbar-container">
             <div className="left-navbar-top-container">
                 <button className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
-                    <NavLink to="/project">Create Project</NavLink>
+                    <NavLink to="/project" className="create-button-in-left-navbar">Create Project</NavLink>
                 </button>
                 <NavLink to="/home" activeClassName="top-container-link-active" className="top-container-link">
                     <i className="fa-solid fa-house"></i>

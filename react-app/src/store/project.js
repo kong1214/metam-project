@@ -32,7 +32,7 @@ export const clearProject = () => ({
 
 export const getAllProjects = () => async (dispatch) => {
     const response = await fetch("/api/projects");
-    console.log("response", response)
+    // console.log("response", response)
     if (response.ok) {
         const data = await response.json();
         let normalizedData = {}
