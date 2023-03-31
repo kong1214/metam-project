@@ -26,4 +26,5 @@ class Section(db.Model):
             'order': self.order,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'tasks': [task.to_dict() for task in self.tasks]
         }

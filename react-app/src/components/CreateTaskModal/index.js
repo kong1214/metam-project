@@ -6,12 +6,13 @@ import { useParams } from "react-router-dom";
 import { createTask } from "../../store/task";
 import "./CreateTaskModal.css";
 
-function CreateTaskFormModal({ projectId }) {
+function CreateTaskFormModal({ projectId, sections }) {
 
     const dispatch = useDispatch();
 
-    const sectionsObj = useSelector(state => state.section)
-    const sections = Object.values(sectionsObj)
+    console.log(sections)
+    // const sectionsObj = useSelector(state => state.section)
+    // const sections = Object.values(sectionsObj)
 
     function dateFormatter(date) {
         const dateArr = date.split("/")
