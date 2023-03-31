@@ -38,7 +38,7 @@ class Task(db.Model):
             'description': self.description,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'project': self.project.to_dict(),
-            'section': self.section.to_dict(),
+            'project': self.project.to_dict()
+            # 'section': self.section.to_dict()
             # 'assignee': self.assignee.to_dict()
         }

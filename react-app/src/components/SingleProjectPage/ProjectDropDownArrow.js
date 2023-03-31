@@ -6,7 +6,7 @@ import EditProjectFormModal from "../EditProjectModal";
 import DeleteProjectModal from "../DeleteProjectModal";
 import CreateTaskFormModal from "../CreateTaskModal";
 
-function ProjectDropDownArrow({ project }) {
+function ProjectDropDownArrow({ project, sections }) {
     const dispatch = useDispatch();
     const history = useHistory()
     const [showMenu, setShowMenu] = useState(false);
@@ -36,7 +36,7 @@ function ProjectDropDownArrow({ project }) {
     const loggedInProjectOwner = sessionUser.id === project.owner_id
     const ulClassName = "project-dropdown" + (showMenu ? "" : " hidden");
     const closeMenu = () => setShowMenu(false);
-    
+
     return (
         <>
             <button onClick={openMenu} className="project-page-dropdown-button">
@@ -46,7 +46,7 @@ function ProjectDropDownArrow({ project }) {
                 <OpenModalButton
                     buttonText="Add a Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<CreateTaskFormModal projectId={project.id} />}
+                    modalComponent={<CreateTaskFormModal projectId={project.id} sections={sections}/>}
                     className="modal-button"
                 />
                 {loggedInProjectOwner && (

@@ -75,15 +75,44 @@ function SingleProjectPage() {
     function onDragEnd(result) {
         const { destination, source, draggableId, type } = result;
 
+        console.log("destination", destination)
+        console.log("source", source)
+        console.log("draggableId", draggableId)
+        console.log("type", type)
+
         if (!destination) {
             return;
         }
+
+        if (destination.droppableId === source.droppableId && destination.index === source.index) {
+            return;
+        }
+
         if (type === "task") {
+
             const taskId = +draggableId.split("-")[1]
             const sectionId = +destination.droppableId.split("-")[1]
             const order = destination.index + 1
-            dispatch(moveTask(taskId, order, sectionId))
-            setTaskMoved(!taskMoved)
+
+            // check if destination section is empty
+            const destinationSection = sections.find(section => section.id === sectionId)
+            const tasksInDestinationSection = destinationSection.tasks
+
+            console.log("taskId", taskId)
+            console.log("sectionId", sectionId)
+            console.log("order", order)
+            console.log("destinationSection", destinationSection)
+            console.log("tasksInDestinationSection", tasksInDestinationSection)
+
+            // if destination section is empty, set order to 1
+            if (tasksInDestinationSection.length === 0) {
+                dispatch(moveTask(taskId, 1, sectionId))
+                setTaskMoved(!taskMoved)
+                return
+            } else {
+                dispatch(moveTask(taskId, order, sectionId))
+                setTaskMoved(!taskMoved)
+            }
         }
         else if (type === "section") {
             const sectionId = +draggableId.split("-")[1]
@@ -98,7 +127,7 @@ function SingleProjectPage() {
         <div className='home-page-content-and-left-navbar'>
             <LeftNavBar />
             <div className='single-project-content-container'>
-                <ProjectHeader project={project} />
+                <ProjectHeader project={project} sections={sections}/>
                 <div className="tasks-column-header">
                     <div className="task-name-container">Task Name</div>
                     <div className="task-due-date">Due Date</div>

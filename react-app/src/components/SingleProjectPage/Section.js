@@ -31,7 +31,8 @@ function Section({ section, tasks = [], index }) {
                     {tasks.length === 0 ? (
                         <Droppable droppableId={stringSectionId} type="task">
                             {(provided) => (
-                                <div {...provided.droppableProps} ref={provided.innerRef}>
+                                <div {...provided.droppableProps} ref={provided.innerRef} style={{marginBottom: "10px"}}>
+                                    <div>This section is empty! Drop Some tasks below!</div>
                                     {provided.placeholder}
                                 </div>
                             )}
