@@ -10,7 +10,7 @@ function CreateTaskFormModal({ projectId, sections }) {
 
     const dispatch = useDispatch();
 
-    console.log(sections)
+    // console.log(sections)
     // const sectionsObj = useSelector(state => state.section)
     // const sections = Object.values(sectionsObj)
 
@@ -61,10 +61,10 @@ function CreateTaskFormModal({ projectId, sections }) {
             created_at: date,
             updated_at: date
         }
-        console.log(newTask)
+        // console.log(newTask)
         return await dispatch(createTask(newTask, projectId))
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 if (res.errors) {
                     let errorsArr = []
                     for (const error of res.errors) {

@@ -74,7 +74,7 @@ export const createTask = (task, projectId) => async (dispatch) => {
     if(response.ok) {
         const task = await response.json()
         dispatch(add(task))
-        console.log(task)
+        // console.log(task)
         return task
     } else if (response.status < 500) {
 		const data = await response.json();

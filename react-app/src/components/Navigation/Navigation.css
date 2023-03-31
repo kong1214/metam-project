@@ -114,11 +114,18 @@
     background-color: #4573d2;
     color: white;
     margin-left: 10%;
-    width: 100px;
+    width: 40%;
     height: 40px;
     border-radius: 20px;
     margin-bottom: 10%;
+    min-width: fit-content
 }
+.create-button-in-left-navbar{
+  text-align: center;
+  display: block;
+  font-size: 1em;
+}
+
 #team-container{
   width: 80%;
   padding-top: 20px;
@@ -267,3 +274,4 @@
 .fa-solid.fa-house {
   padding-right: 4%;
 }
+
