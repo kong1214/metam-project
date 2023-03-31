@@ -7,12 +7,15 @@ https://metam.onrender.com
 metam is an Asana clone, where a logged in user can create projects, teams, project sections, and tasks to stay on track for different assignments. Future feature implementation is in the works. More on that in the Features List.
 
 ## metam Technology:
-* [React.js](https://reactjs.org/)
-* [Redux.js](https://redux.js.org/)
+* [![Render][Render]][Render-url]
+* [![React][React.js]][React-url]
+* [![Redux][Redux.js]][Redux-url]
+* [![Flask][Flask]][Flask-url]
+* [![Sqlite3][Sqlite3]][Sqlite3-url]
+* [React-Beautiful-DnD](https://github.com/atlassian/react-beautiful-dnd)
 * [SQLAlchemy](https://www.sqlalchemy.org/)
-* [Flask](https://flask.palletsprojects.com/en/2.2.x/)
-* [Sqlite3](https://www.sqlite.org/index.html)
 * [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
+
 
 ## Current Features:
 
@@ -77,3 +80,22 @@ Project owners will be able to see any changes made to the project, team, sectio
 * [LinkedIn - Kevin Ong](https://www.linkedin.com/in/kevin-ong-357b16215/)
 * [Github - Kong1214](https://github.com/kong1214)
 * [Github - Project Link](https://github.com/kong1214/metam-project)
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Redux.js]: https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white
+[Redux-url]: https://redux.js.org/
+[Flask]: 	https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
+[Flask-url]: https://flask.palletsprojects.com/en/2.2.x/
+[Sqlite3]: https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
+[Sqlite3-url]: https://www.sqlite.org/index.html
+[Render]: https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white
+[Render-url]: https://render.com/
+[react-beautiful-dnd-url]: https://github.com/atlassian/react-beautiful-dnd
+[SQLAlchemy-url]: https://www.sqlalchemy.org/
+[WTForms-url]: https://wtforms.readthedocs.io/en/2.3.x/
