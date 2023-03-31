@@ -28,7 +28,7 @@
   width: 70%;
   margin-left: 15%;
   margin-right: 15%;
-  height: 6vh;
+  height: 50px;
 }
 .logged-out-nav-buttons-container{
   display: flex;
@@ -63,7 +63,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 6vh;
+  height: 50px;
   background-color: #363639;
   border-bottom: 1px solid #424244;
 }
@@ -94,8 +94,8 @@
 }
 /* LEFT NAV BAR */
 .left-navbar-container{
-  /* height: 100%; */
-  min-height: 100%;
+  height: 100%;
+  /* min-height: 100%; */
   width: 15%;
   display: flex;
   background-color: #2e2e30;

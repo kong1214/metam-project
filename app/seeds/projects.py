@@ -4,8 +4,8 @@ from app.models import db, Project, environment, SCHEMA
 def seed_projects():
     project1 = Project(
         owner_id=1,
-        name="First Project for User 1",
-        icon="chat_bubble",
+        name="Metam Project",
+        icon="monitor",
         status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",
@@ -14,7 +14,7 @@ def seed_projects():
     project2 = Project(
         owner_id=2,
         name="First Project for User 2",
-        icon="briefcase",
+        icon="chat_bubble",
         status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",
@@ -23,7 +23,7 @@ def seed_projects():
     project3 = Project(
         owner_id=3,
         name="First Project for User 3",
-        icon="monitor",
+        icon="shoe",
         status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",
@@ -31,8 +31,8 @@ def seed_projects():
     )
     project4 = Project(
         owner_id=1,
-        name="Second Project for User 1",
-        icon="shoe",
+        name="Get Hired",
+        icon="briefcase",
         status="On Track",
         due_date="02/25/2023",
         created_at="02/20/2023",

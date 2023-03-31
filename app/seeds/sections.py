@@ -29,24 +29,31 @@ def seed_sections():
         created_at="02/20/2023",
         updated_at="02/20/2023"
     )
-    section6 = Section(
+    section5 = Section(
         project_id=2,
         name="To Do",
         order=1,
         created_at="02/20/2023",
         updated_at="02/20/2023"
     )
+    section6 = Section(
+        project_id=2,
+        name="Done",
+        order=2,
+        created_at="02/20/2023",
+        updated_at="02/20/2023"
+    )
     section7 = Section(
         project_id=2,
-        name="Doing",
-        order=2,
+        name="Review",
+        order=3,
         created_at="02/20/2023",
         updated_at="02/20/2023"
     )
     section8 = Section(
         project_id=2,
-        name="Done",
-        order=3,
+        name="Accepted",
+        order=4,
         created_at="02/20/2023",
         updated_at="02/20/2023"
     )
@@ -80,13 +87,13 @@ def seed_sections():
     )
     section13 = Section(
         project_id=4,
-        name="Complete",
+        name="Finished",
         order=2,
         created_at="02/20/2023",
         updated_at="02/20/2023"
     )
 
-    all_sections = [section1, section2, section3, section4, section6, section7, section8, section9, section10, section11, section12, section13]
+    all_sections = [section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13]
     add_tasks = [db.session.add(section) for section in all_sections]
 
 def undo_sections():
