@@ -82,3 +82,12 @@
     font-size: 14px;
     margin: 8px 10px;
 }
+
+        @media screen and (max-width: 1320px) {
+            .create-project-form-container{
+                min-width: fit-content;
+            }
+            .create-project-container {
+                min-width: fit-content;
+            }
+        }

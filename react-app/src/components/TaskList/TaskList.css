@@ -29,6 +29,7 @@
     min-width: 70%;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .task-drop-down-arrow {
@@ -63,6 +64,7 @@
     border-left: 1px lightgray solid;
     border-right: 1px lightgray solid;
     font-size: 1em;
+    overflow: hidden;
 }
 
 .task-priority-container {
@@ -78,6 +80,8 @@
     background-color: #f1bd6c;
     display: flex;
     align-items: center;
+    width: 4.5em;
+    justify-content: center;
     border-radius: 18px;
     height: 35px;
     padding: 0 8px;
@@ -88,6 +92,8 @@
     background-color: #b36bd4;
     display: flex;
     align-items: center;
+    width: 4.5em;
+    justify-content: center;
     border-radius: 18px;
     height: 35px;
     padding: 0 8px;
@@ -98,6 +104,8 @@
     background-color: #9ee7e3;
     display: flex;
     align-items: center;
+    width: 4.5em;
+    justify-content: center;
     border-radius: 18px;
     height: 35px;
     padding: 0 8px;
@@ -116,6 +124,8 @@
     background-color: #4ecbc4;
     display: flex;
     align-items: center;
+    width: 4.5em;
+    justify-content: center;
     border-radius: 18px;
     height: 35px;
     padding: 0 8px;
@@ -126,6 +136,8 @@
     background-color: #f06a6a;
     display: flex;
     align-items: center;
+    width: 4.5em;
+    justify-content: center;
     border-radius: 18px;
     height: 35px;
     padding: 0 8px;
@@ -136,6 +148,8 @@
     background-color: #f8df72;
     display: flex;
     align-items: center;
+    width: 4.5em;
+    justify-content: center;
     border-radius: 18px;
     height: 35px;
     padding: 0 8px;
@@ -172,3 +186,9 @@
     text-decoration:underline;
     margin-bottom: 2%;
 }
+
+        @media screen and (max-width: 1320px) {
+            .task-status-outer-pill{
+                font-size: 1px;
+            }
+        }
