@@ -4,7 +4,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 10%;
+  min-width: 10%;
+  padding: 1%;
   height: 10%;
   background-color: white;
   border: .5px solid lightgray;
@@ -16,6 +17,9 @@
   /* top: 0%; */
 }
 
+.profile-dropdown-logout-button{
+  width: 50%;
+}
 .hidden {
   display: none;
 }
@@ -274,4 +278,3 @@
 .fa-solid.fa-house {
   padding-right: 4%;
 }
-

@@ -46,8 +46,8 @@ function ProfileButton({ user }) {
         <i className="fas fa-user-circle" />
       </button>
       <div className={ulClassName} ref={ulRef}>
-        <div>{user.email}</div>
-        <button onClick={handleLogout} className="modal-button" style={{ width: "40%" }}>Log Out</button>
+        <div style={{fontSize: "1em"}}>{user.email}</div>
+        <button onClick={handleLogout} className="profile-dropdown-logout-button modal-button" style={{ width: "40%" }}>Log Out</button>
       </div>
     </>
   );
