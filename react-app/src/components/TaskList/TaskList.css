@@ -29,7 +29,7 @@
     min-width: 70%;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .task-drop-down-arrow {
@@ -165,9 +165,9 @@
 .task-description-dropdown {
     position: absolute;
     top: 100%;
-    left: 110%;
+    left: 105%;
     /* left: 0; */
-    z-index: 1;
+    z-index: 5;
     display: none;
     background-color: #424244;
     padding: 15px;
