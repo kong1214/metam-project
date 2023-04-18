@@ -1,12 +1,19 @@
-# `Asana Clone: metam`
+<a name="readme-top"></a>
 
-## metam Link:
+# `Asana Clone: Metam`
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
 https://metam.onrender.com
 
-## metam Description:
 metam is an Asana clone, where a logged in user can create projects, teams, project sections, and tasks to stay on track for different assignments. Future feature implementation is in the works. More on that in the Features List.
 
-## metam Technology:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+### Built With
+
 * [![Render][Render]][Render-url]
 * [![React][React.js]][React-url]
 * [![Redux][Redux.js]][Redux-url]
@@ -16,8 +23,9 @@ metam is an Asana clone, where a logged in user can create projects, teams, proj
 * [SQLAlchemy](https://www.sqlalchemy.org/)
 * [WTForms](https://wtforms.readthedocs.io/en/2.3.x/)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Current Features:
+## Current Features
 
 ### Users/Sessions
 Users are able to sign up with an email & password to perform actions available only to logged in users.
@@ -190,8 +198,10 @@ Team Members can delete these sections, along with their associated tasks.
         </Draggable>
     )
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Future Features:
+## Future Feature
+
 ### Assignees
 Tasks will be able to be assigned to specific team member(s) by the project owner.
 
@@ -212,20 +222,26 @@ Users will be able to toggle between a list view and a Kanban board view when lo
 ### Audit Log
 Project owners will be able to see any changes made to the project, team, sections, and tasks.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Screenshots:
+## Screenshots
+
 ![image info](./README-images/Screenshot%202023-02-28%20143640.png)
 
 ![image info](./README-images/Screenshot%202023-02-28%20143544.png)
 
 ![image info](./README-images/Screenshot%202023-03-30%20131740.png)
 
-## Contact:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
 * Kevin Ong - kevin.ong@live.com
 * [LinkedIn - Kevin Ong](https://www.linkedin.com/in/kevin-ong-357b16215/)
 * [Github - Kong1214](https://github.com/kong1214)
 * [Github - Project Link](https://github.com/kong1214/metam-project)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
