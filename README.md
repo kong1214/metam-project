@@ -26,7 +26,6 @@ metam is an Asana clone, where a logged in user can create projects, teams, proj
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Current Features
----
 
 ### Users/Sessions
 Users are able to sign up with an email & password to perform actions available only to logged in users.
@@ -201,8 +200,7 @@ Team Members can delete these sections, along with their associated tasks.
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Future Features
----
+## Future Feature
 
 ### Assignees
 Tasks will be able to be assigned to specific team member(s) by the project owner.
@@ -226,8 +224,7 @@ Project owners will be able to see any changes made to the project, team, sectio
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Screenshots:
----
+## Screenshots
 
 ![image info](./README-images/Screenshot%202023-02-28%20143640.png)
 
@@ -237,8 +234,7 @@ Project owners will be able to see any changes made to the project, team, sectio
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contact:
----
+## Contact
 
 * Kevin Ong - kevin.ong@live.com
 * [LinkedIn - Kevin Ong](https://www.linkedin.com/in/kevin-ong-357b16215/)
