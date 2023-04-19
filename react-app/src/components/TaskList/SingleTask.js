@@ -2,10 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
 import { Draggable } from "react-beautiful-dnd"
+import TaskAssignee from "./TaskAssignee";
 import TaskDropDownArrow from "./TaskDropDownArrow";
 import "./TaskList.css"
 
 function SingleTask({ task, index }) {
+    const project = useSelector(state => state.project.singleProject)
+    const teamObj = useSelector(state => state.team)
+    console.log(teamObj)
+    let team = Object.values(teamObj)
+    console.log(team)
+    let assignee = team.filter(user => user.id === task.assignee_id)[0]
+    if (!assignee) {
+        assignee= "No Assignee!"
+    }
     if (!task) {
         return (
             <div>There are no tasks in this section!</div>
@@ -13,7 +23,6 @@ function SingleTask({ task, index }) {
     }
 
     const dropdowns = document.querySelectorAll('.dropdown')
-
     if (dropdowns) {
 
         dropdowns.forEach((dropdown) => {
@@ -53,6 +62,7 @@ function SingleTask({ task, index }) {
                             <TaskDropDownArrow task={task} />
                         </div>
                     </div>
+                    <TaskAssignee task={task} assignee={assignee} users={team}/>
                     <div className="task-due-date">{task.due_date}</div>
                     <div className={"task-priority-container" + ` ${task.priority}`}>
                         <div className={`task-priority-outer-pill-${task.priority}`}>

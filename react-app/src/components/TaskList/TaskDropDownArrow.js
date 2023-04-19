@@ -6,8 +6,6 @@ import EditTaskFormModal from "../EditTaskModal";
 import DeleteTaskModal from "../DeleteTaskModal";
 
 function TaskDropDownArrow({ task }) {
-    const dispatch = useDispatch();
-    const history = useHistory()
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
 

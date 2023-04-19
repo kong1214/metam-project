@@ -1,4 +1,8 @@
 
+.hidden {
+    display: none;
+  }
+
 .single-project-content-container {
     display: flex;
     flex-direction: column;

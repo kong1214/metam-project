@@ -28,6 +28,7 @@
 .delete-modal-header{
   text-align: center;
   width: 100%;
+  min-width: fit-content
 }
 
 .delete-modal-deletion-important{

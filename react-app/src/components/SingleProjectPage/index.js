@@ -130,6 +130,7 @@ function SingleProjectPage() {
                 <ProjectHeader project={project} sections={sections}/>
                 <div className="tasks-column-header">
                     <div className="task-name-container">Task Name</div>
+                    <div className="assignee-item">Assignee</div>
                     <div className="task-due-date">Due Date</div>
                     <div className="task-priority-container">Priority</div>
                     <div className="task-status-container">Status</div>
