@@ -4,6 +4,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    /* min-width: fit-content; */
+    min-width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 12%;
     height: 125px;
     background-color: white;

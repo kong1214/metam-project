@@ -69,7 +69,7 @@ function TeamList() {
                     </div>
                 )}
                 {remainingUsers.map((member) => (
-                    <TeamMemberDropDown user={member} className="user-profile-circle" initials={`${member.first_name[0]}${member.last_name[0]}`} />
+                    <TeamMemberDropDown key={member.id} user={member} className="user-profile-circle" initials={`${member.first_name[0]}${member.last_name[0]}`} />
                 ))}
             </div>
         </div>
