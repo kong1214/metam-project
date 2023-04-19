@@ -144,6 +144,16 @@ def move_task(task_id):
     db.session.commit()
     return task.to_dict()
 
+@task_routes.route('/assignee/<int:task_id>', methods=["PUT"])
+@login_required
+def edit_task_assignee(task_id):
+
+    task = Task.query.get(task_id)
+    data = request.get_json()
+    task.assignee_id = data.get('newAssigneeId')
+
+    db.session.commit()
+    return task.to_dict()
 
 @task_routes.route('/<int:task_id>', methods=["DELETE"])
 @login_required

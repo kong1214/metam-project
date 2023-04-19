@@ -59,7 +59,7 @@ function SingleTask({ task, index }) {
                             <TaskDropDownArrow task={task} />
                         </div>
                     </div>
-                    <TaskAssignee assignee={assignee} users={project.users}/>
+                    <TaskAssignee task={task} assignee={assignee} users={project.users}/>
                     <div className="task-due-date">{task.due_date}</div>
                     <div className={"task-priority-container" + ` ${task.priority}`}>
                         <div className={`task-priority-outer-pill-${task.priority}`}>
