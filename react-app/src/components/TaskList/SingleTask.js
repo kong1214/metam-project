@@ -8,8 +8,11 @@ import "./TaskList.css"
 
 function SingleTask({ task, index }) {
     const project = useSelector(state => state.project.singleProject)
-
-    let assignee = project.users.filter(user => user.id === task.assignee_id)[0]
+    const teamObj = useSelector(state => state.team)
+    console.log(teamObj)
+    let team = Object.values(teamObj)
+    console.log(team)
+    let assignee = team.filter(user => user.id === task.assignee_id)[0]
     if (!assignee) {
         assignee= "No Assignee!"
     }
@@ -59,7 +62,7 @@ function SingleTask({ task, index }) {
                             <TaskDropDownArrow task={task} />
                         </div>
                     </div>
-                    <TaskAssignee task={task} assignee={assignee} users={project.users}/>
+                    <TaskAssignee task={task} assignee={assignee} users={team}/>
                     <div className="task-due-date">{task.due_date}</div>
                     <div className={"task-priority-container" + ` ${task.priority}`}>
                         <div className={`task-priority-outer-pill-${task.priority}`}>
