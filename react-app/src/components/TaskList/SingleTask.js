@@ -9,9 +9,7 @@ import "./TaskList.css"
 function SingleTask({ task, index }) {
     const project = useSelector(state => state.project.singleProject)
     const teamObj = useSelector(state => state.team)
-    console.log(teamObj)
     let team = Object.values(teamObj)
-    console.log(team)
     let assignee = team.filter(user => user.id === task.assignee_id)[0]
     if (!assignee) {
         assignee= "No Assignee!"
