@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
-import EditProjectFormModal from "../EditProjectModal";
-import DeleteProjectModal from "../DeleteProjectModal";
-import CreateTaskFormModal from "../CreateTaskModal";
+import EditProjectFormModal from "../ProjectModals/EditProjectModal";
+import DeleteProjectModal from "../ProjectModals/DeleteProjectModal";
+import CreateTaskFormModal from "../TaskModals/CreateTaskModal";
 
 function ProjectDropDownArrow({ project, sections }) {
     const dispatch = useDispatch();

@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
-import EditTaskFormModal from "../EditTaskModal";
-import DeleteTaskModal from "../DeleteTaskModal";
+import EditTaskFormModal from "../TaskModals/EditTaskModal";
+import DeleteTaskModal from "../TaskModals/DeleteTaskModal";
 
 function TaskDropDownArrow({ task }) {
     const [showMenu, setShowMenu] = useState(false);

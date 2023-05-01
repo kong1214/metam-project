@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
+import { login } from "../../../store/session";
 import { useDispatch } from "react-redux";
-import { useModal } from "../../context/Modal";
-import { editProject } from "../../store/project";
+import { useModal } from "../../../context/Modal";
+import { editProject } from "../../../store/project";
 import "./EditProjectModal.css"
 
 function EditProjectFormModal({ project }) {

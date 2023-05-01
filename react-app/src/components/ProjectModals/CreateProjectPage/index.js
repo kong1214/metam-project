@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
+import { login } from "../../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { createProject, getAllProjects, getSingleProject } from "../../store/project";
+import { createProject, getAllProjects, getSingleProject } from "../../../store/project";
 import { Redirect, useHistory } from "react-router-dom";
 import "./CreateProjectPage.css"
 import screenshot from './project-screenshot.png'
