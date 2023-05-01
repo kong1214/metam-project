@@ -10,7 +10,7 @@ function TaskAssignee({ task, assignee, users }) {
     const dispatch = useDispatch()
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
-    
+
     const openMenu = () => {
         if (showMenu) return;
         setShowMenu(true);
@@ -52,6 +52,7 @@ function TaskAssignee({ task, assignee, users }) {
                         {user.first_name} {user.last_name}
                     </button>
                 ))}
+                <button className="task-assignee none"onClick={() => handleEdit(task.id, null)}>No Assignee!</button>
             </div>
         </div>
     )

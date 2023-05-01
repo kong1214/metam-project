@@ -36,6 +36,7 @@ function DeleteTeamMemberModal({ user, project, isCurrentUserAndNotOwner }) {
                     <div className="delete-modal-deletion-important">
                         <strong>{project.name}</strong>?
                     </div>
+                    <div>All tasks assigned to this user will be unassigned.</div>
                 </div>
             )}
             <div className="delete-modal-buttons">

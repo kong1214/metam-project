@@ -7,7 +7,7 @@ import SplashPage from "./components/SplashPage";
 import LeftNavBar from "./components/Navigation/LeftNavBar";
 import HomePage from "./components/HomePage"
 import SingleProjectPage from "./components/SingleProjectPage";
-import CreateProjectPage from "./components/CreateProjectPage";
+import CreateProjectPage from "./components/ProjectModals/CreateProjectPage";
 import NotFound from "./components/NotFound";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";

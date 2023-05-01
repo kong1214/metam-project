@@ -1,35 +1,25 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { useModal } from "../../context/Modal";
-import { useParams } from "react-router-dom";
-import { createTask } from "../../store/task";
-import "./CreateTaskModal.css";
+import { useModal } from "../../../context/Modal";
+import { editTask } from "../../../store/task";
 
-function CreateTaskFormModal({ projectId, sections }) {
 
-    const dispatch = useDispatch();
+function EditTaskFormModal({ task }) {
 
-    // console.log(sections)
-    // const sectionsObj = useSelector(state => state.section)
-    // const sections = Object.values(sectionsObj)
+    const sectionsObj = useSelector(state => state.section)
+    const sections = Object.values(sectionsObj)
 
     function dateFormatter(date) {
         const dateArr = date.split("/")
         return `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`
     }
 
-    function sectionIdByName(name) {
-        const section = sections.find(section => section.name === name)
-        return section.id
-    }
-
-    const [taskName, setTaskName] = useState("");
-    const [priority, setPriority] = useState("");
-    const [taskStatus, setTaskStatus] = useState("");
-    const [projectSectionName, setProjectSectionName] = useState("")
-    const [description, setDescription] = useState("");
-    const [dueDate, setDueDate] = useState("");
+    const dispatch = useDispatch();
+    const [taskName, setTaskName] = useState(task.name);
+    const [priority, setPriority] = useState(task.priority);
+    const [taskStatus, setTaskStatus] = useState(task.status);
+    const [description, setDescription] = useState(task.description);
+    const [dueDate, setDueDate] = useState(dateFormatter(task.due_date));
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal();
 
@@ -49,22 +39,17 @@ function CreateTaskFormModal({ projectId, sections }) {
     }
 
     const handleSubmit = async (e) => {
-
         e.preventDefault();
-        const newTask = {
+        const updatedTask = {
             name: taskName,
             priority: priority,
             status: taskStatus,
-            section_id: sectionIdByName(projectSectionName),
             description: description,
             due_date: dateParser(dueDate),
-            created_at: date,
             updated_at: date
         }
-        // console.log(newTask)
-        return await dispatch(createTask(newTask, projectId))
+        return dispatch(editTask(updatedTask, task.id))
             .then((res) => {
-                // console.log(res)
                 if (res.errors) {
                     let errorsArr = []
                     for (const error of res.errors) {
@@ -81,7 +66,7 @@ function CreateTaskFormModal({ projectId, sections }) {
 
     return (
         <div id="create-task-container">
-            <div className="create-task-header">Create Task</div>
+            <div className="create-task-header">Edit Task</div>
             <form id="create-task-form-container" onSubmit={handleSubmit}>
                 <div className={errorsClassName}>
                     {errors.map((error, idx) => (
@@ -131,21 +116,6 @@ function CreateTaskFormModal({ projectId, sections }) {
                     </div>
                 </div>
                 <div id="create-task-section-dueDate-container">
-                    <div id="create-task-section-container" className="label-input-container">
-                        <label id="task-project-section-dropdown-label">Project Section</label>
-                        <select
-                            id="task-project-section-dropdown-input"
-                            className="dropdown-create"
-                            value={projectSectionName}
-                            onChange={(e) => setProjectSectionName(e.target.value)}
-                            required
-                        >
-                            <option value="">Select a section</option>
-                            {sections.map(section => (
-                                <option value={section.name}>{section.name}</option>
-                            ))}
-                        </select>
-                    </div>
                     <div id="create-task-dueDate-container" className="label-input-container">
                         <label id="create-task-dueDate-label">Due Date</label>
                         <input
@@ -167,10 +137,10 @@ function CreateTaskFormModal({ projectId, sections }) {
                         required
                     />
                 </div>
-                <button id="create-task-button" type="submit">Create</button>
+                <button id="create-task-button" type="submit">Edit</button>
             </form>
         </div>
     );
 }
 
-export default CreateTaskFormModal;
+export default EditTaskFormModal;

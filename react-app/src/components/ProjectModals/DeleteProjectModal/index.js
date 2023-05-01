@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
+import { login } from "../../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProject } from "../../store/project";
+import { deleteProject } from "../../../store/project";
 import { Redirect, useHistory, useParams } from "react-router-dom";
-import { useModal } from "../../context/Modal";
+import { useModal } from "../../../context/Modal";
 import "./DeleteProjectModal.css"
 
 function DeleteProjectModal({ project }) {
