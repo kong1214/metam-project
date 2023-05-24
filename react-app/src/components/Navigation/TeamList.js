@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import TeamMemberDropDown from "./TeamMemberDropDown";
 import AddTeamMemberModal from "../TeamModals/AddTeamMemberModal.js";
 import OpenModalButton from "../OpenModalButton";
 import "./Navigation.css"
 
 function TeamList() {
-    const dispatch = useDispatch()
-    const history = useHistory()
+
     const sessionUser = useSelector(state => state.session.user);
     const singleProject = useSelector(state => state.project.singleProject)
     const team = useSelector(state => state.team)

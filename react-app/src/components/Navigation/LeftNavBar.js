@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, NavLink } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import { getAllProjects } from "../../store/project";
 import TeamList from "./TeamList";
 
 function LeftNavBar() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const sessionUser = useSelector(state => state.session.user);
     const projects = useSelector(state => state.project.allProjects)
     const singleProject = useSelector(state => state.project.singleProject)
     const team = useSelector(state => state.team)

@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import OpenModalButton from "../OpenModalButton";
 import DeleteTeamMemberModal from "../TeamModals/DeleteTeamMemberModal";
 import "./TeamMemberDropDown.css"
 
 function TeamMemberDropDown({ user, className, initials, isSessionUser = false }) {
-    const dispatch = useDispatch();
-    const history = useHistory()
+
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
     const sessionUser = useSelector(state => state.session.user);

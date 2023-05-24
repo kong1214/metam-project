@@ -6,9 +6,6 @@ import { editTask } from "../../../store/task";
 
 function EditTaskFormModal({ task }) {
 
-    const sectionsObj = useSelector(state => state.section)
-    const sections = Object.values(sectionsObj)
-
     function dateFormatter(date) {
         const dateArr = date.split("/")
         return `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`

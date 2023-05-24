@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { createTask } from "../../../store/task";
 import "./CreateTaskModal.css";
@@ -7,15 +7,6 @@ import "./CreateTaskModal.css";
 function CreateTaskFormModal({ projectId, sections }) {
 
     const dispatch = useDispatch();
-
-    // console.log(sections)
-    // const sectionsObj = useSelector(state => state.section)
-    // const sections = Object.values(sectionsObj)
-
-    function dateFormatter(date) {
-        const dateArr = date.split("/")
-        return `${dateArr[2]}-${dateArr[0]}-${dateArr[1]}`
-    }
 
     function sectionIdByName(name) {
         const section = sections.find(section => section.name === name)
@@ -59,10 +50,8 @@ function CreateTaskFormModal({ projectId, sections }) {
             created_at: date,
             updated_at: date
         }
-        // console.log(newTask)
         return await dispatch(createTask(newTask, projectId))
             .then((res) => {
-                // console.log(res)
                 if (res.errors) {
                     let errorsArr = []
                     for (const error of res.errors) {
