@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
-import OpenModalButton from "../OpenModalButton";
 import TeamMemberProfile from "../Navigation/TeamMemberProfile.js";
 import { editAssignee } from "../../store/task";
 import "./TaskList.css"

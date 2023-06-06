@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditTaskFormModal from "../TaskModals/EditTaskModal";
 import DeleteTaskModal from "../TaskModals/DeleteTaskModal";

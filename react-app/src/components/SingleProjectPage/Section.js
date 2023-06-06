@@ -1,10 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
+import React from "react";
 import SingleTask from "../TaskList/SingleTask";
 import { Draggable, Droppable } from "react-beautiful-dnd"
-import { getAllSections } from "../../store/section";
-import { getAllTasks, clearTasks } from "../../store/task";
 import SectionDropDown from "./SectionDropDown";
 import "./SingleProjectPage.css"
 

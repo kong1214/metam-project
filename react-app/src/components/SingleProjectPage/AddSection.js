@@ -1,13 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
-import { getSingleProject } from "../../store/project";
-import { getAllSections, createSection } from "../../store/section";
-import task, { getAllTasks, moveTask, clearTasks } from "../../store/task";
-import { DragDropContext, Droppable } from "react-beautiful-dnd"
-import LeftNavBar from "../Navigation/LeftNavBar";
-import ProjectHeader from "./ProjectHeader";
-import Section from "./Section";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createSection } from "../../store/section";
 import "./SingleProjectPage.css"
 
 

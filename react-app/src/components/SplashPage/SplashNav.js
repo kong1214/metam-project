@@ -1,8 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import React from "react";
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import OpenModalButton from "../OpenModalButton";
 import SignUpFormModal from "../SignupFormModal"
 import LoginFormModal from "../LoginFormModal"
@@ -10,10 +7,6 @@ import "../Navigation/Navigation.css"
 import logo from "./splash-images/logo.png"
 
 function SplashNav() {
-    const dispatch = useDispatch();
-    const history = useHistory()
-    const ulRef = useRef();
-
 
     return (
         <div className="logged-out-navbar-container">

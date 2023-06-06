@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditSectionModal from "../SectionModals/EditSectionModal";
 import DeleteSectionModal from "../SectionModals/DeleteSectionModal";
 import "./SingleProjectPage.css"
 
 function SectionDropDown({ section }) {
-    const dispatch = useDispatch();
-    const history = useHistory()
     const [showMenu, setShowMenu] = useState(false);
     const ulRef = useRef();
 

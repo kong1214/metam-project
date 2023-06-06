@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import SplashNav from './SplashNav';
@@ -9,7 +8,6 @@ import OpenModalButton from "../OpenModalButton";
 import "./SplashPage.css"
 import projectPage from "./splash-images/splash-page-screenshot.png"
 import projectList from "./splash-images/splash-page-screenshot2.png"
-import statusExample from "./splash-images/splash-page-screenshot3.png"
 
 function SplashPage() {
     const sessionUser = useSelector(state => state.session.user);

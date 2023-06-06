@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { login } from "../../../store/session";
-import { useDispatch, useSelector } from "react-redux";
-import { createProject, getAllProjects, getSingleProject } from "../../../store/project";
-import { Redirect, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createProject } from "../../../store/project";
+import { useHistory } from "react-router-dom";
 import "./CreateProjectPage.css"
-import screenshot from './project-screenshot.png'
 
 
 function CreateProjectPage() {
   const dispatch = useDispatch();
   const history = useHistory()
-  const sessionUser = useSelector((state) => state.session.user);
   const [projectName, setProjectName] = useState("");
   const [projectIcon, setProjectIcon] = useState("");
   const [projectStatus, setProjectStatus] = useState("");

@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import OpenModalButton from "../OpenModalButton";
 import EditProjectFormModal from "../ProjectModals/EditProjectModal";
 import DeleteProjectModal from "../ProjectModals/DeleteProjectModal";
 import CreateTaskFormModal from "../TaskModals/CreateTaskModal";
 
 function ProjectDropDownArrow({ project, sections }) {
-    const dispatch = useDispatch();
-    const history = useHistory()
     const [showMenu, setShowMenu] = useState(false);
     const sessionUser = useSelector((state) => state.session.user);
     const ulRef = useRef();

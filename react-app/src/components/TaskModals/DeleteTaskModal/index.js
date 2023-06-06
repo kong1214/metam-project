@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch} from "react-redux";
 import { deleteTask } from "../../../store/task";
-import { useHistory } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import "./DeleteTaskModal.css"
 

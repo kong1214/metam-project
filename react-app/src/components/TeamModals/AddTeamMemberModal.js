@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom"
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { addToTeam } from "../../store/team";
@@ -7,7 +6,6 @@ import "./AddTeamMemberModal.css"
 
 function AddTeamMemberModal({projectId}) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();

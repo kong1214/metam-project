@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import LeftNavBar from '../Navigation/LeftNavBar';
 import { clearProject } from "../../store/project"
 import { useSelector, useDispatch } from 'react-redux';

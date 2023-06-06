@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory, NavLink, useParams } from "react-router-dom";
-import { getAllProjects } from "../../store/project";
-import { getSingleProject } from "../../store/project";
+import React from "react";
 import ProjectDropDownArrow from "./ProjectDropDownArrow";
-import LeftNavBar from "../Navigation/LeftNavBar";
 import "./SingleProjectPage.css"
 
 function ProjectHeader({ project, sections }) {
