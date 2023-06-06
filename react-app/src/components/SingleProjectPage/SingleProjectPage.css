@@ -1,16 +1,17 @@
-
 .hidden {
     display: none;
   }
 
 .single-project-content-container {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    height: min-content;
     padding: 1.5%;
     flex: 1;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -48,7 +49,7 @@
 
 /* Project Drop Down  */
 .project-dropdown {
-    position: absolute;
+    position: sticky;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,7 +88,6 @@
     border-radius: 10px;
     overflow: hidden;
     z-index: 1;
-
 }
 
 /* Sections */
