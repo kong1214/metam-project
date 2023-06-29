@@ -53,12 +53,27 @@
     z-index: 1;
 }
 
+/* Assignees */
+.assignee-item-header{
+    border: none;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 9%;
+    border-left: 1px lightgray solid;
+    border-right: 1px lightgray solid;
+    font-size: 1em;
+    text-overflow: ellipsis;
+    height: 35px;
+    align-items: center;
+}
 .assignee-item {
     border: none;
     display: flex;
     justify-content: center;
     position: relative;
-    min-width: 9%;
+    width: 9%;
+    overflow: hidden;
     border-left: 1px lightgray solid;
     border-right: 1px lightgray solid;
     font-size: 1em;
@@ -69,6 +84,7 @@
 .assignee-item:hover {
     border-left: 1px solid black;
     border-right: 1px solid black;
+    background-color: lightgray;
 }
 .task-assignee {
     border: none;
@@ -88,7 +104,6 @@
 .none {
     color: red;
 }
-
 .task-assignee-dropdown{
     position: absolute;
     display: flex;
@@ -116,6 +131,9 @@
     border: none;
     padding: 10px 15px;
     text-align: left;
+}
+.assignee-user-map:hover{
+    background-color: lightgray;
 }
 .hidden {
     display: none;
