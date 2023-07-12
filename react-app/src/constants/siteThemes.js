@@ -1,6 +1,6 @@
 export const siteThemes = {
   default: {
-    primary: "#9CA1AE", // main ontent
+    primary: "#9CA1AE", // main content
     secondary: "#363639", // navbar
     tertiary: "#2e2e30", // sidebar
   },

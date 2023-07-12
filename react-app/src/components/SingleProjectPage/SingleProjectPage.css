@@ -49,7 +49,7 @@
 
 /* Project Drop Down  */
 .project-dropdown {
-    position: sticky;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;

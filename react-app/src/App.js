@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
-import LoginFormPage from "./components/LoginFormPage";
 import SplashPage from "./components/SplashPage";
-import LeftNavBar from "./components/Navigation/LeftNavBar";
 import HomePage from "./components/HomePage"
 import SingleProjectPage from "./components/SingleProjectPage";
 import CreateProjectPage from "./components/ProjectModals/CreateProjectPage";
