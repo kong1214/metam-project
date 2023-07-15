@@ -5,9 +5,10 @@ const ThemeContext = React.createContext();
 
 export function ThemeProvider({ children }) {
 
-    const localTheme = localStorage.getItem("localTheme")
+    let localTheme = localStorage.getItem("localTheme")
     const [currentTheme, setCurrentTheme] = useState(localTheme || "default")
 
+    localTheme = "lavendar"
     return (
         <>
             <ThemeContext.Provider value={{ currentTheme, setCurrentTheme }}>
