@@ -1,45 +1,50 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { ThemeContext } from "../../context/Themes";
 import "./ThemeButton.css"
 
-function ThemeButton (props) {
-    // showMenu State Variable
-    const [showMenu, setShowMenu] = useState(false);
-    const [isActive, setIsActive] = useState(false)
-    const ulRef = useRef();
-    const iconRef = useRef()
+function ThemeButton(props) {
+  // showMenu State Variable
+  const [showMenu, setShowMenu] = useState(false);
+  const [isActive, setIsActive] = useState(false)
+  const { currentTheme, setCurrentTheme, theme } = useContext(ThemeContext)
+  const ulRef = useRef();
+  const iconRef = useRef()
 
-    // Open menu function when clicking button
-    const openMenu = (e) => {
-      if (showMenu) return;
-      setShowMenu(true);
-      setIsActive(true);
+  // Open menu function when clicking button
+  const openMenu = (e) => {
+    if (showMenu) return;
+    setShowMenu(true);
+    setIsActive(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = (e) => {
+      // If any elements other than the dropdown, the button, or the icon are clicked, close the dropdown and set the button to inactive
+      if (!ulRef.current.contains(e.target) && e.target.id !== "sidebar-theme-button" && !iconRef.current.contains(e.target)) {
+        setShowMenu(false);
+        setIsActive(false);
+      }
     };
 
-    useEffect(() => {
-      if (!showMenu) return;
+    // Adding event listener to close the dropdown
+    document.addEventListener('click', closeMenu);
 
-      const closeMenu = (e) => {
-        // If any elements other than the dropdown, the button, or the icon are clicked, close the dropdown and set the button to inactive
-        if (!ulRef.current.contains(e.target) && e.target.id !== "sidebar-theme-button" && !iconRef.current.contains(e.target)) {
-          setShowMenu(false);
-          setIsActive(false);
-        }
-      };
+    // Removing the event listener
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
 
-      // Adding event listener to close the dropdown
-      document.addEventListener('click', closeMenu);
+  const ulClassName = "theme-dropdown" + (showMenu ? "" : " hidden");
 
-      // Removing the event listener
-      return () => document.removeEventListener("click", closeMenu);
-    }, [showMenu]);
+  console.log("currentTheme", currentTheme)
+  console.log("theme", theme)
 
-    const ulClassName = "theme-dropdown" + (showMenu ? "" : " hidden");
-
-    return (
-        <button id="theme-button" className={isActive ? "active" : ""}>
-            <i className="fa-solid fa-palette fa-xl" />
-        </button>
-    );
+  return (
+    <button id="theme-button" style={isActive ? {backgroundColor: theme["primary"]} : {backgroundColor: "transparent"}}>
+      <i className="fa-solid fa-palette fa-xl" style={{color: theme["secondary"]}}/>
+    </button>
+  );
 }
 
 export default ThemeButton;
