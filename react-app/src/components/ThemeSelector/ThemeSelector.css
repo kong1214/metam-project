@@ -93,6 +93,9 @@
     padding: 10px;
     cursor: pointer;
 }
+#theme-selector-list-item:hover{
+    background-color: lightgray;
+}
 #theme-selector-circles-wrapper {
     display: flex;
     width: 45%;

@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import { ThemeContext } from "../../context/Themes";
 import './Navigation.css';
 import logo from "./logo.png"
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
+	const { theme } = useContext(ThemeContext)
 
 	let sessionLinks
 
 	if (sessionUser) {
 		sessionLinks = (
-			<div className="logged-in-navbar-container">
+			<div className="logged-in-navbar-container" style={{backgroundColor: theme["secondary"]}}>
 				<div className="logged-in-nav-buttons-and-home-container">
 					<div className="home-button-container">
 						<NavLink exact to="/">

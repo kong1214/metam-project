@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, NavLink } from "react-router-dom";
 import { getAllProjects } from "../../store/project";
+import { ThemeContext } from "../../context/Themes";
 import TeamList from "./TeamList";
 
 function LeftNavBar() {
@@ -12,6 +13,7 @@ function LeftNavBar() {
     const team = useSelector(state => state.team)
     const projectsArr = Object.values(projects)
     const [teamsAndProjectLoaded, setTeamsAndProjectLoaded] = useState(false);
+    const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
         dispatch(getAllProjects())
@@ -21,9 +23,10 @@ function LeftNavBar() {
         setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
     })
 
+    console.log(theme)
 
     return (
-        <div className="left-navbar-container">
+        <div className="left-navbar-container" style={{backgroundColor: theme["tertiary"]}}>
             <div className="left-navbar-top-container">
                 <button className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project" className="create-button-in-left-navbar">Create Project</NavLink>
@@ -44,7 +47,7 @@ function LeftNavBar() {
                     {projectsArr.map(project => (
                         <div key={project.id} className="left-nav-individual-project">
                             <div className="individual-project-container">
-                                <NavLink to={`/project/${project.id}`} className="individual-project" activeClassName="individual-project-active">{project.name}</NavLink>
+                                <NavLink to={`/project/${project.id}`} style={{}} className="individual-project" activeClassName="individual-project-active">{project.name}</NavLink>
                             </div>
                         </div>
                     ))}

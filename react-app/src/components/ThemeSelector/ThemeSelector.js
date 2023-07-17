@@ -4,7 +4,7 @@ import { ThemeContext } from "../../context/Themes";
 
 
 function ThemeSelector(props) {
-    const { currentTheme, setCurrentTheme, theme } = useContext(ThemeContext)
+    const { currentTheme, setCurrentTheme } = useContext(ThemeContext)
     const divRef = useRef();
 
     const [showThemesMenu, setShowThemesMenu] = useState(false);
@@ -37,7 +37,6 @@ function ThemeSelector(props) {
     }
 
     const themesEntriesArr = Object.entries(siteThemes)
-    console.log(themesEntriesArr)
     const divClassName = "theme-input-dropdown" + (showThemesMenu ? "" : " hidden");
 
 
@@ -53,7 +52,7 @@ function ThemeSelector(props) {
             </div>
             <div className={divClassName} ref={divRef}>
                 {themesEntriesArr.map(theme => (
-                    <div id="theme-selector-list-item">
+                    <div id="theme-selector-list-item" onClick={() => handleThemeChange(theme[0])}>
                         <div id="theme-selector-list-name">
                             {toTitleCase(theme[0])}
                         </div>
