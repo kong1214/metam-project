@@ -1,0 +1,32 @@
+#theme-button-dropdown-wrapper {
+    position: relative;
+    margin-left: 1.5%;
+}
+#theme-button {
+    border-radius: 12px;
+    border: none;
+    height: 48px;
+    width: 48px;
+    box-shadow: inset 0 -2px rgb(0 0 0 / 5%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.theme-dropdown-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px;
+    height: 225px;
+    border-radius: 15px;
+    border: none;
+    z-index: 1;
+    background-color: white;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}

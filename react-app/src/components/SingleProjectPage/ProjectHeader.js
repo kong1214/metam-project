@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectDropDownArrow from "./ProjectDropDownArrow";
-import ThemeButton from "../ThemeButton";
+import ThemeButton from "../ThemeSelector/ThemeDropDown";
 import "./SingleProjectPage.css"
 
 function ProjectHeader({ project, sections }) {

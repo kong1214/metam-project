@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { ThemeContext } from "../../context/Themes";
-import "./ThemeButton.css"
+import ThemeDropDown from "./ThemeDropDown";
+import "./ThemeSelector.css"
 
 function ThemeButton(props) {
   // showMenu State Variable
   const [showMenu, setShowMenu] = useState(false);
   const [isActive, setIsActive] = useState(false)
   const { currentTheme, setCurrentTheme, theme } = useContext(ThemeContext)
-  const ulRef = useRef();
-  const iconRef = useRef()
+  const buttonRef = useRef();
+  // const iconRef = useRef()
 
   // Open menu function when clicking button
   const openMenu = (e) => {
@@ -22,7 +23,7 @@ function ThemeButton(props) {
 
     const closeMenu = (e) => {
       // If any elements other than the dropdown, the button, or the icon are clicked, close the dropdown and set the button to inactive
-      if (!ulRef.current.contains(e.target) && e.target.id !== "sidebar-theme-button" && !iconRef.current.contains(e.target)) {
+      if (!buttonRef.current.contains(e.target)) {
         setShowMenu(false);
         setIsActive(false);
       }
@@ -35,15 +36,17 @@ function ThemeButton(props) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const ulClassName = "theme-dropdown" + (showMenu ? "" : " hidden");
-
-  console.log("currentTheme", currentTheme)
-  console.log("theme", theme)
+  const dropdownClassName = "theme-dropdown-wrapper" + (showMenu ? "" : " hidden");
 
   return (
-    <button id="theme-button" style={isActive ? {backgroundColor: theme["primary"]} : {backgroundColor: "transparent"}}>
-      <i className="fa-solid fa-palette fa-xl" style={{color: theme["secondary"]}}/>
-    </button>
+    <div id="theme-button-dropdown-wrapper">
+      <button id="theme-button" onClick={openMenu} style={isActive ? { backgroundColor: theme["primary"] } : { backgroundColor: "transparent" }}>
+        <i className="fa-solid fa-palette fa-xl" style={{ color: theme["secondary"] }} />
+      </button>
+      <div className={dropdownClassName} ref={buttonRef}>
+            <div id="theme-dropdown-header">Theme Styles</div>
+        </div>
+    </div>
   );
 }
 
