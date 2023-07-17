@@ -1,0 +1,127 @@
+#theme-button-dropdown-wrapper {
+    position: relative;
+    margin-left: 1.5%;
+}
+#theme-button {
+    border-radius: 12px;
+    border: none;
+    height: 48px;
+    width: 48px;
+    box-shadow: inset 0 -2px rgb(0 0 0 / 5%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#theme-dropdown-header {
+    font-size: 1em;
+    font-weight: bold;
+    margin: none;
+    margin-bottom: 10px;
+}
+.theme-dropdown-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 250px;
+    height: 200px;
+    border-radius: 15px;
+    border: none;
+    z-index: 1;
+    background-color: white;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+#theme-selector-wrapper {
+    width: 80%;
+}
+
+#theme-selector-input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 5%;
+    padding: 0 5%;
+    height: 35px;
+    border-radius: 8px;
+    border: .5px solid lightgray;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.theme-input-dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    margin-top: 5%;
+    border: .5px solid lightgray;
+    border-radius: 8px;
+    overflow: auto;
+}
+.theme-input-dropdown::-webkit-scrollbar {
+    width: 15px;
+}
+.theme-input-dropdown::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  .theme-input-dropdown::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  .theme-input-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #4573d2;
+  }
+#theme-selector-list-item {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: .95em;
+    padding: 10px;
+    cursor: pointer;
+}
+#theme-selector-list-item:hover{
+    background-color: lightgray;
+}
+#theme-selector-circles-wrapper {
+    display: flex;
+    width: 45%;
+    justify-content: space-between
+}
+#theme-selector-color-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    border: .5px solid lightgray;
+}
+#current-theme-circles-wrapper{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+#current-theme-colors{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+}
+#current-theme-single-color-circle{
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    margin-right: 4%;
+    border: lightgray 1px solid;
+}

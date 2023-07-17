@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectDropDownArrow from "./ProjectDropDownArrow";
+import ThemeButton from "../ThemeSelector/ThemeDropDown";
 import "./SingleProjectPage.css"
 
 function ProjectHeader({ project, sections }) {
@@ -59,6 +60,7 @@ function ProjectHeader({ project, sections }) {
                         <ProjectDropDownArrow project={project} sections={sections}/>
                     </div>
                     {projectStatus}
+                    <ThemeButton />
                 </div>
             </div>
         </div>
