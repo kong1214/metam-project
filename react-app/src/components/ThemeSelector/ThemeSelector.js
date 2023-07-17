@@ -4,7 +4,7 @@ import { ThemeContext } from "../../context/Themes";
 
 
 function ThemeSelector(props) {
-    const {setCurrentTheme} = useContext(ThemeContext)
+    const { currentTheme, setCurrentTheme, theme  } = useContext(ThemeContext)
     const divRef = useRef();
 
     const [showThemesMenu, setShowThemesMenu] = useState(false);
@@ -46,6 +46,12 @@ function ThemeSelector(props) {
         localStorage.setItem("localTheme", newTheme)
     }
     return (
-
+        <>
+        <div id="theme-selector-input">
+            {toTitleCase(currentTheme)}
+        </div>
+        </>
     )
 }
+
+export default ThemeSelector

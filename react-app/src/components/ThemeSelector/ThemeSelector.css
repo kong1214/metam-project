@@ -13,6 +13,12 @@
     flex-direction: column;
     justify-content: center;
 }
+#theme-dropdown-header {
+    font-size: 1em;
+    font-weight: bold;
+    margin: none;
+    margin-bottom: 10px;
+}
 .theme-dropdown-wrapper {
     position: absolute;
     display: flex;
@@ -29,4 +35,20 @@
 
 .hidden {
     display: none;
+}
+
+#theme-selector-wrapper {
+    width: 80%;
+}
+#theme-selector-input {
+    width: 80%;
+    padding: 0 5%;
+    margin-top: 5%;
+    height: 35px;
+    border-radius: 8px;
+    border: .5px solid lightgray;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
 }

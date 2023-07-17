@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { ThemeContext } from "../../context/Themes";
+import ThemeSelector from "./ThemeSelector";
 import ThemeDropDown from "./ThemeDropDown";
 import "./ThemeSelector.css"
 
@@ -43,8 +44,12 @@ function ThemeButton(props) {
       <button id="theme-button" onClick={openMenu} style={isActive ? { backgroundColor: theme["primary"] } : { backgroundColor: "transparent" }}>
         <i className="fa-solid fa-palette fa-xl" style={{ color: theme["secondary"] }} />
       </button>
-      <div className={dropdownClassName} ref={buttonRef}>
-            <div id="theme-dropdown-header">Theme Styles</div>
+      <div className={dropdownClassName} ref={buttonRef} >
+            <div id="theme-dropdown-header">Site Styles</div>
+            <div id="theme-selector-wrapper">
+              Theme
+              <ThemeSelector />
+            </div>
         </div>
     </div>
   );
