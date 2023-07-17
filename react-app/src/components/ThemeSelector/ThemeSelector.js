@@ -4,7 +4,7 @@ import { ThemeContext } from "../../context/Themes";
 
 
 function ThemeSelector(props) {
-    const { currentTheme, setCurrentTheme } = useContext(ThemeContext)
+    const { currentTheme, setCurrentTheme, theme } = useContext(ThemeContext)
     const divRef = useRef();
 
     const [showThemesMenu, setShowThemesMenu] = useState(false);
@@ -47,7 +47,9 @@ function ThemeSelector(props) {
     }
     return (
         <>
-            <div id="theme-selector-input" onClick={openThemesMenu}>
+            <div id="theme-selector-input" onClick={openThemesMenu}
+            style={{backgroundColor: theme["primary"], color: theme["secondary"]}}
+            >
                 {toTitleCase(currentTheme)}
             </div>
             <div className={divClassName} ref={divRef}>

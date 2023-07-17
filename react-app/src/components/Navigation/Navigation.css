@@ -114,7 +114,7 @@
 }
 .create-project-button-left-navbar-button{
     border: none;
-    background-color: #4573d2;
+    background-color: #5C6DA3;
     color: white;
     margin-left: 10%;
     width: 40%;
@@ -252,7 +252,7 @@
 .individual-project-active{
   border-top: 1px gray solid;
   border-bottom: 1px gray solid;
-  background-color: #6a696a;
+  /* background-color: #6a696a; */
   padding-left: 10%;
   padding-right: 10%;
   /* padding-top: 2%;

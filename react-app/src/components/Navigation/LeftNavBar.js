@@ -28,7 +28,7 @@ function LeftNavBar() {
     return (
         <div className="left-navbar-container" style={{backgroundColor: theme["tertiary"]}}>
             <div className="left-navbar-top-container">
-                <button className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
+                <button style={{backgroundColor: theme["active"]}}className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project" className="create-button-in-left-navbar">Create Project</NavLink>
                 </button>
                 <NavLink to="/home" activeClassName="top-container-link-active" className="top-container-link">
@@ -47,7 +47,7 @@ function LeftNavBar() {
                     {projectsArr.map(project => (
                         <div key={project.id} className="left-nav-individual-project">
                             <div className="individual-project-container">
-                                <NavLink to={`/project/${project.id}`} style={{}} className="individual-project" activeClassName="individual-project-active">{project.name}</NavLink>
+                                <NavLink to={`/project/${project.id}`} activeStyle={{backgroundColor: theme["active"]}} className="individual-project" activeClassName="individual-project-active">{project.name}</NavLink>
                             </div>
                         </div>
                     ))}
