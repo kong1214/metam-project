@@ -4,7 +4,7 @@ import { ThemeContext } from "../../context/Themes";
 
 
 function ThemeSelector(props) {
-    const { currentTheme, setCurrentTheme, theme  } = useContext(ThemeContext)
+    const { currentTheme, setCurrentTheme, theme } = useContext(ThemeContext)
     const divRef = useRef();
 
     const [showThemesMenu, setShowThemesMenu] = useState(false);
@@ -37,7 +37,8 @@ function ThemeSelector(props) {
     }
 
     const themesEntriesArr = Object.entries(siteThemes)
-    const ulClassName = "theme-input-dropdown" + (showThemesMenu ? "" : " hidden");
+    console.log(themesEntriesArr)
+    const divClassName = "theme-input-dropdown" + (showThemesMenu ? "" : " hidden");
 
 
     // Theme Change Handle
@@ -47,9 +48,23 @@ function ThemeSelector(props) {
     }
     return (
         <>
-        <div id="theme-selector-input">
-            {toTitleCase(currentTheme)}
-        </div>
+            <div id="theme-selector-input" onClick={openThemesMenu}>
+                {toTitleCase(currentTheme)}
+            </div>
+            <div className={divClassName} ref={divRef}>
+                {themesEntriesArr.map(theme => (
+                    <div id="theme-selector-list-item">
+                        <div id="theme-selector-list-name">
+                            {toTitleCase(theme[0])}
+                        </div>
+                        <div id="theme-selector-circles-wrapper">
+                            {Object.values(theme[1]).map(color => (
+                                <div id="theme-selector-color-circle" style={{backgroundColor: color}} />
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </>
     )
 }

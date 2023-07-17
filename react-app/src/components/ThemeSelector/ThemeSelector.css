@@ -40,10 +40,12 @@
 #theme-selector-wrapper {
     width: 80%;
 }
+
 #theme-selector-input {
-    width: 80%;
-    padding: 0 5%;
+    box-sizing: border-box;
+    width: 100%;
     margin-top: 5%;
+    padding: 0 5%;
     height: 35px;
     border-radius: 8px;
     border: .5px solid lightgray;
@@ -51,4 +53,54 @@
     align-items: center;
     position: relative;
     cursor: pointer;
+}
+
+.theme-input-dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    margin-top: 5%;
+    border: .5px solid lightgray;
+    border-radius: 8px;
+    overflow: auto;
+}
+.theme-input-dropdown::-webkit-scrollbar {
+    width: 15px;
+}
+.theme-input-dropdown::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  .theme-input-dropdown::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  .theme-input-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #4573d2;
+  }
+#theme-selector-list-item {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: .95em;
+    padding: 10px;
+    cursor: pointer;
+}
+#theme-selector-circles-wrapper {
+    display: flex;
+    width: 45%;
+    justify-content: space-between
+}
+#theme-selector-color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: .5px solid lightgray;
 }
