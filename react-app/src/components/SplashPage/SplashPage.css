@@ -57,15 +57,15 @@
 
 #first-picture {
     position: absolute;
-    bottom: 50%;
-    width: 85%
+    top: 50px;
+    width: 65%;
 }
 
 #second-picture {
     position: absolute;
     bottom: 25%;
-    left: 65%;
-    height: 30%
+    right: 50px;
+    width: 30%;
 }
 #splash-image-decoration-rectangle {
     position: absolute;
@@ -75,6 +75,14 @@
     left: 40%;
 }
 
+@media screen and (max-width: 1320px) {
+    .create-project-form-container{
+        min-width: fit-content;
+    }
+    .create-project-container {
+        min-width: fit-content;
+    }
+}
 /* FOOTER */
 #footer-container{
     background-color: #363639;

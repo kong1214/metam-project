@@ -6,8 +6,8 @@ import SplashFooter from "./SplashFooter"
 import SignUpFormModal from "../SignupFormModal"
 import OpenModalButton from "../OpenModalButton";
 import "./SplashPage.css"
-import projectPage from "./splash-images/splash-page-screenshot.png"
-import projectList from "./splash-images/splash-page-screenshot2.png"
+import projectPage from "./splash-images/task-details.png"
+import projectList from "./splash-images/workspace-screenshot.png"
 
 function SplashPage() {
     const sessionUser = useSelector(state => state.session.user);

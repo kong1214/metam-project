@@ -23,7 +23,6 @@ function LeftNavBar() {
         setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
     })
 
-    console.log(theme)
 
     return (
         <div className="left-navbar-container" style={{backgroundColor: theme["tertiary"]}}>
