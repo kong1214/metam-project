@@ -71,7 +71,6 @@
     border: none;
     display: flex;
     justify-content: center;
-    position: relative;
     width: 9%;
     overflow: hidden;
     border-left: 1px lightgray solid;
@@ -89,6 +88,7 @@
 .task-assignee {
     border: none;
     box-sizing: border-box;
+    position: relative;
     padding: none;
     margin: none;
     background-color: transparent;
@@ -108,7 +108,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 150%;
+    width: 10%;
     min-width: min-content;
     height: min-content;
     background-color: white;
@@ -118,8 +118,6 @@
     padding-bottom: 1%;
     overflow: hidden;
     z-index: 1;
-    top: 100%;
-    left: 20%;
 }
 
 .assignee-user-map{
