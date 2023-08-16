@@ -18,7 +18,7 @@
     justify-content: start;
     align-items: center;
 }
-.splash-images-container{
+.splash-images-container {
     margin-top: 3%;
     /* padding: 40px 0; */
     width: 100%;
@@ -26,10 +26,12 @@
     justify-content: center;
 }
 
-#splash-main-gif{
-    width: 1000px;
+.splash-image {
     border-radius: 15px;
     box-shadow: 2.7px 3.5px 22.4px rgba(0, 0, 0, 0.6)
+}
+#splash-main-gif{
+    width: 1000px;
 }
 
 .splash-header {

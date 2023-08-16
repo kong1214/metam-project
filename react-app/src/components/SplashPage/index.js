@@ -38,7 +38,7 @@ function SplashPage() {
                     </div>
                 </div>
                 <div className="splash-images-container">
-                    <img id="splash-main-gif" src={themeGif}/>
+                    <img className="splash-image" id="splash-main-gif" src={themeGif}/>
                 </div>
             </div>
             <SplashFooter />

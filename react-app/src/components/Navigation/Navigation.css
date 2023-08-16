@@ -261,7 +261,7 @@
 .top-container-link-active{
   border-top: 1px gray solid;
   border-bottom: 1px gray solid;
-  background-color: #6a696a;
+  /* background-color: #6a696a; */
 }
 .top-container-link:hover{
   border-top: 1px gray solid;
