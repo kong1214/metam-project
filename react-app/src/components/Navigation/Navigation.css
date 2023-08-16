@@ -216,7 +216,7 @@
 }
 .left-nav-individual-project{
   width: 100%;
-  height: 8%;
+  /* height: 8%; */
   margin-bottom: 5%;
   font-size: 14px;
   color: white;
@@ -261,7 +261,7 @@
 .top-container-link-active{
   border-top: 1px gray solid;
   border-bottom: 1px gray solid;
-  background-color: #6a696a;
+  /* background-color: #6a696a; */
 }
 .top-container-link:hover{
   border-top: 1px gray solid;

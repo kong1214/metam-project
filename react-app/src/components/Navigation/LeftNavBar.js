@@ -23,15 +23,14 @@ function LeftNavBar() {
         setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
     })
 
-    console.log(theme)
 
     return (
         <div className="left-navbar-container" style={{backgroundColor: theme["tertiary"]}}>
             <div className="left-navbar-top-container">
-                <button style={{backgroundColor: theme["active"]}}className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
+                <button style={{backgroundColor: theme["active"]}} className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project" className="create-button-in-left-navbar">Create Project</NavLink>
                 </button>
-                <NavLink to="/home" activeClassName="top-container-link-active" className="top-container-link">
+                <NavLink to="/home" activeStyle={{backgroundColor: theme["active"]}} activeClassName="top-container-link-active" className="top-container-link">
                     <i className="fa-solid fa-house"></i>
                     Home
                 </NavLink>
