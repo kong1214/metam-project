@@ -6,6 +6,8 @@ import SplashFooter from "./SplashFooter"
 import SignUpFormModal from "../SignupFormModal"
 import OpenModalButton from "../OpenModalButton";
 import "./SplashPage.css"
+import themeImage from "./splash-images/theme-selector-screenshot.png"
+import dueTasks from "./splash-images/due-tasks-screenshot.png"
 import projectPage from "./splash-images/task-details.png"
 import projectList from "./splash-images/workspace-screenshot.png"
 
@@ -37,8 +39,8 @@ function SplashPage() {
                 <div className="splash-right-column">
                     <div id="splash-images-container">
                         <div id="splash-image-decoration-rectangle"></div>
-                        <img id="first-picture" src={projectPage} />
-                        <img id="second-picture" src={projectList} />
+                        <img id="first-picture" src={dueTasks} />
+                        <img id="second-picture" src={themeImage} />
                     </div>
                 </div>
             </div>
