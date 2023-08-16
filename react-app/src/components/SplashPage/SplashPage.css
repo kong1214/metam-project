@@ -1,45 +1,55 @@
 .splash-content {
     display: flex;
-    width: 70%;
-    margin-top: 3%;
-    margin-left: 15%;
-    margin-right: 15%;
-    height: 89vh;
-    justify-content: space-between;
+    /* box-sizing: border-box; */
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 40px 0;
+    /* margin-top: 3%; */
+    height: calc(100% - 50px);
+    align-items: center;
+    background-image: linear-gradient(white, lightgray, gray)
 }
 
-.splash-left-column {
+.splash-top-row {
     display: flex;
     flex-direction: column;
     width: 40%;
     justify-content: start;
-    align-items: start;
+    align-items: center;
+}
+.splash-images-container{
+    margin-top: 3%;
+    /* padding: 40px 0; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.splash-right-column {
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    justify-content: center;
-    align-items: center;
+#splash-main-gif{
+    width: 1000px;
+    border-radius: 15px;
+    box-shadow: 2.7px 3.5px 22.4px rgba(0, 0, 0, 0.6)
 }
 
 .splash-header {
-    width: 85%;
+    width: 100%;
+    text-align: center;
     font-size: 2.8125rem;
 }
 
 .splash-line-break {
-    margin-top: 10%;
+    margin-top: 20px;
     width: 30%;
     border-top: 1px dashed black;
-    margin-bottom: 10%;
+    margin-bottom: 20px;
 }
 
 .splash-about-metam {
     font-size: 20px;
-    width: 85%;
-    margin-bottom: 10%;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .splash-signup-button {
@@ -49,41 +59,8 @@
     color: #FFFFFF;
 }
 
-#splash-images-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
 
-#first-picture {
-    position: absolute;
-    /* top: 50px; */
-    /* width: 65%; */
-    /* width: 100%; */
-}
 
-#second-picture {
-    position: absolute;
-    /* bottom: 25%; */
-    /* right: 50px; */
-    /* width: 30%; */
-}
-#splash-image-decoration-rectangle {
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    background-color: rgba(69, 115, 210);
-    left: 40%;
-}
-
-        @media screen and (max-width: 1320px) {
-            .create-project-form-container{
-                min-width: fit-content;
-            }
-            .create-project-container {
-                min-width: fit-content;
-            }
-        }
 /* FOOTER */
 #footer-container{
     background-color: #363639;
@@ -92,7 +69,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 25vh
+    height: 25%;
 }
 #footer-header{
     color: white;
