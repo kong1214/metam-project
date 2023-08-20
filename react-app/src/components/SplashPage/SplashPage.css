@@ -1,7 +1,8 @@
 .splash-content {
     display: flex;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     flex-direction: column;
+    justify-content: space-around;
     box-sizing: border-box;
     width: 100%;
     padding: 40px 0;
@@ -14,7 +15,7 @@
 .splash-top-row {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     justify-content: start;
     align-items: center;
 }
@@ -33,7 +34,6 @@
 #splash-main-gif{
     width: 1000px;
 }
-
 .splash-header {
     width: 100%;
     text-align: center;
@@ -50,7 +50,7 @@
 .splash-about-metam {
     font-size: 20px;
     text-align: center;
-    width: 100%;
+    width: 55%;
     margin-bottom: 20px;
 }
 
@@ -60,7 +60,6 @@
     background-color: #0D0E10;
     color: #FFFFFF;
 }
-
 
 
 /* FOOTER */
@@ -76,7 +75,7 @@
 #footer-header{
     color: white;
     width: 20%;
-    font-size: 40pt;
+    font-size: 2.5em;
     display: flex;
     justify-content: center;
 }
@@ -88,14 +87,11 @@
     justify-content: center;
     width: 35%;
 }
-#linked-in-logo{
+.footer-logo{
     height: 70px;
 }
 #footer-email-container{
     height: auto;
-}
-#email-logo{
-    height: 70px;
 }
 .footer-logo-container{
     display: flex;
@@ -117,7 +113,30 @@
 .footer-field{
     color: white !important;
     font-weight: 550;
+    font-size: 1em;
 }
 #footer-email{
     margin-left: 6%;
+}
+
+@media screen and (max-width: 1450px) {
+    #footer-container {
+        flex-direction: column;
+    }
+    #splash-main-gif {
+        width: 800px;
+    }
+    .footer-logo{
+        height: 50px;
+    }
+    #github-logo {
+        height: 75px;
+    }
+    .footer-field {
+        font-size: 1em;
+    }
+    #footer-header {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
 }

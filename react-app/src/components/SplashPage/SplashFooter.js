@@ -16,13 +16,13 @@ function SplashFooter() {
                 </div>
                 <div id="footer-linked-in-link-container" className="footer-label-container">
                     <div id="footer-linked-in-link-logo-container" className="footer-logo-container">
-                        <img id="linked-in-logo" src={linkedInLogo}></img>
+                        <img id="linked-in-logo" className="footer-logo" src={linkedInLogo}></img>
                     </div>
                     <a id="footer-linked-in" className="footer-field" href="https://www.linkedin.com/in/kevin-ong-357b16215/">LinkedIn</a>
                 </div>
                 <div id="footer-email-container" className="footer-label-container">
                     <div id="footer-email-link-logo-container" className="footer-logo-container">
-                        <img id="email-logo" src={emailIcon}></img>
+                        <img id="email-logo" className="footer-logo" src={emailIcon}></img>
                     </div>
                     <div id="footer-email" className="footer-field">kevin.ong@live.com</div>
                 </div>
