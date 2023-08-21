@@ -1,7 +1,8 @@
 .splash-content {
     display: flex;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     flex-direction: column;
+    justify-content: space-around;
     box-sizing: border-box;
     width: 100%;
     padding: 40px 0;
@@ -14,7 +15,7 @@
 .splash-top-row {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     justify-content: start;
     align-items: center;
 }
@@ -33,7 +34,6 @@
 #splash-main-gif{
     width: 1000px;
 }
-
 .splash-header {
     width: 100%;
     text-align: center;
@@ -50,7 +50,7 @@
 .splash-about-metam {
     font-size: 20px;
     text-align: center;
-    width: 100%;
+    width: 55%;
     margin-bottom: 20px;
 }
 
@@ -60,7 +60,6 @@
     background-color: #0D0E10;
     color: #FFFFFF;
 }
-
 
 
 /* FOOTER */
@@ -76,7 +75,7 @@
 #footer-header{
     color: white;
     width: 20%;
-    font-size: 40pt;
+    font-size: 2.5em;
     display: flex;
     justify-content: center;
 }
@@ -87,28 +86,20 @@
     display: flex;
     justify-content: center;
     width: 35%;
+    min-width: fit-content;
 }
-#linked-in-logo{
-    height: 70px;
+.footer-logo{
+    height: 100px;
 }
 #footer-email-container{
     height: auto;
-}
-#email-logo{
-    height: 70px;
 }
 .footer-logo-container{
     display: flex;
     align-items: center;
 }
-#footer-linked-in-link-container{
+.footer-field{
     margin-right: 5%;
-}
-#footer-github-link-container{
-    margin-right: 5%;
-}
-#footer-linked-in{
-    margin-left: 7%;
 }
 #footer-email-container{
     display: flex;
@@ -117,7 +108,120 @@
 .footer-field{
     color: white !important;
     font-weight: 550;
+    font-size: 1em;
 }
-#footer-email{
-    margin-left: 6%;
-}
+
+    @media screen and (max-width: 1450px) {
+        .splash-about-metam {
+            width: 80%;
+        }
+        #footer-container {
+            flex-direction: column;
+        }
+        #splash-main-gif {
+            width: 800px;
+        }
+        .footer-logo{
+            height: 50px;
+        }
+        .footer-field {
+            font-size: 1em;
+        }
+        #footer-header {
+            width: 100%;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    }
+
+
+    @media screen and (max-width: 1100px) {
+        .splash-header{
+            width: 100%;
+            font-size: 1.5em
+        }
+        .splash-about-metam {
+            width: 100%;
+            font-size: 1em;
+        }
+        #splash-main-gif {
+            width: 700px;
+        }
+    }
+
+    @media screen and (max-width: 720px) {
+        #splash-main-gif {
+            width: 500px;
+        }
+        .splash-signup-button{
+            font-size: .75em;
+            height: 25px;
+            width: 80px;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .splash-top-row{
+            width: 100%;
+        }
+        .splash-content{
+            justify-content: space-evenly;
+            padding: none;
+        }
+        .splash-header{
+            width: 100%;
+            font-size: 1.5em
+        }
+        .splash-about-metam {
+            width: 65%;
+            font-size: .75em
+        }
+        #splash-main-gif {
+            width: 380px;
+        }
+        .splash-signup-button{
+            font-size: .75em;
+            height: 25px;
+            width: 80px;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        #splash-main-gif {
+            width: 300px;
+        }
+        #footer-content-container {
+            flex-direction: column;
+        }
+        .footer-logo{
+            height: 30px;
+        }
+        #footer-github-link-container {
+            left: 35px;
+        }
+        .footer-field {
+            font-size: 1em;
+        }
+        #footer-header {
+            width: 100%;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    }
+
+    @media screen and (max-width: 280px) {
+        .splash-signup-button{
+            font-size: .65em;
+            height: 15px;
+            width: 80px;
+        }
+        #splash-main-gif {
+            width: 260px;
+        }
+        .splash-about-metam {
+            width: 92%;
+            font-size: .75em
+        }
+        #footer-header {
+            width: 100%;
+        }
+    }
