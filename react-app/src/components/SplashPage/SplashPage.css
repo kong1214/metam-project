@@ -89,7 +89,7 @@
     min-width: fit-content;
 }
 .footer-logo{
-    height: 70px;
+    height: 100px;
 }
 #footer-email-container{
     height: auto;
@@ -98,14 +98,8 @@
     display: flex;
     align-items: center;
 }
-#footer-linked-in-link-container{
+.footer-field{
     margin-right: 5%;
-}
-#footer-github-link-container{
-    margin-right: 5%;
-}
-#footer-linked-in{
-    margin-left: 7%;
 }
 #footer-email-container{
     display: flex;
@@ -116,87 +110,118 @@
     font-weight: 550;
     font-size: 1em;
 }
-#footer-email{
-    margin-left: 6%;
-}
 
-@media screen and (max-width: 1450px) {
-    .splash-about-metam {
-        width: 80%;
+    @media screen and (max-width: 1450px) {
+        .splash-about-metam {
+            width: 80%;
+        }
+        #footer-container {
+            flex-direction: column;
+        }
+        #splash-main-gif {
+            width: 800px;
+        }
+        .footer-logo{
+            height: 50px;
+        }
+        .footer-field {
+            font-size: 1em;
+        }
+        #footer-header {
+            width: 100%;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
     }
-    #footer-container {
-        flex-direction: column;
-    }
-    #splash-main-gif {
-        width: 800px;
-    }
-    .footer-logo{
-        height: 50px;
-    }
-    #github-logo {
-        height: 75px;
-    }
-    .footer-field {
-        font-size: 1em;
-    }
-    #footer-header {
-        width: 100%;
-        font-size: 2em;
-        margin-bottom: 10px;
-    }
-}
 
-@media screen and (max-width: 1100px) {
-    .splash-about-metam {
-        width: 95%;
-    }
-    #splash-main-gif {
-        width: 700px;
-    }
-}
 
-@media screen and (max-width: 400px) {
-    .splash-top-row{
-        width: 100%;
+    @media screen and (max-width: 1100px) {
+        .splash-header{
+            width: 100%;
+            font-size: 1.5em
+        }
+        .splash-about-metam {
+            width: 100%;
+            font-size: 1em;
+        }
+        #splash-main-gif {
+            width: 700px;
+        }
     }
-    .splash-content{
-        justify-content: space-evenly;
-        padding: none;
+
+    @media screen and (max-width: 720px) {
+        #splash-main-gif {
+            width: 500px;
+        }
+        .splash-signup-button{
+            font-size: .75em;
+            height: 25px;
+            width: 80px;
+        }
     }
-    .splash-signup-button{
-        font-size: .75em;
-        height: 25px;
-        width: 80px;
+    @media screen and (max-width: 500px) {
+        .splash-top-row{
+            width: 100%;
+        }
+        .splash-content{
+            justify-content: space-evenly;
+            padding: none;
+        }
+        .splash-header{
+            width: 100%;
+            font-size: 1.5em
+        }
+        .splash-about-metam {
+            width: 65%;
+            font-size: .75em
+        }
+        #splash-main-gif {
+            width: 380px;
+        }
+        .splash-signup-button{
+            font-size: .75em;
+            height: 25px;
+            width: 80px;
+        }
     }
-    .splash-header{
-        width: 100%;
-        font-size: 1.5em
+
+    @media screen and (max-width: 400px) {
+        #splash-main-gif {
+            width: 300px;
+        }
+        #footer-content-container {
+            flex-direction: column;
+        }
+        .footer-logo{
+            height: 30px;
+        }
+        #footer-github-link-container {
+            left: 35px;
+        }
+        .footer-field {
+            font-size: 1em;
+        }
+        #footer-header {
+            width: 100%;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
     }
-    .splash-about-metam {
-        width: 80%;
-        font-size: .75em
+
+    @media screen and (max-width: 280px) {
+        .splash-signup-button{
+            font-size: .65em;
+            height: 15px;
+            width: 80px;
+        }
+        #splash-main-gif {
+            width: 260px;
+        }
+        .splash-about-metam {
+            width: 92%;
+            font-size: .75em
+        }
+        #footer-header {
+            width: 100%;
+        }
     }
-    #splash-main-gif {
-        width: 300px;
-    }
-    #footer-content-container {
-        flex-direction: column;
-    }
-    .footer-logo{
-        height: 30px;
-    }
-    #footer-github-link-container {
-        left: 35px;
-    }
-    #github-logo {
-        height: 40px;
-    }
-    .footer-field {
-        font-size: 1em;
-    }
-    #footer-header {
-        width: 100%;
-        font-size: 2em;
-        margin-bottom: 10px;
-    }
-}

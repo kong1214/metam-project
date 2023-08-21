@@ -278,7 +278,7 @@
   padding-right: 4%;
 }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 720px) {
     .splash-login-button{
       height: 25px;
       margin-right: 5px;
@@ -290,3 +290,17 @@
       font-size: 15px;
     }
   }
+
+  @media screen and (max-width: 280px) {
+    .splash-login-button{
+      height: 15px;
+      font-size: .65em;
+      margin-right: 1px;
+    }
+    .nav-logo{
+      height: 15px;
+    }
+    #metam-splash-nav{
+      font-size: .65em;
+    }
+}
