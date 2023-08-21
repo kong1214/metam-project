@@ -86,6 +86,7 @@
     display: flex;
     justify-content: center;
     width: 35%;
+    min-width: fit-content;
 }
 .footer-logo{
     height: 70px;
@@ -120,6 +121,9 @@
 }
 
 @media screen and (max-width: 1450px) {
+    .splash-about-metam {
+        width: 80%;
+    }
     #footer-container {
         flex-direction: column;
     }
@@ -136,7 +140,63 @@
         font-size: 1em;
     }
     #footer-header {
-        font-size: 1.5em;
+        width: 100%;
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .splash-about-metam {
+        width: 95%;
+    }
+    #splash-main-gif {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .splash-top-row{
+        width: 100%;
+    }
+    .splash-content{
+        justify-content: space-evenly;
+        padding: none;
+    }
+    .splash-signup-button{
+        font-size: .75em;
+        height: 25px;
+        width: 80px;
+    }
+    .splash-header{
+        width: 100%;
+        font-size: 1.5em
+    }
+    .splash-about-metam {
+        width: 80%;
+        font-size: .75em
+    }
+    #splash-main-gif {
+        width: 300px;
+    }
+    #footer-content-container {
+        flex-direction: column;
+    }
+    .footer-logo{
+        height: 30px;
+    }
+    #footer-github-link-container {
+        left: 35px;
+    }
+    #github-logo {
+        height: 40px;
+    }
+    .footer-field {
+        font-size: 1em;
+    }
+    #footer-header {
+        width: 100%;
+        font-size: 2em;
         margin-bottom: 10px;
     }
 }

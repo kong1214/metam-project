@@ -277,3 +277,16 @@
 .fa-solid.fa-house {
   padding-right: 4%;
 }
+
+  @media screen and (max-width: 400px) {
+    .splash-login-button{
+      height: 25px;
+      margin-right: 5px;
+    }
+    .nav-logo{
+      height: 25px;
+    }
+    #metam-splash-nav{
+      font-size: 15px;
+    }
+  }

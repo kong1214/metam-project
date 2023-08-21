@@ -10,7 +10,7 @@ function SplashFooter() {
             <div id="footer-content-container">
                 <div id="footer-github-link-container" className="footer-label-container">
                     <div id="footer-github-link-logo-container" className="footer-logo-container" style={{}}>
-                        <img id="github-logo" src={githubLogo}></img>
+                        <img id="github-logo" className="footer-logo" src={githubLogo}></img>
                     </div>
                     <a id="footer-github" className="footer-field" href="https://github.com/kong1214">Github</a>
                 </div>
