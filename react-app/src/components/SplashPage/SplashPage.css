@@ -121,16 +121,11 @@
         #splash-main-gif {
             width: 800px;
         }
-        .footer-logo{
-            height: 50px;
-        }
+        /* .footer-logo{
+            height: 100px;
+        } */
         .footer-field {
             font-size: 1em;
-        }
-        #footer-header {
-            width: 100%;
-            font-size: 2em;
-            margin-bottom: 10px;
         }
     }
 
@@ -146,6 +141,11 @@
         }
         #splash-main-gif {
             width: 700px;
+        }
+        #footer-header {
+            width: 100%;
+            font-size: 2em;
+            margin-bottom: 10px;
         }
     }
 
