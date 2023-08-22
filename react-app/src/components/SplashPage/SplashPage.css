@@ -121,9 +121,6 @@
         #splash-main-gif {
             width: 800px;
         }
-        /* .footer-logo{
-            height: 100px;
-        } */
         .footer-field {
             font-size: 1em;
         }
@@ -133,7 +130,7 @@
     @media screen and (max-width: 1100px) {
         .splash-header{
             width: 100%;
-            font-size: 1.5em
+            font-size: 2em
         }
         .splash-about-metam {
             width: 100%;
@@ -158,6 +155,15 @@
             height: 25px;
             width: 80px;
         }
+        .footer-logo {
+            height: 75px;
+        }
+        .footer-field {
+            font-size: .75em;
+        }
+        .splash-header{
+            width: 100%;
+        }
     }
     @media screen and (max-width: 500px) {
         .splash-top-row{
@@ -168,15 +174,15 @@
             padding: none;
         }
         .splash-header{
-            width: 100%;
-            font-size: 1.5em
+            width: 75%;
+            font-size: 2em
         }
         .splash-about-metam {
-            width: 65%;
-            font-size: .75em
+            width: 55%;
+            font-size: 1em
         }
         #splash-main-gif {
-            width: 380px;
+            width: 450px;
         }
         .splash-signup-button{
             font-size: .75em;
