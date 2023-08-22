@@ -182,21 +182,25 @@
             font-size: 1em
         }
         #splash-main-gif {
-            width: 450px;
+            width: 400px;
         }
         .splash-signup-button{
             font-size: .75em;
             height: 25px;
             width: 80px;
         }
+        #footer-content-container {
+            flex-wrap: wrap;
+        }
     }
 
     @media screen and (max-width: 400px) {
-        #splash-main-gif {
-            width: 300px;
-        }
         #footer-content-container {
             flex-direction: column;
+            justify-content: center;
+        }
+        #splash-main-gif {
+            width: 300px;
         }
         .footer-logo{
             height: 30px;
@@ -226,6 +230,10 @@
         .splash-about-metam {
             width: 92%;
             font-size: .75em
+        }
+        .splash-header{
+            width: 100%;
+            font-size: 1.5em
         }
         #footer-header {
             width: 100%;
