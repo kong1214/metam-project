@@ -46,6 +46,7 @@ function LeftNavBar() {
       }, []);
 
     return (
+        sidebarVisible && (
         <div className="left-navbar-container" style={{backgroundColor: theme["tertiary"]}}>
             <div className="left-navbar-top-container">
                 <button style={{backgroundColor: theme["active"]}} className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
@@ -74,6 +75,7 @@ function LeftNavBar() {
                 </div>
             </div>
         </div>
+        )
     )
 }
 
