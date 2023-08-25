@@ -106,8 +106,9 @@
   color: white;
   margin-right: 10px;
 }
-
-
+#sidebar-toggle-button:hover{
+  background-color: gray;
+}
 /* LEFT NAV BAR */
 .left-navbar-container{
   min-height: 100%;

@@ -25,27 +25,6 @@ function LeftNavBar() {
         setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
     })
 
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //         if (window.innerWidth <= 1450) {
-    //             setSidebarVisible(false);
-    //         } else {
-    //             setSidebarVisible(true);
-    //         }
-    //     };
-
-    //     // Initial check
-    //     handleResize();
-
-    //     // Listen for window resize events
-    //     window.addEventListener('resize', handleResize);
-
-    //     // Clean up the event listener on unmount
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     };
-    // }, []);
-
     return (
          sidebarVisible && (
          <div className="left-navbar-container" style={{ backgroundColor: theme["tertiary"] }}>

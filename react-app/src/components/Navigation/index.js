@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
 	const { sidebarVisible } = useContext(SideBarVisibleContext)
 
 	let sessionLinks
-	console.log(sidebarVisible)
+
 	if (sessionUser) {
 		sessionLinks = (
 			<div className="logged-in-navbar-container" style={{ backgroundColor: theme["secondary"] }}>
