@@ -8,6 +8,7 @@
     padding: 40px 0;
     /* margin-top: 3%; */
     height: calc(100% - 50px);
+    min-height: fit-content;
     align-items: center;
     background-image: linear-gradient(white, lightgray, gray)
 }

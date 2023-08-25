@@ -14,6 +14,7 @@ function LeftNavBar() {
     const projectsArr = Object.values(projects)
     const [teamsAndProjectLoaded, setTeamsAndProjectLoaded] = useState(false);
     const { theme } = useContext(ThemeContext)
+    const [sidebarVisible, setSidebarVisible] = useState(true);
 
     useEffect(() => {
         dispatch(getAllProjects())
@@ -23,6 +24,26 @@ function LeftNavBar() {
         setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
     })
 
+    useEffect(() => {
+        const handleResize = () => {
+          if (window.innerWidth <= 1450) {
+            setSidebarVisible(false);
+          } else {
+            setSidebarVisible(true);
+          }
+        };
+
+        // Initial check
+        handleResize();
+
+        // Listen for window resize events
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener on unmount
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     return (
         <div className="left-navbar-container" style={{backgroundColor: theme["tertiary"]}}>

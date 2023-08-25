@@ -17,7 +17,6 @@ function TaskAssignee({ task, assignee, users }) {
     useEffect(() => {
         if (!showMenu) return;
 
-        console.log(showMenu)
         const closeMenu = (e) => {
             if (!ulRef.current.contains(e.target)) {
                 setShowMenu(false);
@@ -34,7 +33,7 @@ function TaskAssignee({ task, assignee, users }) {
     let assigneeOutput
     typeof assignee === "string" ? assigneeOutput = assignee : assigneeOutput = `${assignee.first_name} ${assignee.last_name}`
     const ulClassName = "task-assignee-dropdown" + (showMenu ? "" : " hidden");
-    console.log(ulClassName)
+
     const closeMenu = () => setShowMenu(false);
 
     const handleEdit = async (taskId, newAssigneeId) => {
