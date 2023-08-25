@@ -96,6 +96,18 @@
   aspect-ratio: 1 / 1;
   border-radius: 100%;
 }
+#sidebar-toggle-button {
+  background-color: transparent;
+  border-radius: 10px;
+  border: white 1px solid;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 5px;
+  color: white;
+  margin-right: 10px;
+}
+
+
 /* LEFT NAV BAR */
 .left-navbar-container{
   min-height: 100%;

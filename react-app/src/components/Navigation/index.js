@@ -10,15 +10,20 @@ import logo from "./logo.png"
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const { theme } = useContext(ThemeContext)
-	const { sideBarVisible } = useContext(SideBarVisibleContext)
+	const { sidebarVisible } = useContext(SideBarVisibleContext)
 
 	let sessionLinks
-
+	console.log(sidebarVisible)
 	if (sessionUser) {
 		sessionLinks = (
-			<div className="logged-in-navbar-container" style={{backgroundColor: theme["secondary"]}}>
+			<div className="logged-in-navbar-container" style={{ backgroundColor: theme["secondary"] }}>
 				<div className="logged-in-nav-buttons-and-home-container">
 					<div className="home-button-container">
+						{!sidebarVisible && (
+							<button id="sidebar-toggle-button">
+								<i className="fa-solid fa-bars"></i>
+							</button>
+						)}
 						<NavLink exact to="/">
 							<img className="nav-logo" src={logo}></img>
 							<div id="metam-nav">metam</div>
