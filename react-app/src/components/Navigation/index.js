@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { ThemeContext } from "../../context/Themes";
+import { SideBarVisibleContext } from '../../context/SideBarVisible';
 import './Navigation.css';
 import logo from "./logo.png"
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const { theme } = useContext(ThemeContext)
+	const { sideBarVisible } = useContext(SideBarVisibleContext)
 
 	let sessionLinks
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, NavLink } from "react-router-dom";
 import { getAllProjects } from "../../store/project";
 import { ThemeContext } from "../../context/Themes";
+import { SideBarVisibleContext } from "../../context/SideBarVisible";
 import TeamList from "./TeamList";
 
 function LeftNavBar() {
@@ -14,8 +15,8 @@ function LeftNavBar() {
     const projectsArr = Object.values(projects)
     const [teamsAndProjectLoaded, setTeamsAndProjectLoaded] = useState(false);
     const { theme } = useContext(ThemeContext)
-    const [sidebarVisible, setSidebarVisible] = useState(true);
-
+    // const [sidebarVisible, setSidebarVisible] = useState(true);
+    const { sidebarVisible, setSidebarVisible } = useContext(SideBarVisibleContext)
     useEffect(() => {
         dispatch(getAllProjects())
     }, [projectsArr.length])
@@ -24,35 +25,35 @@ function LeftNavBar() {
         setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
     })
 
-    useEffect(() => {
-        const handleResize = () => {
-          if (window.innerWidth <= 1450) {
-            setSidebarVisible(false);
-          } else {
-            setSidebarVisible(true);
-          }
-        };
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         if (window.innerWidth <= 1450) {
+    //             setSidebarVisible(false);
+    //         } else {
+    //             setSidebarVisible(true);
+    //         }
+    //     };
 
-        // Initial check
-        handleResize();
+    //     // Initial check
+    //     handleResize();
 
-        // Listen for window resize events
-        window.addEventListener('resize', handleResize);
+    //     // Listen for window resize events
+    //     window.addEventListener('resize', handleResize);
 
-        // Clean up the event listener on unmount
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-      }, []);
+    //     // Clean up the event listener on unmount
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     };
+    // }, []);
 
     return (
-        sidebarVisible && (
-        <div className="left-navbar-container" style={{backgroundColor: theme["tertiary"]}}>
+         sidebarVisible && (
+         <div className="left-navbar-container" style={{ backgroundColor: theme["tertiary"] }}>
             <div className="left-navbar-top-container">
-                <button style={{backgroundColor: theme["active"]}} className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
+                <button style={{ backgroundColor: theme["active"] }} className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project" className="create-button-in-left-navbar">Create Project</NavLink>
                 </button>
-                <NavLink to="/home" activeStyle={{backgroundColor: theme["active"]}} activeClassName="top-container-link-active" className="top-container-link">
+                <NavLink to="/home" activeStyle={{ backgroundColor: theme["active"] }} activeClassName="top-container-link-active" className="top-container-link">
                     <i className="fa-solid fa-house"></i>
                     Home
                 </NavLink>
@@ -68,14 +69,13 @@ function LeftNavBar() {
                     {projectsArr.map(project => (
                         <div key={project.id} className="left-nav-individual-project">
                             <div className="individual-project-container">
-                                <NavLink to={`/project/${project.id}`} activeStyle={{backgroundColor: theme["active"]}} className="individual-project" activeClassName="individual-project-active">{project.name}</NavLink>
+                                <NavLink to={`/project/${project.id}`} activeStyle={{ backgroundColor: theme["active"] }} className="individual-project" activeClassName="individual-project-active">{project.name}</NavLink>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-        )
+        </div>)
     )
 }
 
