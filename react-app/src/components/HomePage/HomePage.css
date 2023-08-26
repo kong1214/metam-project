@@ -1,7 +1,6 @@
 .home-page-content-and-left-navbar{
-    /* position: absolute; */
     top: 50px;
-    height: min-content;
+    height: fit-content;
     min-height: 95%;
     bottom: 0;
     left: 0;

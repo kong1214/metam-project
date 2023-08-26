@@ -10,13 +10,12 @@ import logo from "./logo.png"
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
 	const { theme } = useContext(ThemeContext)
-	const { sidebarVisible, setSidebarVisible, sidebarAbsolute, setSidebarAbsolute, sidebarTogglePresent } = useContext(SideBarVisibleContext)
+	const { setSidebarVisible, sidebarTogglePresent } = useContext(SideBarVisibleContext)
 
 	let sessionLinks
 
 	let sidebarToggle = () => {
-		setSidebarVisible(!sidebarVisible)
-		setSidebarAbsolute(true)
+		setSidebarVisible(true)
 	}
 
 

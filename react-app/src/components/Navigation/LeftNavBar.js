@@ -15,7 +15,7 @@ function LeftNavBar() {
     const projectsArr = Object.values(projects)
     const [teamsAndProjectLoaded, setTeamsAndProjectLoaded] = useState(false);
     const { theme } = useContext(ThemeContext)
-    const { sidebarVisible, sidebarAbsolute } = useContext(SideBarVisibleContext)
+    const { sidebarVisible, setSidebarVisible, sidebarAbsolute } = useContext(SideBarVisibleContext)
     useEffect(() => {
         dispatch(getAllProjects())
     }, [projectsArr.length])
@@ -24,9 +24,17 @@ function LeftNavBar() {
         setTeamsAndProjectLoaded(!!Object.values(team).length && !!Object.values(singleProject).length)
     })
 
+    let closeSidebarHandler = () => {
+        setSidebarVisible(false)
+    }
     return (
-        <div className={`left-navbar-container`} id="left-navbar-container" style={{ backgroundColor: theme["tertiary"], display: sidebarVisible ? "flex" : "none", position: sidebarAbsolute ? "absolute" : "static" }}>
+        <div className="left-navbar-container" id="left-navbar-container" style={{ backgroundColor: theme["tertiary"], display: sidebarVisible ? "flex" : "none", position: sidebarAbsolute ? "fixed" : "static" }}>
             <div className="left-navbar-top-container">
+            {sidebarAbsolute && (<div id="close-sidebar-div-container">
+                    <button id="close-sidebar-button" onClick={closeSidebarHandler}>
+                        <i class="fa-solid fa-x"></i>
+                    </button>
+                </div>)}
                 <button style={{ backgroundColor: theme["active"] }} className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project" className="create-button-in-left-navbar">Create Project</NavLink>
                 </button>

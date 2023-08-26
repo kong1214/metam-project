@@ -176,7 +176,7 @@ Team Members can delete these sections, along with their associated tasks.
                         <Droppable droppableId={stringSectionId} type="task">
                             {(provided) => (
                                 <div {...provided.droppableProps} ref={provided.innerRef} style={{marginBottom: "10px"}}>
-                                    <div>This section is empty! Drop Some tasks below!</div>
+                                    <div>This section is empty! Drop some tasks below!</div>
                                     {provided.placeholder}
                                 </div>
                             )}
