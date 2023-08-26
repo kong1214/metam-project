@@ -8,6 +8,7 @@
     padding: 40px 0;
     /* margin-top: 3%; */
     height: calc(100% - 50px);
+    min-height: fit-content;
     align-items: center;
     background-image: linear-gradient(white, lightgray, gray)
 }
@@ -121,16 +122,8 @@
         #splash-main-gif {
             width: 800px;
         }
-        .footer-logo{
-            height: 50px;
-        }
         .footer-field {
             font-size: 1em;
-        }
-        #footer-header {
-            width: 100%;
-            font-size: 2em;
-            margin-bottom: 10px;
         }
     }
 
@@ -138,7 +131,7 @@
     @media screen and (max-width: 1100px) {
         .splash-header{
             width: 100%;
-            font-size: 1.5em
+            font-size: 2em
         }
         .splash-about-metam {
             width: 100%;
@@ -146,6 +139,11 @@
         }
         #splash-main-gif {
             width: 700px;
+        }
+        #footer-header {
+            width: 100%;
+            font-size: 2em;
+            margin-bottom: 10px;
         }
     }
 
@@ -158,6 +156,15 @@
             height: 25px;
             width: 80px;
         }
+        .footer-logo {
+            height: 75px;
+        }
+        .footer-field {
+            font-size: .75em;
+        }
+        .splash-header{
+            width: 100%;
+        }
     }
     @media screen and (max-width: 500px) {
         .splash-top-row{
@@ -168,29 +175,33 @@
             padding: none;
         }
         .splash-header{
-            width: 100%;
-            font-size: 1.5em
+            width: 75%;
+            font-size: 2em
         }
         .splash-about-metam {
-            width: 65%;
-            font-size: .75em
+            width: 55%;
+            font-size: 1em
         }
         #splash-main-gif {
-            width: 380px;
+            width: 400px;
         }
         .splash-signup-button{
             font-size: .75em;
             height: 25px;
             width: 80px;
         }
+        #footer-content-container {
+            flex-wrap: wrap;
+        }
     }
 
     @media screen and (max-width: 400px) {
-        #splash-main-gif {
-            width: 300px;
-        }
         #footer-content-container {
             flex-direction: column;
+            justify-content: center;
+        }
+        #splash-main-gif {
+            width: 300px;
         }
         .footer-logo{
             height: 30px;
@@ -220,6 +231,10 @@
         .splash-about-metam {
             width: 92%;
             font-size: .75em
+        }
+        .splash-header{
+            width: 100%;
+            font-size: 1.5em
         }
         #footer-header {
             width: 100%;
