@@ -5,14 +5,20 @@ export const SideBarVisibleContext = React.createContext();
 
 export function SidebarVisibleProvider({ children }) {
 
-    const [sidebarVisible, setSidebarVisible] = useState(true)
+    const [ sidebarVisible, setSidebarVisible ] = useState(true)
+    const [ sidebarAbsolute, setSidebarAbsolute ] = useState(false)
+    const [ sidebarTogglePresent, setSidebarTogglePresent] = useState(false)
 
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth <= 1450) {
                 setSidebarVisible(false);
+                setSidebarAbsolute(true)
+                setSidebarTogglePresent(false)
             } else {
                 setSidebarVisible(true);
+                setSidebarAbsolute(false)
+                setSidebarTogglePresent(true)
             }
         };
 
@@ -30,7 +36,7 @@ export function SidebarVisibleProvider({ children }) {
 
     return (
         <>
-            <SideBarVisibleContext.Provider value={{ sidebarVisible, setSidebarVisible}}>
+            <SideBarVisibleContext.Provider value={{ sidebarVisible, setSidebarVisible, sidebarAbsolute, setSidebarAbsolute, sidebarTogglePresent, setSidebarTogglePresent }}>
                 {children}
             </SideBarVisibleContext.Provider>
         </>

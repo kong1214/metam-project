@@ -15,8 +15,7 @@ function LeftNavBar() {
     const projectsArr = Object.values(projects)
     const [teamsAndProjectLoaded, setTeamsAndProjectLoaded] = useState(false);
     const { theme } = useContext(ThemeContext)
-    // const [sidebarVisible, setSidebarVisible] = useState(true);
-    const { sidebarVisible, setSidebarVisible } = useContext(SideBarVisibleContext)
+    const { sidebarVisible, sidebarAbsolute } = useContext(SideBarVisibleContext)
     useEffect(() => {
         dispatch(getAllProjects())
     }, [projectsArr.length])
@@ -26,8 +25,7 @@ function LeftNavBar() {
     })
 
     return (
-         sidebarVisible && (
-         <div className="left-navbar-container" style={{ backgroundColor: theme["tertiary"] }}>
+        <div className={`left-navbar-container`} id="left-navbar-container" style={{ backgroundColor: theme["tertiary"], display: sidebarVisible ? "flex" : "none", position: sidebarAbsolute ? "absolute" : "static" }}>
             <div className="left-navbar-top-container">
                 <button style={{ backgroundColor: theme["active"] }} className="create-project-button-left-navbar-button" onClick={() => history.push("/project")}>
                     <NavLink to="/project" className="create-button-in-left-navbar">Create Project</NavLink>
@@ -54,7 +52,7 @@ function LeftNavBar() {
                     ))}
                 </div>
             </div>
-        </div>)
+        </div>
     )
 }
 
