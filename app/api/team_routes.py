@@ -45,11 +45,11 @@ def delete_from_team(project_id, user_id):
     project = Project.query.get(project_id)
     user = User.query.get(user_id)
 
-    # Query for tasks this user is assigned to in the project
+    # Query for tasks this user is assigned to in the project and reassign them to null
     user_project_tasks = Task.query.filter_by(project_id=project.id, assignee_id=user.id).all()
-    print(f"\n\n\n{user_project_tasks}\n\n\n")
     for task in user_project_tasks:
         task.assignee_id=None
+
     project.users.remove(user)
 
     db.session.commit()
