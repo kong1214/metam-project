@@ -4,7 +4,7 @@ import { Redirect, useParams } from "react-router-dom";
 import { getSingleProject } from "../../store/project";
 import { getAllSections, moveSection } from "../../store/section";
 import { loadTeam } from "../../store/team";
-import task, { getAllTasks, moveTask, clearTasks } from "../../store/task";
+import { getAllTasks, moveTask } from "../../store/task";
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import LeftNavBar from "../Navigation/LeftNavBar";
 import ProjectHeader from "./ProjectHeader";
@@ -23,6 +23,7 @@ function SingleProjectPage() {
     const [sectionsIsLoaded, setSectionsIsLoaded] = useState(false)
     const [sectionMoved, setSectionMoved] = useState(false)
     const [taskMoved, setTaskMoved] = useState(false)
+
     const { projectId } = useParams()
 
     useEffect(() => {

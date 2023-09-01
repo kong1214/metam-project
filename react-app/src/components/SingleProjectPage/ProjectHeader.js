@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../context/Themes";
 import ProjectDropDownArrow from "./ProjectDropDownArrow";
 import ThemeButton from "../ThemeSelector/ThemeDropDown";
 import "./SingleProjectPage.css"
 
 function ProjectHeader({ project, sections }) {
+
+    const { theme } = useContext(ThemeContext)
 
     let projectIcon
     if (project.icon === "chat_bubble") {
@@ -50,7 +53,7 @@ function ProjectHeader({ project, sections }) {
         <div className="single-project-header-nav-container">
             <div className="single-project-header-container">
                 <div className="single-project-icon-name-container">
-                    <div className="project-icon-container" style={{ marginRight: "1.5%" }}>
+                    <div className="project-icon-container" style={{ marginRight: "1.5%", backgroundColor: theme["active"] }}>
                         {projectIcon}
                     </div>
                     <div className="project-name-container" style={{ fontSize: "20px", marginRight: ".5%" }}>

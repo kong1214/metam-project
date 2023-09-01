@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { siteThemes } from '../constants/siteThemes'
 
 export const SideBarVisibleContext = React.createContext();
 

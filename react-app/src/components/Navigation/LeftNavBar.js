@@ -16,6 +16,7 @@ function LeftNavBar() {
     const [teamsAndProjectLoaded, setTeamsAndProjectLoaded] = useState(false);
     const { theme } = useContext(ThemeContext)
     const { sidebarVisible, setSidebarVisible, sidebarAbsolute } = useContext(SideBarVisibleContext)
+    
     useEffect(() => {
         dispatch(getAllProjects())
     }, [projectsArr.length])

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, session
 from flask_login import login_required, current_user
-from app.models import Section, db, Project, User
+from app.models import Section, db, Project, User, Task
 from app.forms import AddToTeamForm
 from app.api.auth_routes import validation_errors_to_error_messages
 
@@ -44,6 +44,11 @@ def delete_from_team(project_id, user_id):
     """
     project = Project.query.get(project_id)
     user = User.query.get(user_id)
+
+    # Query for tasks this user is assigned to in the project and reassign them to null
+    user_project_tasks = Task.query.filter_by(project_id=project.id, assignee_id=user.id).all()
+    for task in user_project_tasks:
+        task.assignee_id=None
 
     project.users.remove(user)
 
