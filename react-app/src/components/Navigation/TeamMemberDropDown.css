@@ -21,8 +21,15 @@
     color: black;
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
 }
 .user-dropdown-email{
     color: black;
     font-size: 12px;
 }
+    @media screen and (max-width: 1450px) {
+        .user-dropdown{
+            min-width: 150px;
+            min-height: 150px;
+        }
+    }
