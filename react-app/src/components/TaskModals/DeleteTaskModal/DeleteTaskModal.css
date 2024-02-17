@@ -23,6 +23,7 @@
 .delete-modal-cancel-button{
     height: 30px;
     color: black;
+    background-color: transparent;
     border: none;
     margin-right: 3%;
 }
