@@ -94,6 +94,7 @@
 #navbar-profile-button{
   height: 100%;
   aspect-ratio: 1 / 1;
+  border: none;
   border-radius: 100%;
 }
 #sidebar-toggle-button {

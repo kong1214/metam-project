@@ -60,6 +60,10 @@
     width: 125px;
     background-color: #0D0E10;
     color: #FFFFFF;
+    border-radius: 10px;
+}
+.splash-signup-button:hover {
+    background-color: gray;
 }
 
 

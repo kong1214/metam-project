@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch } from "react-redux";
 import { createSection } from "../../store/section";
+import { ThemeContext } from "../../context/Themes";
 import "./SingleProjectPage.css"
 
 
 function AddSection({ projectId }) {
     const dispatch = useDispatch();
     const [sectionName, setSectionName] = useState("");
-
+    const { theme } = useContext(ThemeContext);
 
     const handleCreateSection = async (e) => {
         e.preventDefault()
@@ -49,7 +50,7 @@ function AddSection({ projectId }) {
                         onChange={(e) => setSectionName(e.target.value)}
                     />
                 </div>
-                <button className="single-project-button" id="add-section-submit-button" type="submit">
+                <button className="single-project-button" style={{ backgroundColor: theme["active"] }} id="add-section-submit-button" type="submit">
                     Submit
                 </button>
             </form>

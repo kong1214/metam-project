@@ -57,9 +57,11 @@
 .dropdown-create{
     height: 30px;
     width: 200px;
+    border-radius: 8px;
 }
 #dueDate-input{
     height: 30px;
+    border-radius: 8px;
 }
 .errors-container{
     height: 0px;
