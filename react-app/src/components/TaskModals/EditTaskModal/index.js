@@ -134,7 +134,7 @@ function EditTaskFormModal({ task }) {
                         required
                     />
                 </div>
-                <button id="create-task-button" type="submit">Edit</button>
+                <button id="create-task-button" type="submit">Save</button>
             </form>
         </div>
     );

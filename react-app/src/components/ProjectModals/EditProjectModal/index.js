@@ -122,7 +122,7 @@ function EditProjectFormModal({ project }) {
                         required
                     />
                 </div>
-                <button id="edit-project-button" type="submit">Edit</button>
+                <button id="edit-project-button" type="submit">Save</button>
             </form>
         </div>
     );

@@ -258,7 +258,7 @@
 .individual-project:hover{
   border-top: 1px gray solid;
   border-bottom: 1px gray solid;
-  background-color: #6a696a;
+  background-color: gray;
   padding-top: 3%;
   padding-bottom: 3%;
   width: 80%;
