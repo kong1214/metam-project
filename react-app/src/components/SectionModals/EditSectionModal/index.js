@@ -50,7 +50,7 @@ function EditSectionModal({ section }) {
                 </div>
                 <div id="edit-section-button-container">
                     <button className="edit-section-button" type="submit">
-                        Edit
+                        Save
                     </button>
                 </div>
             </form>
