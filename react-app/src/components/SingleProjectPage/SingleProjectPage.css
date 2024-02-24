@@ -126,9 +126,8 @@
 #add-section-submit-button{
     border: none;
     color: white;
-    background-color: #4573d2;
     margin-top: 8px;
-    height: 30px;
-    width: 60px;
-    border-radius: 15px;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
 }
