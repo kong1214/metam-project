@@ -51,7 +51,7 @@ function TaskAssignee({ task, assignee, users }) {
                         {user.first_name} {user.last_name}
                     </button>
                 ))}
-                <button className="task-assignee none"onClick={() => handleEdit(task.id, null)}>No Assignee!</button>
+                {assignee !== "No Assignee!" && (<button className="task-assignee none"onClick={() => handleEdit(task.id, null)}>Remove Assignment</button>)}
             </div>
         </div>
     )
