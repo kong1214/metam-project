@@ -47,7 +47,6 @@ function TeamMemberDropDown({ user, className, initials, isSessionUser = false }
     const closeMenu = () => setShowMenu(false);
 
 
-
     return (
         <div>
             <button onClick={openMenu} className={className}>
