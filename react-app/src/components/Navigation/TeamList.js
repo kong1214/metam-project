@@ -17,7 +17,10 @@ function TeamList() {
     let projectOwnerInitials
 
     // Find the Index  of the Logged-in-User in Users
-    const loggedInUserIndex = unparsedUsers.findIndex((user) => sessionUser.id === user.id)
+    const loggedInUserIndex = unparsedUsers.findIndex((user) => {
+        return sessionUser.id === user.id
+    })
+
     const projectOwnerUserIndex = unparsedUsers.findIndex((user) => user.id === singleProject.owner_id)
 
     // If No Project Owner or Logged In User found, return null
@@ -45,7 +48,6 @@ function TeamList() {
         projectOwnerInitials = `${users[1].first_name[0]}${users[1].last_name[0]}`
     }
 
-
     return (
         <div id="team-container">
             <div id="team-header">Team
@@ -58,11 +60,11 @@ function TeamList() {
                 </div>
             <div id="team-members-container">
                 {isLoggedInProjectOwner ? (
-                    <TeamMemberDropDown user={users[loggedInUserIndex]} className="user-profile-circle logged-in-user project-owner" initials={loggedInInitials} isSessionUser={true}/>
+                    <TeamMemberDropDown user={unparsedUsers[loggedInUserIndex]} className="user-profile-circle logged-in-user project-owner" initials={loggedInInitials} isSessionUser={true}/>
                 ) : (
                     <div style={{ display: "flex" }}>
-                        <TeamMemberDropDown user={users[loggedInUserIndex]} className="user-profile-circle logged-in-user" initials={loggedInInitials} isSessionUser={true}/>
-                        <TeamMemberDropDown user={users[projectOwnerUserIndex]} className="user-profile-circle project-owner" initials={projectOwnerInitials} />
+                        <TeamMemberDropDown user={unparsedUsers[loggedInUserIndex]} className="user-profile-circle logged-in-user" initials={loggedInInitials} isSessionUser={true}/>
+                        <TeamMemberDropDown user={unparsedUsers[projectOwnerUserIndex]} className="user-profile-circle project-owner" initials={projectOwnerInitials} />
                     </div>
                 )}
                 {remainingUsers.map((member) => (

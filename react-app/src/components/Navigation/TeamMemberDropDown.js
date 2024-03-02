@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useSelector } from "react-redux";
 import OpenModalButton from "../OpenModalButton";
 import DeleteTeamMemberModal from "../TeamModals/DeleteTeamMemberModal";
+import { ThemeContext } from '../../context/Themes'
 import "./TeamMemberDropDown.css"
 
 function TeamMemberDropDown({ user, className, initials, isSessionUser = false }) {
@@ -10,7 +11,7 @@ function TeamMemberDropDown({ user, className, initials, isSessionUser = false }
     const ulRef = useRef();
     const sessionUser = useSelector(state => state.session.user);
     const singleProject = useSelector(state => state.project.singleProject)
-
+    const { theme } = useContext(ThemeContext)
 
     const isProjectOwner = sessionUser.id === singleProject.owner_id;
     const isCurrentUserProjectOwner = isProjectOwner && sessionUser.id === user.id;
@@ -46,11 +47,12 @@ function TeamMemberDropDown({ user, className, initials, isSessionUser = false }
     const ulClassName = "user-dropdown" + (showMenu ? "" : " hidden");
     const closeMenu = () => setShowMenu(false);
 
-
-
+    const circleStyle = {
+        backgroundColor: isCurrentUser ? `${theme['active']}` : ''
+    }
     return (
         <div>
-            <button onClick={openMenu} className={className}>
+            <button onClick={openMenu} className={className} style={circleStyle}>
                 {initials}
             </button>
             <div className={ulClassName} ref={ulRef}>
