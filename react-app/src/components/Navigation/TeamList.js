@@ -18,8 +18,6 @@ function TeamList() {
 
     // Find the Index  of the Logged-in-User in Users
     const loggedInUserIndex = unparsedUsers.findIndex((user) => {
-        console.log('sessionUser', sessionUser)
-        console.log('user', user)
         return sessionUser.id === user.id
     })
 
