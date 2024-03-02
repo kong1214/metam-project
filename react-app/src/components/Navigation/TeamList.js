@@ -50,8 +50,6 @@ function TeamList() {
         projectOwnerInitials = `${users[1].first_name[0]}${users[1].last_name[0]}`
     }
 
-    console.log(loggedInUserIndex)
-    console.log(unparsedUsers)
     return (
         <div id="team-container">
             <div id="team-header">Team
