@@ -39,10 +39,10 @@ function DeleteModal({ type, item }) {
     return (
         <div className="delete-modal-container">
             <div className="delete-modal-header">Delete <strong>{item.name}</strong>?</div>
-            {type !== 'task' && <div className="delete-section-content-container">
-                <div id="delete-section-warning">This will delete the {type}, along with any:</div>
+            {type !== 'task' && <div className="delete-modal-content-container">
+                <div className="delete-modal-warning">This will delete the {type}, along with any:</div>
                 {modalBullets.map((bullet, index) => (
-                    <div key={index}>{bullet}</div>
+                    <li className='delete-modal-bullet'key={index}>{bullet}</li>
                 ))}
             </div>}
             <div className="delete-modal-buttons">
