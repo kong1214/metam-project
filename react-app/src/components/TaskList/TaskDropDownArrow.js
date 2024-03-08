@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import OpenModalButton from "../OpenModalButton";
 import EditTaskFormModal from "../TaskModals/EditTaskModal";
 import DeleteTaskModal from "../TaskModals/DeleteTaskModal";
+import DeleteModal from "../Modals/DeleteModal";
 
 function TaskDropDownArrow({ task }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -46,7 +47,7 @@ function TaskDropDownArrow({ task }) {
                 <OpenModalButton
                     buttonText="Delete Task"
                     onButtonClick={closeMenu}
-                    modalComponent={<DeleteTaskModal task={task}/>}
+                    modalComponent={<DeleteModal type='task' item={task}/>}
                     className="modal-button"
                 />
             </div>

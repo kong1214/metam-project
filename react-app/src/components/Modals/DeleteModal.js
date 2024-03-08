@@ -34,7 +34,7 @@ function DeleteModal({ type, item }) {
     if (type === 'project') {
         modalBullets = ['Sections that are in this project', 'Tasks that are in this project']
     } else if (type === 'section') {
-        modalBullets = ['Tasks that are in this project']
+        modalBullets = ['Tasks that are in this section']
     }
     return (
         <div className="delete-modal-container">
