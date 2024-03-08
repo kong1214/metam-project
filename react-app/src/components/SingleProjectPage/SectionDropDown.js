@@ -3,6 +3,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditSectionModal from "../SectionModals/EditSectionModal";
 import DeleteSectionModal from "../SectionModals/DeleteSectionModal";
 import "./SingleProjectPage.css"
+import DeleteModal from "../Modals/DeleteModal";
 
 function SectionDropDown({ section }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -46,7 +47,7 @@ function SectionDropDown({ section }) {
                 <OpenModalButton
                     buttonText="Delete Section"
                     onButtonClick={closeMenu}
-                    modalComponent={<DeleteSectionModal section={section}/>}
+                    modalComponent={<DeleteModal type='section' item={section}/>}
                     className="modal-button"
                 />
             </div>

@@ -1,0 +1,14 @@
+.delete-modal-header {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.delete-modal-warning {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+.delete-modal-bullet{
+    margin-bottom: 10px;
+    font-weight: lighter;
+}

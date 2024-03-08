@@ -4,6 +4,7 @@ import OpenModalButton from "../OpenModalButton";
 import EditProjectFormModal from "../ProjectModals/EditProjectModal";
 import DeleteProjectModal from "../ProjectModals/DeleteProjectModal";
 import CreateTaskFormModal from "../TaskModals/CreateTaskModal";
+import DeleteModal from "../Modals/DeleteModal";
 
 function ProjectDropDownArrow({ project, sections }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -58,7 +59,7 @@ function ProjectDropDownArrow({ project, sections }) {
                         <OpenModalButton
                             buttonText="Delete Project"
                             onButtonClick={closeMenu}
-                            modalComponent={<DeleteProjectModal project={project} />}
+                            modalComponent={<DeleteModal type={'project'} item={project} />}
                             className="modal-button"
                         />
                     </>
