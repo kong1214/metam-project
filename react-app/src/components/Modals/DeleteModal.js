@@ -4,6 +4,7 @@ import { deleteSection } from "../../store/section"
 import { deleteTask } from "../../store/task"
 import { deleteProject } from "../../store/project"
 import { useModal } from "../../context/Modal";
+import './DeleteModal.css'
 
 function DeleteModal({ type, item }) {
     const dispatch = useDispatch();
@@ -37,7 +38,7 @@ function DeleteModal({ type, item }) {
     }
     return (
         <div className="delete-modal-container">
-            <div className="delete-modal-header">{`Delete ${item.name}?`}</div>
+            <div className="delete-modal-header">Delete <strong>{item.name}</strong>?</div>
             {type !== 'task' && <div className="delete-section-content-container">
                 <div id="delete-section-warning">This will delete the {type}, along with any:</div>
                 {modalBullets.map((bullet, index) => (
