@@ -157,6 +157,9 @@
     margin-bottom: 10%;
     min-width: fit-content
 }
+.create-project-button-left-navbar-button:hover{
+  opacity: 80%;
+}
 .create-button-in-left-navbar{
   text-align: center;
   display: block;
@@ -218,7 +221,9 @@
   margin-bottom: 2px;
   border: none;
 }
-
+.user-profile-circle:hover{
+  opacity: 80%;
+}
 .logged-in-user{
   border: 1px solid red
 }
