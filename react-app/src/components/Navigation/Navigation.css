@@ -97,6 +97,9 @@
   border: none;
   border-radius: 100%;
 }
+#navbar-profile-button:hover{
+  opacity: 80%;
+}
 #sidebar-toggle-button {
   background-color: transparent;
   border-radius: 10px;
