@@ -252,8 +252,6 @@
   color: white;
 }
 .individual-project:hover{
-  border-top: 1px gray solid;
-  border-bottom: 1px gray solid;
   background-color: gray;
   padding-top: 3%;
   padding-bottom: 3%;
@@ -280,8 +278,6 @@
   word-wrap: break-word;
 }
 .individual-project-active{
-  border-top: 1px gray solid;
-  border-bottom: 1px gray solid;
   /* background-color: #6a696a; */
   padding-left: 10%;
   padding-right: 10%;
