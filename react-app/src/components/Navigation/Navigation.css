@@ -98,7 +98,7 @@
   border-radius: 100%;
 }
 #navbar-profile-button:hover{
-  opacity: 80%;
+  opacity: .8;
 }
 #sidebar-toggle-button {
   background-color: transparent;
@@ -161,7 +161,7 @@
     min-width: fit-content
 }
 .create-project-button-left-navbar-button:hover{
-  opacity: 80%;
+  opacity: .8;
 }
 .create-button-in-left-navbar{
   text-align: center;
@@ -225,7 +225,7 @@
   border: none;
 }
 .user-profile-circle:hover{
-  opacity: 80%;
+  opacity: .8;
 }
 .logged-in-user{
   border: 1px solid red

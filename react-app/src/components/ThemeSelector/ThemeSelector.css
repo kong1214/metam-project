@@ -13,7 +13,7 @@
     justify-content: center;
 }
 #theme-button:hover {
-    opacity: 80%;
+    opacity: .8;
 }
 
 #theme-dropdown-header {
