@@ -12,6 +12,9 @@
     flex-direction: column;
     justify-content: center;
 }
+#theme-button:hover {
+    opacity: 80%;
+}
 
 #theme-dropdown-header {
     font-size: 1em;

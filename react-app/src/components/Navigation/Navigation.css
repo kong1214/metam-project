@@ -97,6 +97,9 @@
   border: none;
   border-radius: 100%;
 }
+#navbar-profile-button:hover{
+  opacity: 80%;
+}
 #sidebar-toggle-button {
   background-color: transparent;
   border-radius: 10px;
@@ -156,6 +159,9 @@
     border-radius: 20px;
     margin-bottom: 10%;
     min-width: fit-content
+}
+.create-project-button-left-navbar-button:hover{
+  opacity: 80%;
 }
 .create-button-in-left-navbar{
   text-align: center;
@@ -218,7 +224,9 @@
   margin-bottom: 2px;
   border: none;
 }
-
+.user-profile-circle:hover{
+  opacity: 80%;
+}
 .logged-in-user{
   border: 1px solid red
 }
@@ -252,8 +260,6 @@
   color: white;
 }
 .individual-project:hover{
-  border-top: 1px gray solid;
-  border-bottom: 1px gray solid;
   background-color: gray;
   padding-top: 3%;
   padding-bottom: 3%;
@@ -280,29 +286,22 @@
   word-wrap: break-word;
 }
 .individual-project-active{
-  border-top: 1px gray solid;
-  border-bottom: 1px gray solid;
   /* background-color: #6a696a; */
   padding-left: 10%;
   padding-right: 10%;
   /* padding-top: 2%;
   padding-bottom: 2%; */
 }
-.top-container-link-active{
-  border-top: 1px gray solid;
-  border-bottom: 1px gray solid;
-  /* background-color: #6a696a; */
-}
+
 .top-container-link:hover{
-  border-top: 1px gray solid;
-  border-bottom: 1px gray solid;
-  background-color: #6a696a;
+  background-color: gray;
 }
 .top-container-link{
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 10%;
   display: flex;
+  align-items: center;
 }
 .fa-solid.fa-house {
   padding-right: 4%;
