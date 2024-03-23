@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useSelector } from "react-redux";
 import { Draggable } from "react-beautiful-dnd"
 import TaskAssignee from "./TaskAssignee";
 import TaskDropDownArrow from "./TaskDropDownArrow";
+import { ThemeContext } from "../../context/Themes";
 import "./TaskList.css"
 
 function SingleTask({ task, index }) {
 
     const teamObj = useSelector(state => state.team)
+    const {theme} = useContext(ThemeContext)
     let team = Object.values(teamObj)
     let assignee = team.filter(user => user.id === task.assignee_id)[0]
     if (!assignee) {
@@ -49,7 +51,7 @@ function SingleTask({ task, index }) {
                     <div className="task-name-container">
                         <div className="description-dropdown">
                             <div className="task-name">{task.name}</div>
-                            <div className="task-description-dropdown">
+                            <div className="task-description-dropdown" style={{backgroundColor: theme['active']}}>
                                 <div id="description-header">Description</div>
                                 <div id="task-description">
                                     {task.description}

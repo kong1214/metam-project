@@ -10,3 +10,15 @@
     font-size: 40px;
     font-weight: bold;
 }
+#go-to-home-button{
+    border: none;
+    color: white;
+    border-radius: 20px;
+    margin-bottom: 10%;
+    min-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 40px;
+}
