@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useModal } from '../../context/Modal';
+import { ThemeContext } from '../../context/Themes';
 
 function OpenModalButton({
   modalComponent, // component to render inside the modal
@@ -9,6 +10,7 @@ function OpenModalButton({
   className
 }) {
   const { setModalContent, setOnModalClose } = useModal();
+  const { theme } = useContext(ThemeContext)
 
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
@@ -17,7 +19,7 @@ function OpenModalButton({
   };
 
   return (
-    <button className={className} onClick={onClick}>{buttonText}</button>
+    <button style={{backgroundColor: theme['active']}} className={className} onClick={onClick}>{buttonText}</button>
   );
 }
 
